@@ -38,18 +38,12 @@
             </div>
         </div>
         <!-- Content Area for backbone -->
-        <div id="mainApplicationContainer">
+        <div id="container">
             Loading...
         </div>
         <div id="footer">Copyright &copy; Carter Wooten</div>
     </div>
 
-    <!-- include: "type": "js", "files": "js/templates/*.js" -->
-    <script src="js/templates/templates.js"></script>
-    <!-- /include -->
-    <!-- include: "type": "js", "files": "js/*.js" -->
-    <script src="js/app.js"></script>
-    <!-- /include -->
     <!-- build:js js/vendor/libraries.min.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -80,5 +74,16 @@
     <!-- endbuild -->
     <!-- build:js js/app.min.js -->
     <!-- endbuild -->
+
+    <!-- include: "type": "js", "files": "js/**/*.js" -->
+    <script src="js/app.js"></script>
+    <script src="js/views/login.js"></script>
+    <script src="js/views/templates.js"></script>
+    <!-- /include -->
+    <script>
+            window.onload = function() {
+                app.init();
+            }
+    </script>
   </body>
 </html>

@@ -8375,7 +8375,7 @@ html, body {
   box-shadow: inset 8px 4px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-#mainApplicationContainer {
+#container {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 2em;
   padding-top: 2em;

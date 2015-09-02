@@ -96,15 +96,13 @@ module.exports = function(grunt) {
 				files: ['Gruntfile.js'],
 				tasks: ['sass']
 			},
+			scripts: {
+				files: ['<%= app %>/templates/*.tpl'],
+				tasks: ['jst']
+			},
 			sass: {
 				files: '<%= app %>/scss/**/*.scss',
 				tasks: ['sass']
-			},
-			livereload: {
-				files: ['<%= app %>/**/*.html', '!<%= app %>/bower_components/**', '<%= app %>/js/**/*.js', '<%= app %>/css/**/*.css', '<%= app %>/images/**/*.{jpg,gif,svg,jpeg,png}'],
-				options: {
-					livereload: true
-				}
 			}
 		},
 
@@ -152,7 +150,7 @@ module.exports = function(grunt) {
 					}
 				},
 				files: {
-					'app/js/templates/templates.js': ['app/templates/**/*.tpl']
+					'app/js/views/templates.js': ['app/templates/**/*.tpl']
 				}
 			}
 		},
