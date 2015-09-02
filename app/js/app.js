@@ -1,5 +1,5 @@
 //Author: Carter Wooten
-//Tutorials that helped me along the way:
+//Javascript tutorials that helped me along the way:
 // - Templates: http://www.codebelt.com/javascript/precompiling-javascript-underscore-templates/
 
 'use strict';
@@ -26,18 +26,18 @@ var app = app || (function () {
         }
     };
     var ViewsFactory = {
-      createTemplate: function(templatePath, data) {
-        var templateString = window['JST'][templatePath](data);
-        return templateString;
-      },
-      login: function() {
-        if(!this.loginView) {
-          this.loginView = new api.views.login({
-            el: $("#container"),
-            template: this.createTemplate('templates/login.tpl')
-          });
-        }
-        return this.loginView;
+        createTemplate: function(templatePath, data) {
+            var templateString = window['JST'][templatePath](data);
+            return templateString;
+        },
+        login: function() {
+            if(!this.loginView) {
+                this.loginView = new api.views.login({
+                    el: $('#container'),
+                    template: this.createTemplate('templates/login.tpl')
+                });
+            }
+            return this.loginView;
         }
     };
 

@@ -51,11 +51,19 @@
 
 // Personal Stylings
 // Author: Carter Wooten
+// (S)CSS Tutorials that helped me along the way:
+// - Vertical Align: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+// - Rounded Corners: http://www.cssportal.com/css3-rounded-corner/
+// - Box Shadow: http://www.cssmatic.com/box-shadow
 
-$app-background: #558C89;
+// Color Pallete for Application
+$white-background: #FFFFFF;
 $logo-background: #D9853B;
-$font-color-black: #000000;
+$font-color: #3b3a36;
 $font-color-white: #FFFFFF;
+$container-background: #b3c2bf;
+$button-background: #c0dfd9;
+$button-hover: #ADC9C3;
 
 html {
   font-size: 1em;
@@ -66,6 +74,7 @@ html, body {
   height: 100%;
 }
 #wrapper {
+  height: 100%;
   min-height: 100%;
   position: relative;
 }
@@ -76,9 +85,9 @@ html, body {
   top: 0;
   width: 100%;
   height: 2em;
-  background-color: $app-background;
-  color: $font-color-white;
-  // Box Shadow Thanks To: http://www.cssmatic.com/box-shadow
+  background-color: $white-background;
+  color: $font-color;
+  z-index: 10;
   -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
   box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
@@ -89,9 +98,8 @@ html, body {
     position: relative;
     border-radius: 50%;
     padding: 0.2em;
-    background: $app-background;
+    background: #FFFFFF;
     border-radius: 50%;
-    // Box Shadow Thanks To: http://www.cssmatic.com/box-shadow
    -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
    -moz-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
    box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
@@ -100,7 +108,7 @@ html, body {
       height: 2em;
       width: 2em;
       border-radius: 50%;
-      background: $logo-background;
+      background: #FFFFFF;
       // Box Shadow Thanks To: http://www.cssmatic.com/box-shadow
       -webkit-box-shadow: inset 8px 4px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: inset 8px 4px 5px 0px rgba(0,0,0,0.75);
@@ -112,6 +120,49 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 2em;
   padding-top: 2em;
+  height: 100%;
+  background-color: $container-background;
+  // Preserve 3D for vertical align trick.
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  #loginTemplate {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    small.error {
+      display: none;
+    }
+    #loginCreation, #loginCreated {
+      background-color: $white-background;
+      color: $font-color;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border: 2px solid $font-color;
+      padding: 1em;
+      font-size: 1.25em;
+      input {
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border: 1px solid $font-color;
+      }
+      button {
+        background-color: $button-background;
+        color: $font-color;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border: 1px solid $font-color;
+      }
+      button:hover {
+          background-color: $button-hover;
+      }
+    }
+  }
 }
 #footer {
   font-family: 'Titillium Web', sans-serif;
@@ -120,9 +171,8 @@ html, body {
   bottom: 0;
   width: 100%;
   height: 2em;
-  background-color: $app-background;
-  color: $font-color-white;
-  // Box Shadow Thanks To: http://www.cssmatic.com/box-shadow
+  background-color: $white-background;
+  color: $font-color;
   -webkit-box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
   box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
