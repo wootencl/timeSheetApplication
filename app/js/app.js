@@ -17,7 +17,11 @@ var app = app || (function () {
         todos: null,
         init: function() {
             this.content = $('#container');
+
+            //Load the Login screen
             ViewsFactory.login();
+            //Initialize Foundation
+            $(document).foundation();
             return this;
         },
         changeContent: function(el) {
