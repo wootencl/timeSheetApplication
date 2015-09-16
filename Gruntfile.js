@@ -97,8 +97,8 @@ module.exports = function(grunt) {
 				tasks: ['sass']
 			},
 			scripts: {
-				files: ['<%= app %>/templates/*.tpl'],
-				tasks: ['jst']
+				files: ['<%= app %>/templates/*.tpl', '<%= app %>/js/views/*.js'],
+				tasks: ['jst', 'includeSource']
 			},
 			sass: {
 				files: '<%= app %>/scss/**/*.scss',

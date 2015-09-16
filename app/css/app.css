@@ -8346,8 +8346,8 @@ html, body {
   top: 0;
   width: 100%;
   height: 2em;
-  background-color: #FFFFFF;
-  color: #3b3a36;
+  background-color: #0054C9;
+  color: #FFFFFF;
   z-index: 10;
   -webkit-box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.75);
@@ -8382,7 +8382,7 @@ html, body {
   padding-bottom: 2em;
   padding-top: 2em;
   height: 100%;
-  background-color: #b3c2bf;
+  background-color: #FFFFFF;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -8397,32 +8397,70 @@ html, body {
 #container #loginTemplate small.error {
   display: none;
 }
-#container #loginTemplate #loginCreation, #container #loginTemplate #loginCreated {
-  background-color: #FFFFFF;
-  color: #3b3a36;
+#container #loginTemplate #loginContent, #container #loginTemplate #loginCreated {
+  background-color: #666666;
+  color: #FFFFFF;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border: 2px solid #3b3a36;
+  border: 2px solid #000000;
   padding: 1em;
   font-size: 1.25em;
 }
-#container #loginTemplate #loginCreation input, #container #loginTemplate #loginCreated input {
+#container #loginTemplate #loginContent input, #container #loginTemplate #loginCreated input {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border: 1px solid #3b3a36;
+  border: 1px solid #000000;
 }
-#container #loginTemplate #loginCreation button, #container #loginTemplate #loginCreated button {
-  background-color: #c0dfd9;
-  color: #3b3a36;
+#container #loginTemplate #loginContent button, #container #loginTemplate #loginCreated button {
+  background-color: #0054C9;
+  color: #FFFFFF;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border: 1px solid #3b3a36;
+  border: 1px solid #000000;
 }
-#container #loginTemplate #loginCreation button:hover, #container #loginTemplate #loginCreated button:hover {
-  background-color: #ADC9C3;
+#container #loginTemplate #loginContent button:hover, #container #loginTemplate #loginCreated button:hover {
+  background-color: #004CB5;
+}
+#container #homeTemplate {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#container #homeTemplate #homeContent {
+  background-color: #666666;
+  color: #FFFFFF;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 2px solid #000000;
+  padding: 1em;
+  font-size: 1.25em;
+}
+#container #homeTemplate #homeContent img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #000000;
+}
+#container #homeTemplate #homeContent button {
+  background-color: #0054C9;
+  color: #FFFFFF;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #000000;
+}
+#container #homeTemplate #homeContent button:hover {
+  background-color: #004CB5;
 }
 
 #footer {
@@ -8432,8 +8470,8 @@ html, body {
   bottom: 0;
   width: 100%;
   height: 2em;
-  background-color: #FFFFFF;
-  color: #3b3a36;
+  background-color: #0054C9;
+  color: #FFFFFF;
   -webkit-box-shadow: 0px -5px 5px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -5px 5px 2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -5px 5px 2px rgba(0, 0, 0, 0.75);

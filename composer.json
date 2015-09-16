@@ -1,0 +1,8 @@
+{
+  "config" : {
+    "vendor-dir" : "app/api/vendor"
+  },
+  "require": {
+    "slim/slim": "^2.6"
+  }
+}

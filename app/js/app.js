@@ -19,9 +19,9 @@ var app = app || (function () {
             this.content = $('#container');
 
             //Load the Login screen
-            ViewsFactory.login();
             //Initialize Foundation
             $(document).foundation();
+            Backbone.history.start();
             return this;
         },
         changeContent: function(el) {
@@ -42,10 +42,32 @@ var app = app || (function () {
                 });
             }
             return this.loginView;
+        },
+        home: function() {
+            if (!this.homeView) {
+                this.homeView = new api.views.home({
+                    el: $('#container'),
+                    template: this.createTemplate('templates/home.tpl')
+                });
+            }
+            return this.homeView;
         }
     };
 
-    var Router = Backbone.Router.extend({});
+    var Router = Backbone.Router.extend({
+        routes: {
+            'login' : 'login',
+            '' : 'home'
+        },
+        login : function() {
+            var view = ViewsFactory.login();
+            view.render();
+        },
+        home : function() {
+            var view = ViewsFactory.home();
+            view.render();
+        }
+    });
     api.router = new Router();
 
     return api;

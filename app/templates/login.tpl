@@ -2,8 +2,8 @@
   <div class="row">
     <div class="small-10 small-centered columns">
       <div class="row">
-        <div class="small-6 columns">
-          <div id="loginCreation">
+        <div class="small-6 small-centered columns">
+          <div id="loginContent">
             <span id="loginIntroText">
               Already have a login? Great! Sign in below.
             </span>
@@ -18,13 +18,13 @@
               </div>
               <div class="row">
                 <div class="small-12 small-centered columns">
-                  <button id="submitButton" class="button round expand" type="submit">Login</button>
+                  <button id="loginButton" class="button round expand" type="submit">Login</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        <div class="small-6 columns">
+        <!-- <div class="small-6 columns">
           <div id="loginCreated">
             <span id="loginIntroText">
               Don't have login yet? No problem! Fill in the information below to get started.
@@ -57,7 +57,7 @@
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
