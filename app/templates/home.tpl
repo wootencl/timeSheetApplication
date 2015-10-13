@@ -1,6 +1,6 @@
 <div id="homeTemplate">
   <div class="row">
-    <div class="small-8 small-centered columns">
+    <div class="small-11 medium-8 large-8 small-centered columns">
       <div id="homeContent">
         <div class="row">
           <div class="small-12 small-centered columns">

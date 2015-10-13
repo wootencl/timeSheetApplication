@@ -63,6 +63,8 @@ $elevation-grey: #666666;
 $font-color: #FFFFFF;
 $button-hover: #004CB5;
 $black-border: #000000;
+$box-size: 25px;
+$clndr-border: 1px solid #000;
 
 // SCSS Mixins
 //  verticalAlign -> the method by which I'm vertically aligning things.
@@ -83,16 +85,31 @@ $black-border: #000000;
   border: 2px solid $black-border;
   padding: 1em;
   font-size: 1.25em;
+  height: inherit;
 }
 @mixin button() {
   background-color: $elevation-blue;
   color: $font-color;
   border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border: 1px solid $black-border;
+  -webkit-box-shadow: 0px 3px 0px 0px rgba(0,59,141,1);
+  -moz-box-shadow: 0px 3px 0px 0px rgba(0,59,141,1);
+  box-shadow: 0px 3px 0px 0px rgba(0,59,141,1);
 }
 
+//CSS taken from outside sources
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+//
 
 html {
   font-size: 1em;
@@ -117,9 +134,9 @@ html, body {
   background-color: $elevation-blue;
   color: $font-color;
   z-index: 10;
-  -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
-  box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.75);
   #logoWrapper {
     display: inline-block;
     height: 4em;
@@ -155,18 +172,17 @@ html, body {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  #loginTemplate {
+  #loginTemplate, #loginCreationTemplate {
     @include verticalAlign();
     small.error {
       display: none;
     }
-    #loginContent, #loginCreated {
+    #loginContent, #loginCreationContent {
       @include content();
       input {
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
-        border: 1px solid $black-border;
       }
       button {
         @include button();
@@ -188,13 +204,30 @@ html, body {
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
-        border: 1px solid $black-border;
       }
       button {
         @include button();
       }
       button:hover {
           background-color: $button-hover;
+      }
+    }
+  }
+  #timeSheetTemplate {
+    @include verticalAlign();
+    #timeSheetContent {
+      @include content();
+      #clndr {
+        text-align:center;
+        .clndr {
+          width:14em;
+          .header-day, .day {
+            width:2em;
+          }
+          div {
+            float: left;
+          }
+        }
       }
     }
   }
@@ -208,7 +241,7 @@ html, body {
   height: 2em;
   background-color: $elevation-blue;
   color: $font-color;
-  -webkit-box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
-  box-shadow: 0px -5px 5px 2px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px -3px 5px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -3px 5px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px -3px 5px 2px rgba(0,0,0,0.75);
 }
