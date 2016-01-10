@@ -5,6 +5,7 @@
     "font-awesome": "~4.3.0",
     "foundation": "zurb/bower-foundation",
     "underscore": "~1.8.3",
-    "clndr": "~1.2.16"
+    "clndr": "~1.2.16",
+    "jt.timepicker": "jquery-timepicker-jt#~1.8.1"
   }
 }

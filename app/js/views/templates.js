@@ -5,7 +5,9 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="clndr-grid">\n  <div class="days-of-the-week clearfix">\n    ';
+__p += '<div class="clndr-controls">\n  <div class="clndr-previous-button">&lsaquo;</div><!--\n   --><div class="month">' +
+((__t = ( month )) == null ? '' : __t) +
+'</div><!--\n   --><div class="clndr-next-button">&rsaquo;</div>\n</div>\n<div class="clndr-grid">\n  <div class="days-of-the-week clearfix">\n    ';
  _.each(daysOfTheWeek, function(day) { ;
 __p += '\n      <div class="header-day">' +
 ((__t = ( day )) == null ? '' : __t) +
@@ -57,11 +59,21 @@ __p += '<div id="loginCreationTemplate">\n  <div class="row">\n    <div class="s
 return __p
 };
 
+this["JST"]["templates/timeSelector.tpl"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div id="timePickerHeader">\n  <div class="row">\n    <div class="small-12 small-cenetered columns">\n      Week of (monday) to (friday):\n    </div>\n  </div>\n</div>\n<div id="timePickersWrapper">\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">Log In</div>\n    <div class="small-2 columns no-pad-left">Log Out</div>\n    <div class="small-2 columns no-pad-left">Log In</div>\n    <div class="small-2 columns no-pad-left">Log Out</div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n</div>\n<div id="buttonsWrapper">\n  <div class="row">\n    <div class="small-6 columns">\n      <button id="toLoginPageButton" class="button round expand" type="submit">Upload TimeSheet Photo</button>\n    </div>\n    <div class="small-4 columns">\n      <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>\n    </div>\n    <div class="small-2 columns">\n      Total Hours\n    </div>\n  </div>\n</div>';
+
+}
+return __p
+};
+
 this["JST"]["templates/timeSheet.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-11 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row">\n          <div class="small-4 columns">\n              THIS IS A TEST\n          </div>\n          <div class="small-8 columns">\n            <div id="clndr">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
+__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row">\n          <div class="small-6 columns">\n            <div id="timeSelector-view">\n            </div>\n          </div>\n          <div class="small-6 columns">\n            <div id="clndr-view">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
 
 }
 return __p

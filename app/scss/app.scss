@@ -56,6 +56,21 @@
 // - Rounded Corners: http://www.cssportal.com/css3-rounded-corner/
 // - Box Shadow: http://www.cssmatic.com/box-shadow
 
+//Global CSS Stylings
+.no-pad-right {
+padding-right: 0;
+}
+.no-pad-left{
+padding-left: 0;
+}
+.no-pad{
+  padding-left: 0;
+  padding-right: 0;
+}
+.margin-bottom {
+  margin-bottom: 0.6em !important;
+}
+
 // verticalWrap Pallete for Application
 $white-background: #FFFFFF;
 $elevation-blue: #0054C9;
@@ -217,15 +232,99 @@ html, body {
     @include verticalAlign();
     #timeSheetContent {
       @include content();
-      #clndr {
-        text-align:center;
+      #clndr-view {
+        // A large majority (if not all) of this stylings was taken from the second example calendar
+        // from the CLNDR web page (http://kylestetz.github.io/CLNDR/)
         .clndr {
-          width:14em;
-          .header-day, .day {
-            width:2em;
+          overflow: hidden;
+          border-bottom: 7px solid #69a776;
+          -webkit-box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+          -moz-box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+          box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+          font-family: Asap, Helvetica, Arial;
+          .clndr-controls {
+            .clndr-previous-button, .clndr-next-button {
+            width: 15%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            }
+            .month {
+              width: 70%;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              display: inline-block;
+              text-align: center;
+              text-transform: uppercase;
+              font-weight: 700;
+              letter-spacing: 1px;
+            }
+            background-color: #69a776;
+            color: #FFFFFF;
+            .clndr-previous-button:hover, .clndr-next-button:hover {
+              background-color: #54865E;
+              transition: background-color 0.5s;
+            }
           }
-          div {
-            float: left;
+          .clndr-grid {
+            overflow: hidden;
+            text-align:center;
+            width:100%;
+            background-color: #ebebeb;
+            color: #21211E;
+            .days-of-the-week {
+              background-color: #97ce7f;
+              color: #FFFFFF;
+              width:100%;
+            }
+            .header-day, .day {
+              width:14%;
+            }
+            .day {
+              text-align: center;
+              color: #212121;
+              border-right: 1px solid rgba(255, 255, 255, 0.5);
+              border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+              font-size:0.8em;
+              padding-top: 0.1em;
+              padding-bottom: 0.1em;
+            }
+            .day.event {
+              background-color: #d2d2d2;
+            }
+            .adjacent-month {
+              color: rgba(0, 0, 0, 0.3);
+            }
+            div {
+              float: left;
+            }
+          }
+        }
+      }
+      #timeSelector-view {
+        #timePickersWrapper {
+          font-size: 0.6em;
+          input {
+            font-size: 0.6em;
+            height: 2em;
+            padding: 0;
+            margin: 0;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+
+          }
+        }
+        #buttonsWrapper {
+          button {
+            font-size: 0.6em;
+            margin-bottom: 0;
+            @include button();
+          }
+          button:hover {
+            background-color: $button-hover;
           }
         }
       }

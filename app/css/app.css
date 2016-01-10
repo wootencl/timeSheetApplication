@@ -8600,6 +8600,23 @@ th.hide-for-touch {
   }
 }
 /* all app scss styles here */
+.no-pad-right {
+  padding-right: 0;
+}
+
+.no-pad-left {
+  padding-left: 0;
+}
+
+.no-pad {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.margin-bottom {
+  margin-bottom: 0.6em !important;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -8770,17 +8787,97 @@ html, body {
   font-size: 1.25em;
   height: inherit;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr {
+  overflow: hidden;
+  border-bottom: 7px solid #69a776;
+  -webkit-box-shadow: 4px 4px 5px 0px #343434;
+  -moz-box-shadow: 4px 4px 5px 0px #343434;
+  box-shadow: 4px 4px 5px 0px #343434;
+  font-family: Asap, Helvetica, Arial;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls {
+  background-color: #69a776;
+  color: #FFFFFF;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-previous-button, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-next-button {
+  width: 15%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
   text-align: center;
+  cursor: pointer;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr .clndr {
-  width: 14em;
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .month {
+  width: 70%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr .clndr .header-day, #container #timeSheetTemplate #timeSheetContent #clndr .clndr .day {
-  width: 2em;
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-previous-button:hover, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-next-button:hover {
+  background-color: #54865E;
+  transition: background-color 0.5s;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr .clndr div {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  background-color: #ebebeb;
+  color: #21211E;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days-of-the-week {
+  background-color: #97ce7f;
+  color: #FFFFFF;
+  width: 100%;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .header-day, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day {
+  width: 14%;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day {
+  text-align: center;
+  color: #212121;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.8em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day.event {
+  background-color: #d2d2d2;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .adjacent-month {
+  color: rgba(0, 0, 0, 0.3);
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid div {
   float: left;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper {
+  font-size: 0.6em;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper input {
+  font-size: 0.6em;
+  height: 2em;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #buttonsWrapper button {
+  font-size: 0.6em;
+  margin-bottom: 0;
+  background-color: #0054C9;
+  color: #FFFFFF;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 0px 0px #003b8d;
+  -moz-box-shadow: 0px 3px 0px 0px #003b8d;
+  box-shadow: 0px 3px 0px 0px #003b8d;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #buttonsWrapper button:hover {
+  background-color: #004CB5;
 }
 
 #footer {
