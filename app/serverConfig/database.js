@@ -2,7 +2,7 @@ module.exports = {
   'connectionData' : {
     'host' : 'localhost',
     'user' : 'root',
-    'password' : 'YOUR_PASSWORD_HERE',
+    'password' : 'Logos$1b',
     'database' : 'timeSheetApplication'
   }
 };
