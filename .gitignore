@@ -3,4 +3,7 @@ node_modules
 app/bower_components
 app/api/vendor
 .sass-cache
+<<<<<<< HEAD
 app/serverConfig/database.js
+=======
+>>>>>>> ef49af85108cb403fb0034d2b0fe014864b8a352
