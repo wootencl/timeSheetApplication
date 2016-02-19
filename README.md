@@ -1,4 +1,4 @@
-# Backbone.js + PHP + MySQL Time Sheet Application
+# Backbone.js + Node.js + MySQL Time Sheet Application
 
 ## Project Synopsis
 
@@ -11,13 +11,49 @@ This is a single page web application that is intended to assist tracking the ho
   + Show calculated time for each day and total time for a week.
   + Ability for user to submit a photo or file of filled out excel sheet. 
     + Building on this don't allow users to submit time sheet for a week unless photo has been submitted. 
-+ Finally allow users to submit timesheets to the server (PHP+MySQL)
++ Finally allow users to submit timesheets to the server (Node.js+MySQL)
 
 Currently I've gone with the idea of handing out authentication tokens in order for a person to create an account. This seemed like the easiest way of dealing with unwanted users. 
 
 ## Motivation
 
 I'm extremely lucky in that myself and the client I'm working to do this for have a great relationship. After starting work at the company over a year ago my role (besides being a Software/Web Developer) has somewhat moved into a pseudo-R&D position. With that, myself and the client have brainstorming sessions of which this project is a child of. 
+
+##Setting It Up Yourself
+
+If you would like to get this project up and running on your own machine there are some steps below that should guide you through the process.
+##### Prerequisite: The below steps are going to assume you have Node.js installed. If that's not the case then you may want to head over to their [website](https://nodejs.org/en/) and get yourself a fresh install. 
+#### Steps: 
+1. You'll first want to clone this package with git onto your local machine or download the zip from the options above. 
+2. After that navigate into the root directory of the project where you recently cloned/downloaded it. 
+3. Once there you can run the following commands to to download the projects dependencies:
+
+    ```
+    //Only run this if you don't already have bower installed.
+    npm install -g bower
+    //Installs the dependencies located within the bower.json file.
+    bower install
+    //Installs the dependencies located with the package.json file.
+    //If you would like all the developer tools I use as well then leave out the '--production flag'
+    npm install --production
+    ```
+    
+4. Now that you have all the dependencies installed you have one of two options:
+  1. You can either cd into the ```app``` directory and run the following command:
+
+      ```node server```
+      
+  2. Or if you wand to go the more 'production' level you can issue the following commands:
+  
+    ```
+    //Assuming your in the project's root directory. 
+    grunt publish //will use grunt to make sure everything is in place and minify any necessary files
+    cd dist
+    node server
+    ```
+
+5. The above should pring something along the lines of ```this``` out to the console. Then you can navigate to that URL in the browser of your choice and the app will be there.
+6. That's it! Currently it's still very much in the construction phase so please understand the lack of many things in the project because of that. 
 
 ## Future Work
 
