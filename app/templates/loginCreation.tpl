@@ -7,14 +7,18 @@
             <span id="loginIntroText">
               Don't have login yet? No problem! Provide your authentication key and fill in the information below to get started.
             </span>
-            <form>
+            <form id="loginCreation">
               <div class="inputWrapper">
                 <input id="authKey" type="text" name="authKey" placeholder="Authentication Key" />
                 <small class='error'>Authentication Key Required</small>
               </div>
               <div class="inputWrapper">
-                <input id="name" type="text" name="name" placeholder="Name" />
-                <small class='error'>Name Required</small>
+                <input id="firstName" type="text" name="firstName" placeholder="First Name" />
+                <small class='error'>First Name Required</small>
+              </div>
+              <div class="inputWrapper">
+                <input id="lastName" type="text" name="lastName" placeholder="Last Name" />
+                <small class='error'>Last Name Required</small>
               </div>
               <div class="inputWrapper">
                 <input id="email" type="text" name="email" placeholder="Email" />
@@ -34,7 +38,7 @@
               </div>
               <div class="row">
                 <div class="small-12 small-centered columns">
-                  <button id="submitButton" class="button round expand" type="submit">Create</button>
+                  <button id="submitButton" class="button round expand">Create</button>
                 </div>
               </div>
             </form>
