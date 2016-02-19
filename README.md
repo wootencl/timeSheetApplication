@@ -22,7 +22,11 @@ I'm extremely lucky in that myself and the client I'm working to do this for hav
 ##Setting It Up Yourself
 
 If you would like to get this project up and running on your own machine there are some steps below that should guide you through the process.
-##### Prerequisite: The below steps are going to assume you have Node.js installed. If that's not the case then you may want to head over to their [website](https://nodejs.org/en/) and get yourself a fresh install. 
+##### Prerequisites: 
+
+* The below steps are going to assume you have Node.js installed. If that's not the case then you may want to head over to their [website](https://nodejs.org/en/) and get yourself a fresh install. 
+* Also you will need to create a database for use by the application. I'm using mySQL so there's some SQL in the timeSheetApplication/app/serverConfig/databaseSQL.sql. In addition you need to authenticate with the correct user in the database.js file in the same directory.
+
 #### Steps: 
 1. You'll first want to clone this package with git onto your local machine or download the zip from the options above. 
 2. After that navigate into the root directory of the project where you recently cloned/downloaded it. 
