@@ -1,9 +1,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-
-    require('load-grunt-tasks')(grunt);
-
+	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -19,12 +17,10 @@ module.exports = function(grunt) {
 					quiet: true
 				},
 				files: {
-					'<%= app %>/css/app.css': '<%= app %>/scss/app.scss'
+					'<%= app %>/public/css/app.css': '<%= app %>/public/scss/app.scss'
 				}
 			}
 		},
-
-
 
 		jshint: {
 			options: {
@@ -41,20 +37,21 @@ module.exports = function(grunt) {
 				src: ['<%= dist %>/*']
 			},
 		},
+
 		copy: {
 			dist: {
 				files: [{
 					expand: true,
 					cwd:'<%= app %>/',
-					src: ['fonts/**', '**/*.html', '!**/*.scss', '!bower_components/**'],
+					src: ['server.js', 'serverObjects/**', 'serverConfig/**' ,'**/*.html', '!**/*.scss', '!bower_components/**'],
 					dest: '<%= dist %>/'
 				} , {
 					expand: true,
 					flatten: true,
 					src: ['<%= app %>/bower_components/font-awesome/fonts/**'],
-					dest: '<%= dist %>/fonts/',
+					dest: '<%= dist %>/public/fonts/',
 					filter: 'isFile'
-				} ]
+				}]
 			},
 		},
 
@@ -62,16 +59,15 @@ module.exports = function(grunt) {
 			target: {
 				files: [{
 					expand: true,
-					cwd: '<%= app %>/images/',
-					src: ['**/*.{jpg,gif,svg,jpeg,png}'],
-					dest: '<%= dist %>/images/'
+					cwd: '<%= app %>/public/images/',
+					src: ['**/*.{jpg,gif,svg,jpeg,png,ico}'],
+					dest: '<%= dist %>/public/images/'
 				}]
 			}
 		},
 
 		uglify: {
 			options: {
-				preserveComments: 'some',
 				mangle: false
 			}
 		},
@@ -79,54 +75,28 @@ module.exports = function(grunt) {
 		useminPrepare: {
 			html: ['<%= app %>/index.html'],
 			options: {
-				dest: '<%= dist %>'
+				dest: '<%= dist %>/public'
 			}
 		},
 
 		usemin: {
-			html: ['<%= dist %>/**/*.html', '!<%= app %>/bower_components/**'],
-			css: ['<%= dist %>/css/**/*.css'],
+			html: ['<%= dist %>/**/*.html'],
 			options: {
 				dirs: ['<%= dist %>']
 			}
 		},
 
 		watch: {
-			grunt: {
-				files: ['Gruntfile.js'],
-				tasks: ['sass']
-			},
 			scripts: {
-				files: ['<%= app %>/templates/*.tpl', '<%= app %>/js/views/*.js'],
+				files: ['<%= app %>/templates/*.tpl', '<%= app %>/public/js/views/*.js'],
 				tasks: ['jst', 'includeSource']
 			},
 			sass: {
-				files: '<%= app %>/scss/**/*.scss',
+				files: '<%= app %>/public/scss/**/*.scss',
 				tasks: ['sass']
 			}
 		},
 
-		connect: {
-			app: {
-				options: {
-					port: 9000,
-					base: '<%= app %>/',
-					open: true,
-					livereload: true,
-					hostname: '127.0.0.1'
-				}
-			},
-			dist: {
-				options: {
-					port: 9001,
-					base: '<%= dist %>/',
-					open: true,
-					keepalive: true,
-					livereload: false,
-					hostname: '127.0.0.1'
-				}
-			}
-		},
 		wiredep: {
 			target: {
 				src: [
@@ -140,6 +110,7 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+
 		jst: {
 			compile: {
 				options: {
@@ -150,13 +121,14 @@ module.exports = function(grunt) {
 					}
 				},
 				files: {
-					'app/js/views/templates.js': ['app/templates/**/*.tpl']
+					'app/public/js/views/templates.js': ['app/templates/**/*.tpl']
 				}
 			}
 		},
+
 		includeSource: {
 			options: {
-				basePath: 'app',
+				basePath: 'app/public',
 				baseUrl: '',
 				templates: {
 					html: {
@@ -171,16 +143,15 @@ module.exports = function(grunt) {
 				}
 			}
 		}
-
 	});
 
 	//Default Tasks (Included with zf5)
 	grunt.registerTask('compile-sass', ['sass']);
 	grunt.registerTask('bower-install', ['wiredep']);
 
-	grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
-	grunt.registerTask('validate-js', ['jshint']);
-	grunt.registerTask('server-dist', ['connect:dist']);
+	//grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
+	//grunt.registerTask('validate-js', ['jshint']);
+	//grunt.registerTask('server-dist', ['connect:dist']);
 
 	grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
 
