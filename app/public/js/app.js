@@ -97,7 +97,7 @@ var app = app || (function () {
                 this.loginCreationView = new api.views.loginCreation({
                     el: $('#container'),
                     template: this.createTemplate('templates/loginCreation.tpl'),
-                    model: new api.models.Person()
+                    model: new api.models.PersonCreation()
                 });
             }
             return this.loginCreationView;

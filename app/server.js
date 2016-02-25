@@ -28,9 +28,9 @@ connection.connect(function(err) {
     console.error('error connecting: ' + err.stack);
     return;
   }
-
   console.log('connected as id ' + connection.threadId);
 });
+require('./serverConfig/passport')(passport, connection);
 
 app.use(morgan('dev'));
 app.use(cookieParser());

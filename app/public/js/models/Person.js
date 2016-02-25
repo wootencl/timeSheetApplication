@@ -1,4 +1,4 @@
-app.models.Person = Backbone.Model.extend({
+app.models.PersonCreation = Backbone.Model.extend({
   urlRoot: '/loginCreation',
   defaults: {
     AuthToken: '',
@@ -6,6 +6,6 @@ app.models.Person = Backbone.Model.extend({
     LastName: '',
     Email: '',
     Password: '',
-    Role: ''
+    Role: 'USER'
   }
 });

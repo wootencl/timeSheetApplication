@@ -16,9 +16,8 @@ app.views.loginCreation = Backbone.View.extend({
     },
     loginCreation: function(){
         event.preventDefault();
-        console.log("HOWDY!");
 
-        this.model.set({ AuthToken: $("#authKey").val(), FirstName: $("#firstName").val(), LastName: $("#lastName").val(), Email: $("#email").val(), Password: $("#password").val(), Role: 'USER' });
-        console.log(this.model);
+        this.model.set({ AuthToken: $("#authKey").val(), FirstName: $("#firstName").val(), LastName: $("#lastName").val(), Email: $("#email").val(), Password: $("#password").val()});
+        this.model.save();
     }
 });
