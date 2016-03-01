@@ -10,11 +10,11 @@
             <form id="loginRequest" action="api/login">
               <div class="inputWrapper">
                 <input id="email" type="text" name="email" placeholder="Email">
-                <small class="error">Invalid Email</small>
+                <small class="error hidden">Invalid Email</small>
               </div>
               <div class="inputWrapper">
                 <input id="password" type="password" name="password" placeholder="Password">
-                <small class="error">Invalid Password</small>
+                <small class="error hidden">Invalid Password</small>
               </div>
               <div class="row">
                 <div class="small-12 small-centered columns">

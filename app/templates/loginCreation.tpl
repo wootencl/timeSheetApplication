@@ -2,45 +2,71 @@
   <div class="row">
     <div class="small-12 medium-10 large-10 small-centered columns">
       <div class="row">
-        <div class="small-11 medium-6 large-6 small-centered columns">
+        <div class="small-12 columns">
           <div id="loginCreationContent">
             <span id="loginIntroText">
               Don't have login yet? No problem! Provide your authentication key and fill in the information below to get started.
             </span>
             <form id="loginCreation">
-              <div class="inputWrapper">
-                <input id="authKey" type="text" name="authKey" placeholder="Authentication Key" />
-                <small class='error'>Authentication Key Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="firstName" type="text" name="firstName" placeholder="First Name" />
-                <small class='error'>First Name Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="lastName" type="text" name="lastName" placeholder="Last Name" />
-                <small class='error'>Last Name Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="email" type="text" name="email" placeholder="Email" />
-                <small class='error'>Email Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="emailConfirm" type="text" name="emailConfirm" placeholder="Confirm Email" />
-                <small class='error'>Email Confirmation Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="password" type="password" name="password" placeholder="Password" />
-                <small class='error'>Password Required</small>
-              </div>
-              <div class="inputWrapper">
-                <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password" />
-                <small class='error'>Password Confrimation Required</small>
-              </div>
               <div class="row">
-                <div class="small-12 small-centered columns">
-                  <button id="submitButton" class="button round expand">Create</button>
+                <div class="small-6 columns">
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="firstName" type="text" name="FirstName" placeholder="First Name" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="email" type="text" name="Email" placeholder="Email" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="password" type="password" name="Password" placeholder="Password (Must Include a digit)" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="small-6 columns">
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="lastName" type="text" name="LastName" placeholder="Last Name" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="emailConfirm" type="text" name="ConfirmEmail" placeholder="Confirm Email" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="inputWrapper">
+                        <input id="passwordConfirmation" type="password" name="ConfirmPassword" placeholder="Confirm Password" />
+                        <small class='error hidden'></small>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="inputWrapper">
+                <input id="authKey" type="text" name="AuthToken" placeholder="Authentication Key" />
+                <small class='error hidden'></small>
+              </div>
+              <button id="submitButton" class="button round expand">Create</button>
             </form>
           </div>
         </div>

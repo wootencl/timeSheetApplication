@@ -8,6 +8,20 @@ module.exports = function(grunt) {
 		app: 'app',
 		dist: 'dist',
 
+		express: {
+			dev: {
+				options: {
+					script: 'app/server.js'
+				}
+			},
+			prod: {
+				options: {
+					script: 'dist/server.js',
+					node_env: 'production'
+				}
+			}
+		},
+
 		sass: {
 			dist: {
 				options: {
@@ -87,6 +101,16 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
+			options: {
+				livereload: true
+			},
+			express: {
+				files: [ '<%= app %>/server.js', '<%= app %>/serverConfig/*.js', '<%= app %>/serverObjects/*.js'],
+				tasks: ['express: dev'],
+				options: {
+					spawn: false
+				}
+			},
 			scripts: {
 				files: ['<%= app %>/templates/*.tpl', '<%= app %>/public/js/views/*.js'],
 				tasks: ['jst', 'includeSource']
@@ -94,6 +118,9 @@ module.exports = function(grunt) {
 			sass: {
 				files: '<%= app %>/public/scss/**/*.scss',
 				tasks: ['sass']
+			},
+			html: {
+				files: '<%= app %>/index.html'
 			}
 		},
 
@@ -149,10 +176,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile-sass', ['sass']);
 	grunt.registerTask('bower-install', ['wiredep']);
 
-	//grunt.registerTask('default', ['compile-sass', 'bower-install', 'connect:app', 'watch']);
-	//grunt.registerTask('validate-js', ['jshint']);
-	//grunt.registerTask('server-dist', ['connect:dist']);
-
+	grunt.registerTask('server', ['express:dev', 'watch']);
 	grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);
 
 };

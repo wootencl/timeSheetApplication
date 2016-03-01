@@ -33,6 +33,7 @@
     "load-grunt-tasks": "~3.2.0"
   },
   "dependencies": {
+    "backbone-validation": "^0.11.5",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",

@@ -7,7 +7,7 @@
 // TODO: http://stackoverflow.com/questions/18679422/issue-with-with-use-strict-and-underscore-js
 //'use strict';
 
-// Alterations made to BackBone itself within a self executing anonymous function
+// Alterations made to JS libraries/frameworks within a self executing anonymous function
 (function(){
     // Overwriting the built in view.remove() function.
     // Reasoning: I decided to do it this way because of the issues arising from
@@ -26,6 +26,24 @@
             this.onClose();
         }
     };
+    //A serialize object function that I saw no purpose in trying to rewrite
+    //Source: http://stackoverflow.com/questions/1184624/convert-form-data-to-javascript-object-with-jquery
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
 })();
 
 var app = app || (function () {
@@ -38,7 +56,6 @@ var app = app || (function () {
         templates: {},
         content: null,
         router: null,
-        todos: null,
         init: function() {
             this.content = $('#container');
 
@@ -57,6 +74,15 @@ var app = app || (function () {
         createTemplate: function(templatePath, data) {
             var templateString = window['JST'][templatePath](data);
             return templateString;
+        },
+        //This is a helper function that will resize a parent div so that
+        //a child of the parent can be vertically aligned within
+        resizeFunction: function(elementArray) {
+            for (var i  = 0; i < elementArray.length; i++) {
+                $('#'+elementArray[i]+'>.verticalParentHeight').each( function() {
+                        $(".verticalParent", this).css("height", $(this).height());
+                });
+            }
         }
     };
 
@@ -77,8 +103,7 @@ var app = app || (function () {
             if(!this.loginView) {
                 this.loginView = new api.views.login({
                     el: $('#container'),
-                    template: this.createTemplate('templates/login.tpl'),
-                    model: new api.models.Person()
+                    template: this.createTemplate('templates/login.tpl')
                 });
             }
             return this.loginView;
