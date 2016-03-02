@@ -34,9 +34,23 @@ app.views.loginCreation = Backbone.View.extend({
     loginCreation: function(){
         event.preventDefault();
         var data = $('#loginCreation').serializeObject();
+        console.log(data);
         this.model.set(data);
         if (this.model.isValid(true)) {
-            //this.model.save();
+            this.model.save({
+                FirstName: data.FirstName,
+                LastName: data.LastName,
+                Email: data.Email,
+                Password: data.Password,
+                AuthToken: data.AuthToken
+            }, {
+                success: function(model, response) {
+                    console.log(response);
+                },
+                error: function(model, response) {
+                    console.log(response);
+                }
+            });
         }
     }
 });

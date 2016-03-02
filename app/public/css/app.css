@@ -8689,7 +8689,8 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 6em;
   padding-top: 6em;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   background-color: #FFFFFF;
 }
 #container #loginTemplate, #container #loginCreationTemplate {

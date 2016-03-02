@@ -30,7 +30,7 @@ module.exports = function(passport, connection) {
           return done(err);
         }
         if (results.length === 0) {
-          return done(null, false, req.flash('signupMessage', 'That token does not seem to exist.'));
+          return done(null, false, {statusCode: 404, message: 'That token does not seem to exist.'});
         } else {
           //checking if the token has already been used.
           connection.query("SELECT 1 FROM Persons WHERE hex(ID) = ? AND Email is NOT NULL", [req.body.AuthToken], function(err, results) {

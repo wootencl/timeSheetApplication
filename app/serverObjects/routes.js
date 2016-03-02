@@ -6,10 +6,12 @@ module.exports = function(app, passport) {
   });
 
   app.post('/loginCreation', function(req, res, next) {
-    passport.authenticate('local-signup', function(err, person) {
-      console.log(req.flash('signupMessage'));
-      console.log(person);
+    passport.authenticate('local-signup', function(err, person, info) {
       if (err) { return next(err); }
+      if (!person) {
+        console.log("FAILURE!");
+        return res.status(info.statusCode).send({ message: info.message });
+      }
     })(req, res, next);
   });
 };
