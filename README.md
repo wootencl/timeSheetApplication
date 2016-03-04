@@ -15,6 +15,9 @@ This is a single page web application that is intended to assist tracking the ho
 
 Currently I've gone with the idea of handing out authentication tokens in order for a person to create an account. This seemed like the easiest way of dealing with unwanted users. 
 
+####TODO:
++ Planning on launching a demo of the application here shortly. After which I intend on writing some tests to cover the current functionality of the application. 
+
 ## Motivation
 
 I'm extremely lucky in that myself and the client I'm working to do this for have a great relationship. After starting work at the company over a year ago my role (besides being a Software/Web Developer) has somewhat moved into a pseudo-R&D position. With that, myself and the client have brainstorming sessions of which this project is a child of. 
