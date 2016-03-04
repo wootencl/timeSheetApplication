@@ -38,7 +38,7 @@ If you would like to get this project up and running on your own machine there a
     //Installs the dependencies located within the bower.json file.
     bower install
     //Installs the dependencies located with the package.json file.
-    //If you would like all the developer tools I use as well then leave out the '--production flag'
+    //If you would like all the developer tools I use as well then leave out the '--production' flag
     npm install --production
     ```
     
@@ -47,7 +47,7 @@ If you would like to get this project up and running on your own machine there a
 
       ```node server```
       
-  2. Or if you wand to go the more 'production' level you can issue the following commands:
+  2. Or if you want to go the more 'production' level you can issue the following commands (this will only work if you downloaded all the devleloper tools which means omitting the '--production' flag above):
   
     ```
     //Assuming your in the project's root directory. 
@@ -56,7 +56,7 @@ If you would like to get this project up and running on your own machine there a
     node server
     ```
 
-5. The above should pring something along the lines of ```this``` out to the console. Then you can navigate to that URL in the browser of your choice and the app will be there.
+5. The above should print something along the lines of ```App listening at http://127.0.0.1:3000``` out to the console. Then you can navigate to that URL in the browser of your choice and the app will be there.
 6. That's it! Currently it's still very much in the construction phase so please understand the lack of many things in the project because of that. 
 
 ## Future Work
