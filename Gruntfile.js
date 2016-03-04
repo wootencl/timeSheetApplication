@@ -3,6 +3,8 @@
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
+	grunt.loadNpmTasks('grunt-express-server');
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		app: 'app',
@@ -11,12 +13,12 @@ module.exports = function(grunt) {
 		express: {
 			dev: {
 				options: {
-					script: 'app/server.js'
+					script: '<%= app %>/server.js'
 				}
 			},
 			prod: {
 				options: {
-					script: 'dist/server.js',
+					script: '<%= dist %>/server.js',
 					node_env: 'production'
 				}
 			}
@@ -106,7 +108,7 @@ module.exports = function(grunt) {
 			},
 			express: {
 				files: [ '<%= app %>/server.js', '<%= app %>/serverConfig/*.js', '<%= app %>/serverObjects/*.js'],
-				tasks: ['express: dev'],
+				tasks: ['express:dev'],
 				options: {
 					spawn: false
 				}
