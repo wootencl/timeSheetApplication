@@ -30,7 +30,7 @@ If you would like to get this project up and running on your own machine there a
 #### Steps: 
 1. You'll first want to clone this package with git onto your local machine or download the zip from the options above. 
 2. After that navigate into the root directory of the project where you recently cloned/downloaded it. 
-3. Once there you can run the following commands to to download the projects dependencies:
+3. Once there you can run the following commands to download the projects dependencies:
 
     ```
     //Only run this if you don't already have bower installed.
