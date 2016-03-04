@@ -8726,6 +8726,32 @@ html, body {
   -khtml-border-radius: 0px 0px 3px 3px;
   -webkit-border-radius: 0px 0px 3px 3px;
 }
+#container #loginTemplate #loginCreationContent #serverError, #container #loginCreationTemplate #loginCreationContent #serverError {
+  margin-top: 1em;
+  background: #f04124;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 0.3em;
+}
+#container #loginTemplate #loginContent #loginRequest input.error, #container #loginCreationTemplate #loginContent #loginRequest input.error {
+  border-radius: 3px 3px 0px 0px !important;
+  -moz-border-radius: 3px 3px 0px 0px !important;
+  -khtml-border-radius: 3px 3px 0px 0px !important;
+  -webkit-border-radius: 3px 3px 0px 0px !important;
+}
+#container #loginTemplate #loginContent small.error, #container #loginCreationTemplate #loginContent small.error {
+  border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -khtml-border-radius: 0px 0px 3px 3px;
+  -webkit-border-radius: 0px 0px 3px 3px;
+}
+#container #loginTemplate #loginContent #serverError, #container #loginCreationTemplate #loginContent #serverError {
+  margin-top: 1em;
+  background: #f04124;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 0.3em;
+}
 #container #homeTemplate {
   background-color: #666666;
   color: #FFFFFF;
@@ -8749,13 +8775,6 @@ html, body {
   background-color: #004CB5;
 }
 #container #timeSheetTemplate {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-#container #timeSheetTemplate #timeSheetContent {
   background-color: #666666;
   color: #FFFFFF;
   padding: 1em;

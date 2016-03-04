@@ -1,5 +1,4 @@
 'use strict';
-
 var LocalStrategy = require('passport-local').Strategy;
 
 var Person = require('../serverObjects/person');
@@ -38,7 +37,7 @@ module.exports = function(passport, connection) {
               return done(err);
             }
             if (results.length) {
-              return done(null, false, req.flash('signupMessage', 'That token has already been used.'))
+              return done(null, false, {statusCode: 409, message: 'That token has already been used.'})
             } else {
               //checking if the email is already being used
               connection.query("SELECT 1 FROM Persons WHERE Email = ?", [email], function(err, results) {
@@ -46,7 +45,7 @@ module.exports = function(passport, connection) {
                   return done(err);
                 }
                 if (results.length) {
-                  return done(null, false, req.flash('signupMessage', 'That email has already been used.'))
+                  return done(null, false, {statusCode: 409, message: 'That email has already been used.'})
                 } else {
                   //Passed all checks. Create user.
                   var newPerson = new Person();
@@ -69,6 +68,29 @@ module.exports = function(passport, connection) {
           });
         }
       });
+    });
+  }));
+
+  passport.use('local-login', new LocalStrategy({
+    usernameField : 'Email',
+    passwordField: 'Password',
+    passReqToCallback: true
+  },
+  function(req, email, password, done) {
+    connection.query("SELECT * FROM Persons WHERE email = ?", [email], function(err, rows) {
+      if (err) { return done(err); }
+      if (!rows.length) {
+        return done(null, false, {statusCode: 404, message: 'Not a valid user'});
+      }
+
+      var loginPerson = new Person();
+      loginPerson.Email = rows[0].Email;
+      loginPerson.Password = rows[0].Password;
+      if (!loginPerson.validPassword(password))
+      {
+        return done(null, false, {statusCode: 404, message: 'Incorrect Password'});
+      }
+      return done(null, loginPerson);
     });
   }));
 };

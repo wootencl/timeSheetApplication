@@ -17,6 +17,8 @@ app.views.loginCreation = Backbone.View.extend({
             parent.find('small.error').html('').addClass('hidden');
           },
           invalid: function(view, attr, error) {
+            //Hide server errors if input error arises
+            $('#serverError').html('').addClass('hidden');
             var element = view.$("[name="+attr+"]");
             var parent = element.closest('.inputWrapper');
             element.addClass('error');
@@ -34,7 +36,6 @@ app.views.loginCreation = Backbone.View.extend({
     loginCreation: function(){
         event.preventDefault();
         var data = $('#loginCreation').serializeObject();
-        console.log(data);
         this.model.set(data);
         if (this.model.isValid(true)) {
             this.model.save({
@@ -45,10 +46,10 @@ app.views.loginCreation = Backbone.View.extend({
                 AuthToken: data.AuthToken
             }, {
                 success: function(model, response) {
-                    console.log(response);
+                    app.router.navigate('timeSheet', true);
                 },
                 error: function(model, response) {
-                    console.log(response);
+                    $('#serverError').html(response.responseJSON.message).removeClass('hidden');
                 }
             });
         }

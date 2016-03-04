@@ -121,6 +121,13 @@ $clndr-border: 1px solid #000;
   -khtml-border-radius: 0px 0px 3px 3px;
   -webkit-border-radius: 0px 0px 3px 3px;
 }
+@mixin serverError() {
+  margin-top: 1em;
+  background: #f04124;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 0.3em;
+}
 //Class Oriented CSS
 .verticalParent {
   @include verticalAlignParent;
@@ -210,6 +217,20 @@ html, body {
       small.error {
         @include smallError();
       }
+      #serverError {
+        @include serverError();
+      }
+    }
+    #loginContent {
+      #loginRequest input.error {
+        @include inputError();
+      }
+      small.error {
+        @include smallError();
+      }
+      #serverError {
+        @include serverError();
+      }
     }
   }
   #homeTemplate {
@@ -230,9 +251,8 @@ html, body {
     }
   }
   #timeSheetTemplate {
-    @include verticalAlign();
+    @include content();
     #timeSheetContent {
-      @include content();
       #clndr-view {
         // A large majority (if not all) of this stylings was taken from the second example calendar
         // from the CLNDR web page (http://kylestetz.github.io/CLNDR/)

@@ -103,7 +103,8 @@ var app = app || (function () {
             if(!this.loginView) {
                 this.loginView = new api.views.login({
                     el: $('#container'),
-                    template: this.createTemplate('templates/login.tpl')
+                    template: this.createTemplate('templates/login.tpl'),
+                    model: new api.models.PersonLogin()
                 });
             }
             return this.loginView;
