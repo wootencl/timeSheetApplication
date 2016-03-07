@@ -1,21 +1,16 @@
 'use strict';
 
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt');
 
-var Person = function(firstName, lastName, email, role, password) {
-  this.FirstName = firstName;
-  this.LastName = lastName;
-  this.Email = email;
-  this.Role = role;
-  this.Password = generateHash(password);
-
-  function generateHash(pass) {
-    return bcrypt.hashSync(pass, bcrypt.genSaltSync(8), null);
-  }
+var Person = function() {
 };
 
 Person.prototype.validPassword = function(password) {
   return bcrypt.compareSync(password, this.Password);
+};
+
+Person.prototype.generateHash = function(pass) {
+  return bcrypt.hashSync(pass, bcrypt.genSaltSync(8), null);
 };
 
 module.exports = Person;

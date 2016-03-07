@@ -11,7 +11,6 @@ var flash = require('connect-flash');
 var mysql = require('mysql');
 
 var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
@@ -28,19 +27,18 @@ connection.connect(function(err) {
     console.error('error connecting: ' + err.stack);
     return;
   }
-
   console.log('connected as id ' + connection.threadId);
 });
+require('./serverConfig/passport')(passport, connection);
 
 app.use(morgan('dev'));
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //passport setup
 app.use(session({ secret: 'E4393BD8F59EA85B3BC912CF4772E',
                   saveUninitialized: true,
-                  resave: true}));
+                  resave: true }));
 
 app.use(passport.initialize());
 app.use(passport.session());

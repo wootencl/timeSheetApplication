@@ -1,4 +1,4 @@
 special-vendored-path/* linguist-vendored
 dist/public/css/app.min.css linguist-vendored=true
 dist/public/css/libraries.min.css linguist-vendored=true
-app/public/css/app.css linguist-vendored=false
+app/public/css/app.css linguist-vendored=true

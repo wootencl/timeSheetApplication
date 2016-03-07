@@ -5,12 +5,12 @@ var Person = require('../serverObjects/person');
 
 module.exports = function(passport, connection) {
   passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user.auth_id);
   });
 
   passport.deserializeUser(function(id, done) {
     connection.query("SELECT * FROM Persons WHERE hex(ID) = ?", id, function(err, results) {
-      done(err, results[0]);
+      done(err, results[0].ID);
     });
   });
 
@@ -58,7 +58,7 @@ module.exports = function(passport, connection) {
                     if (err) {
                       return done(err);
                     } else {
-                      newPerson.id = req.body.AuthToken;
+                      newPerson.auth_id = req.body.AuthToken;
                       return done(null, newPerson);
                     }
                   });
@@ -90,6 +90,7 @@ module.exports = function(passport, connection) {
       {
         return done(null, false, {statusCode: 404, message: 'Incorrect Password'});
       }
+      loginPerson.auth_id = rows[0].ID;
       return done(null, loginPerson);
     });
   }));

@@ -38,8 +38,7 @@ app.use(bodyParser.json());
 //passport setup
 app.use(session({ secret: 'E4393BD8F59EA85B3BC912CF4772E',
                   saveUninitialized: true,
-                  resave: true,
-                  cookie: { secure: true }}));
+                  resave: true }));
 
 app.use(passport.initialize());
 app.use(passport.session());
