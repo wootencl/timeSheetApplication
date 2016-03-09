@@ -17,7 +17,7 @@ Currently I've gone with the idea of handing out authentication tokens in order 
 
 ####TODO:
 + Planning on launching a demo of the application here shortly. After which I intend on writing some tests to cover the current functionality of the application. 
-+ (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being a bit finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. Here's the link to the demo: [tsaDemo](tsaDemo.clwproductions.com)
++ (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being a bit finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. Here's the link to the demo: [tsaDemo](http://tsaDemo.clwproductions.com)
 
 ## Motivation
 
