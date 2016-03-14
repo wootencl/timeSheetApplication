@@ -14,7 +14,7 @@ app.models.PersonCreation = Backbone.Model.extend({
       required: true
     }, {
       length: 32,
-      pattern: /^[0-9A-F]+$/,
+      pattern: /^[0-9a-fA-F]+$/,
       msg: 'Invalid Authentication Token format'
     }],
     FirstName: [{

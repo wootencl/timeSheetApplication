@@ -25,28 +25,7 @@
     <div id="wrapper">
         <div id="header">
             <div class="row">
-                <div class="small-12 columns" id="headerBar">
-                    <a href="tel:843-277-0493" class="top-contact-info" style="padding-right: 5px;">
-                        <i class="fa fa-phone"></i>
-                        843-277-0493
-                    </a>
-                    <a href="mailto:info@elevationhealthcare.com" class="top-contact-info"> <i class="fa fa-envelope"></i>
-                        info@elevationhealthcare.com
-                    </a>
-                    <div style="float: right;">
-                        <a target="_blank" href="https://www.facebook.com/ElevationHealthcare" class="top-social-icon">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a target="_blank" href="https://www.linkedin.com/company/elevation-healthcare" class="top-social-icon">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a target="_blank" href="https://plus.google.com/113418667459138730721/about?hl=en" class="top-social-icon">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a target="_blank" href="https://twitter.com/elevathealth" class="top-social-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </div>
+                <div class="small-12 columns" id="headerBar-view">
                 </div>
             </div>
         </div>
@@ -92,12 +71,20 @@
     <!-- build:js(app/public) js/app.min.js -->
     <!-- include: "type": "js", "files": "js/**/*.js" -->
     <script src="js/app.js"></script>
+    <script src="js/collections/TimeSheets.js"></script>
+    <script src="js/models/Logout.js"></script>
     <script src="js/models/PersonCreation.js"></script>
     <script src="js/models/PersonLogin.js"></script>
+    <script src="js/models/Session.js"></script>
+    <script src="js/models/TimeSheetWeek.js"></script>
+    <script src="js/models/TimeSheets.js"></script>
     <script src="js/views/home.js"></script>
+    <script src="js/views/loggedInHeader.js"></script>
+    <script src="js/views/loggedOutHeader.js"></script>
     <script src="js/views/login.js"></script>
     <script src="js/views/loginCreation.js"></script>
     <script src="js/views/templates.js"></script>
+    <script src="js/views/timeSelector.js"></script>
     <script src="js/views/timeSheet.js"></script>
     <!-- /include -->
     <!-- endbuild -->

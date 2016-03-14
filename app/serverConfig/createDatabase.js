@@ -1,12 +1,13 @@
 var mysql = require('mysql');
-var dbconfig = require('database');
+var dbconfig = require('./database');
 
-var connection = mysql.createConnection(dbconfig.connection);
+var connection = mysql.createConnection(dbconfig.connectionData);
 
-connection.query('CREATE DATABASE ' + dbconfig.database);
+connection.query('CREATE DATABASE IF NOT EXISTS ' + dbconfig.database);
+console.log('Database created...');
 
 connection.query('\
-CREATE TABLE `' + dbconfig.database + '`.`' + dbconfig.tableName + '` ( \
+CREATE TABLE IF NOT EXISTS `' + dbconfig.database + '`.`Persons` ( \
     `ID` BINARY(16) NOT NULL, \
     `FirstName` VARCHAR(225), \
     `LastName` VARCHAR(225), \
@@ -15,9 +16,16 @@ CREATE TABLE `' + dbconfig.database + '`.`' + dbconfig.tableName + '` ( \
     `Password` CHAR(60), \
     PRIMARY KEY (`ID`) \
 )');
+console.log('Persons table created...');
 
-connection.query()
+//console.log('TimeSheets table created');
 
-console.log('Database Created')
-
-connection.end();
+connection.query('USE `' + dbconfig.database + '`');
+connection.query("SELECT REPLACE(UUID(),'-','') AS generatedID", function(err, results) {
+  if (err) { console.log(err) };
+  var generatedID = results[0].generatedID;
+  connection.query("INSERT INTO Persons Values( UNHEX('" + generatedID + "'), null, null, null, null, null)");
+  console.log('Person created...');
+  console.log('Your generated authentication token: ' + generatedID);
+  connection.end();
+});

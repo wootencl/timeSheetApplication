@@ -5,7 +5,7 @@
 
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8081;
+var port = process.env.PORT || 3000;
 var passport = require('passport');
 var flash = require('connect-flash');
 var mysql = require('mysql');
@@ -29,7 +29,6 @@ connection.connect(function(err) {
   }
   console.log('connected as id ' + connection.threadId);
 });
-require('./serverConfig/passport')(passport, connection);
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,11 +37,12 @@ app.use(bodyParser.json());
 //passport setup
 app.use(session({ secret: 'E4393BD8F59EA85B3BC912CF4772E',
                   saveUninitialized: true,
-                  resave: true }));
-
+                  resave: true,
+                  cookie: { httpOnly: true, maxAge: 60*60*1000 }
+                }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+require('./serverConfig/passport')(passport, connection);
 
 //routes
 require('./serverObjects/routes.js')(app, passport);

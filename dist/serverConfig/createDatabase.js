@@ -15,11 +15,10 @@ CREATE TABLE `' + dbconfig.database + '`.`' + dbconfig.tableName + '` ( \
     `Password` CHAR(60), \
     PRIMARY KEY (`ID`) \
 )');
-console.log('Database Created...');
+console.log('Database Created');
 
 var generatedID = connection.query("SELECT REPLACE(UUID(),'-','')");
 connection.query('INSERT INTO Persons Values( UNHEX(' + generatedID + '), null, null, null, null, null)');
-
 console.log('Your generated ID: ' + generatedID);
 
 connection.end();

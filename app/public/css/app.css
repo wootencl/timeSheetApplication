@@ -8669,20 +8669,28 @@ html, body {
 #header .row {
   max-width: 100%;
 }
-#header #headerBar {
+#header #headerBar-view {
   height: 2em;
   background-color: #0054C9;
   color: #FFFFFF;
   z-index: 10;
   line-height: 2em;
 }
-#header #headerBar .top-contact-info {
+#header #headerBar-view .top-contact-info, #header #headerBar-view #top-user-info {
   color: #FFFFFF;
   font-size: 0.8em;
 }
-#header #headerBar .top-social-icon {
+#header #headerBar-view .top-social-icon {
   color: #FFFFFF;
   padding: 0px 5px;
+}
+#header #headerBar-view #logoutButton {
+  padding: 0.1em 0.4em;
+  font-size: 0.8em;
+  background-color: #666666;
+}
+#header #headerBar-view #logoutButton:hover {
+  background-color: #595959;
 }
 
 #container {
@@ -8705,7 +8713,7 @@ html, body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-#container #loginTemplate #loginContent button, #container #loginTemplate #loginCreationContent button, #container #loginCreationTemplate #loginContent button, #container #loginCreationTemplate #loginCreationContent button {
+#container #loginTemplate #loginContent button:not(#logOut), #container #loginTemplate #loginCreationContent button:not(#logOut), #container #loginCreationTemplate #loginContent button:not(#logOut), #container #loginCreationTemplate #loginCreationContent button:not(#logOut) {
   background-color: #0054C9;
   color: #FFFFFF;
   border-radius: 5px;

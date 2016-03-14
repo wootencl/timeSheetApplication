@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 				}
 			},
 			scripts: {
-				files: ['<%= app %>/templates/*.tpl', '<%= app %>/public/js/views/*.js'],
+				files: ['<%= app %>/templates/*.tpl', '<%= app %>/public/js/views/**/*.js'],
 				tasks: ['jst', 'includeSource']
 			},
 			sass: {

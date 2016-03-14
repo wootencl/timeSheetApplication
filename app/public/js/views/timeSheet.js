@@ -1,3 +1,6 @@
+//Comments: Not garbage collecting the subviews in this view as they're destroyed/rerendered when
+//the parent view 'timeSheet' is closed and reopened.
+
 'use strict';
 
 app.views.timeSheet = Backbone.View.extend({
@@ -5,9 +8,10 @@ app.views.timeSheet = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
         this.template = _.template(this.options.template);
-        // this.subTemplate = this.options.subTemplate;
-        this.subViewCalendar = new subViewCalendar();
+
         this.subViewTimeSelector = new subViewTimeSelector();
+
+        this.subViewCalendar = new subViewCalendar();
         this.render();
     },
     render: function(){
@@ -40,7 +44,9 @@ var subViewCalendar = Backbone.View.extend({
 });
 
 var subViewTimeSelector = Backbone.View.extend({
-    render: function() {
+    render: function(data) {
+        this.options = data;
+
         this.template = _.template(app.createTemplate('templates/timeSelector.tpl'));
         $('#timeSelector-view').html(this.template({}));
         this.delegateEvents();

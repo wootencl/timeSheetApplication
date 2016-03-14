@@ -172,19 +172,27 @@ html, body {
   .row {
     max-width: 100%;
   }
-  #headerBar {
+  #headerBar-view {
     height: 2em;
     background-color: $elevation-blue;
     color: $font-color;
     z-index: 10;
     line-height: 2em;
-    .top-contact-info {
+    .top-contact-info, #top-user-info {
       color: #FFFFFF;
       font-size: 0.8em;
     }
     .top-social-icon {
       color: #FFFFFF;
       padding: 0px 5px;
+    }
+    #logoutButton {
+      padding: 0.1em 0.4em;
+      font-size: 0.8em;
+      background-color: #666666;
+    }
+    #logoutButton:hover {
+      background-color: #595959;
     }
   }
 }
@@ -203,7 +211,7 @@ html, body {
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
       }
-      button {
+      button:not(#logOut) {
         @include button();
       }
       button:hover {

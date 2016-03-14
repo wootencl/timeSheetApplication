@@ -10,7 +10,7 @@ module.exports = function(passport, connection) {
 
   passport.deserializeUser(function(id, done) {
     connection.query("SELECT * FROM Persons WHERE hex(ID) = ?", id, function(err, results) {
-      done(err, results[0].ID);
+      done(err, results[0]);
     });
   });
 
@@ -77,7 +77,7 @@ module.exports = function(passport, connection) {
     passReqToCallback: true
   },
   function(req, email, password, done) {
-    connection.query("SELECT * FROM Persons WHERE email = ?", [email], function(err, rows) {
+    connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role, Password FROM Persons WHERE email = ?", [email], function(err, rows) {
       if (err) { return done(err); }
       if (!rows.length) {
         return done(null, false, {statusCode: 404, message: 'Not a valid user'});
@@ -90,7 +90,7 @@ module.exports = function(passport, connection) {
       {
         return done(null, false, {statusCode: 404, message: 'Incorrect Password'});
       }
-      loginPerson.auth_id = rows[0].ID;
+      loginPerson.auth_id = rows[0]['HEX(ID)'];
       return done(null, loginPerson);
     });
   }));

@@ -63,6 +63,8 @@ var app = app || (function () {
             //Initialize Foundation
             $(document).foundation();
 
+            window.session = new api.models.Session();
+
             Backbone.history.start();
             return this;
         },
@@ -139,6 +141,36 @@ var app = app || (function () {
         }
     };
 
+    var HeaderViewFactory = {
+        showView: function(view) {
+            if (this.currentView) {
+                this.currentView.close();
+            }
+
+            this.currentView = view;
+            this.currentView.render();
+        },
+        loggedInHeader: function(data) {
+            if (!this.loggedInHeaderView) {
+                this.loggedInHeaderView = new api.views.loggedInHeader({
+                    el: $('#headerBar-view'),
+                    model: new api.models.Logout(),
+                    data: data
+                });
+            }
+            return this.loggedInHeaderView;
+        },
+        loggedOutHeader: function() {
+            if(!this.loggedOutHeaderView) {
+                this.loggedOutHeaderView = new api.views.loggedOutHeader({
+                    el: $('#headerBar-view'),
+                    template: api.createTemplate('templates/loggedOutHeader.tpl')
+                });
+            }
+            return this.loggedOutHeaderView;
+        }
+    }
+
     var Router = Backbone.Router.extend({
         routes: {
             'timeSheet' : 'timeSheet',
@@ -161,6 +193,27 @@ var app = app || (function () {
         timeSheet : function() {
             var view = ViewsFactory.timeSheet();
             ViewsFactory.showView(view);
+        },
+        execute: function(callback, args) {
+            //Using a cookie to handle whether or not the user has already been authenticated
+            window.session.fetch({
+                success: function(model, response) {
+                    if (response.isAuthenticated) {
+                        var data = { FirstName: response.FirstName, LastName: response.LastName};
+                        var view = HeaderViewFactory.loggedInHeader(data);
+                        HeaderViewFactory.showView(view);
+                        app.router.navigate('timeSheet', true);
+                        return false;
+                    } else {
+                        var view = HeaderViewFactory.loggedOutHeader();
+                        HeaderViewFactory.showView(view);
+                    }
+                },
+                error: function(model, response) {
+                    console.log("There was an error with the server.");
+                }
+            });
+            if (callback) callback.apply(this, args);
         }
     });
     api.router = new Router();

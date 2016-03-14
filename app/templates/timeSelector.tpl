@@ -104,7 +104,7 @@
       <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>
     </div>
     <div class="small-2 columns">
-      Total Hours
+      0
     </div>
   </div>
 </div>
