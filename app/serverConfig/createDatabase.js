@@ -29,3 +29,14 @@ connection.query("SELECT REPLACE(UUID(),'-','') AS generatedID", function(err, r
   console.log('Your generated authentication token: ' + generatedID);
   connection.end();
 });
+
+// You'll also want to add a 'database.js' in this same directory. The file should contain
+// something like this:
+// module.exports = {
+//   'connectionData' : {
+//     'host' : 'localhost',
+//     'user' : 'your_mysql_user',
+//     'password' : 'your_mysql_password'
+//   },
+//   'database' : 'timeSheetApplication'
+// };
