@@ -29,7 +29,7 @@ If you would like to get this project up and running on your own machine there a
 ##### Prerequisites: 
 
 * The below steps are going to assume you have Node.js installed. If that's not the case then you may want to head over to their [website](https://nodejs.org/en/) and get yourself a fresh install. 
-* In addition to Node.js an install of MySQL is required. There's many different ways of downloading MySQL so I'll leave that up to the user of how he/she wished to accomplish that.
+* In addition to Node.js an install of MySQL is required. There's many different ways of downloading MySQL so I'll leave that up to the user of how he/she wishes to accomplish that.
 
 #### Steps: 
 1. You'll first want to clone this package with git onto your local machine or download the zip from the options above. 
