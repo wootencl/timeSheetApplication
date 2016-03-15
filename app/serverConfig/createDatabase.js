@@ -1,13 +1,19 @@
 var mysql = require('mysql');
-var dbconfig = require('./database');
 
-var connection = mysql.createConnection(dbconfig.connectionData);
+var databaseName = 'timeSheetApplication';
+var connectionData = {
+  host: 'localhost',
+  user: 'your_mysql_user', //<-- Your MySQL user
+  password: 'your_mysql_password', //<-- Your MySQL user password
+};
 
-connection.query('CREATE DATABASE IF NOT EXISTS ' + dbconfig.database);
+var connection = mysql.createConnection(connectionData);
+
+connection.query('CREATE DATABASE IF NOT EXISTS ' + databaseName);
 console.log('Database created...');
 
 connection.query('\
-CREATE TABLE IF NOT EXISTS `' + dbconfig.database + '`.`Persons` ( \
+CREATE TABLE IF NOT EXISTS `' + databaseName + '`.`Persons` ( \
     `ID` BINARY(16) NOT NULL, \
     `FirstName` VARCHAR(225), \
     `LastName` VARCHAR(225), \
@@ -20,7 +26,7 @@ console.log('Persons table created...');
 
 //console.log('TimeSheets table created');
 
-connection.query('USE `' + dbconfig.database + '`');
+connection.query('USE `' + databaseName + '`');
 connection.query("SELECT REPLACE(UUID(),'-','') AS generatedID", function(err, results) {
   if (err) { console.log(err) };
   var generatedID = results[0].generatedID;
@@ -36,7 +42,6 @@ connection.query("SELECT REPLACE(UUID(),'-','') AS generatedID", function(err, r
 //   'connectionData' : {
 //     'host' : 'localhost',
 //     'user' : 'your_mysql_user',
-//     'password' : 'your_mysql_password'
-//   },
-//   'database' : 'timeSheetApplication'
+//     'password' : 'your_mysql_password',
+//     'database' : 'timeSheetApplication'
 // };

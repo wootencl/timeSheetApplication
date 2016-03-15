@@ -183,6 +183,7 @@ var app = app || (function () {
             ViewsFactory.showView(view);
         },
         login : function() {
+            console.log("in here");
             var view = ViewsFactory.login();
             ViewsFactory.showView(view);
         },
@@ -195,6 +196,7 @@ var app = app || (function () {
             ViewsFactory.showView(view);
         },
         execute: function(callback, args) {
+            console.log("in execute");
             //Using a cookie to handle whether or not the user has already been authenticated
             window.session.fetch({
                 success: function(model, response) {
@@ -203,17 +205,18 @@ var app = app || (function () {
                         var view = HeaderViewFactory.loggedInHeader(data);
                         HeaderViewFactory.showView(view);
                         app.router.navigate('timeSheet', true);
-                        return false;
+                        if (callback) callback.apply(this, args);
                     } else {
                         var view = HeaderViewFactory.loggedOutHeader();
                         HeaderViewFactory.showView(view);
+                        if (callback) callback.apply(this, args);
                     }
                 },
                 error: function(model, response) {
                     console.log("There was an error with the server.");
                 }
             });
-            if (callback) callback.apply(this, args);
+            return false;
         }
     });
     api.router = new Router();
