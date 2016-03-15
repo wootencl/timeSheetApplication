@@ -5,13 +5,34 @@ module.exports = function(app, passport) {
     res.sendFile( 'index.html', { root: process.env.PWD});
   });
 
+  app.get('/session', function (req, res) {
+    if (req.isAuthenticated()) {
+      res.status(200).send({ isAuthenticated: true, FirstName: req.user.FirstName, LastName: req.user.LastName });
+    } else {
+      res.status(200).send({ isAuthenticated: false });
+    }
+  });
+
+  //Wasn't orginally sending a message back with this but I think it attempts to parse the
+  //empty response and gets an error. Tried setting 'parse: false' on the client to no avail.
+  app.get('/logout', function (req, res) {
+    req.logout();
+    res.status(200).send({ message: 'You have successfully logged out.' });
+  });
+
   app.post('/loginCreation', function(req, res, next) {
     passport.authenticate('local-signup', function(err, person, info) {
       if (err) { return next(err); }
       if (!person) {
         return res.status(info.statusCode).send({ message: info.message });
       }
-      return res.status(200).send( { FirstName: person.FirstName } );
+      req.login(person, function(err) {
+        if (err) {
+          res.send(res, 500, 'Ups.');
+        } else {
+          return res.status(200).send( { FirstName: person.FirstName } );
+        }
+      });
     })(req, res, next);
   });
 
@@ -21,18 +42,13 @@ module.exports = function(app, passport) {
       if (!person) {
         return res.status(info.statusCode).send({ message: info.message });
       }
-      req.session.auth_id = person.auth_id;
-      res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-      return res.status(200).send( { message: 'SUCCESS' } );
+      req.login(person, function(err) {
+        if (err) {
+          res.send(res, 500, 'Ups.');
+        } else {
+          return res.status(200).send( { message: 'SUCCESS' } );
+        }
+      });
     })(req, res, next);
   });
-
-  function authUser(req, res, next) {
-    if(!req.session.auth_id) {
-      return res.status(401).send({ message: 'You are unauthorized.' });
-    } else {
-      res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-      next();
-    }
-  }
 };
