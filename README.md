@@ -17,7 +17,9 @@ Currently I've gone with the idea of handing out authentication tokens in order 
 
 ####TODO:
 + Planning on launching a demo of the application here shortly. After which I intend on writing some tests to cover the current functionality of the application. 
-+ (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. Here's the link to the demo: [tsaDemo](http://tsaDemo.clwproductions.com)
++ (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. A few comments on its current state. It can only handle one user at the moment as I need to implement pooling in addition I haven't built the admin panel yet so there's no way of creating users.
++ Link to demo: [tsaDemo](http://tsaDemo.clwproductions.com)
++ Login Credentials: demouser@gmail.com, password123
 
 ## Motivation
 
@@ -33,7 +35,9 @@ If you would like to get this project up and running on your own machine there a
 
 #### Steps: 
 1. You'll first want to clone this package with git onto your local machine or download the zip from the options above. 
+
 2. After that navigate into the root directory of the project where you recently cloned/downloaded it. 
+
 3. Once there you can run the following commands to download the projects dependencies:
 
     ```
@@ -58,7 +62,7 @@ If you would like to get this project up and running on your own machine there a
 
       ```node server```
       
-  2. Or if you want to go the more 'production' level you can issue the following commands (this will only work if you downloaded all the devleloper tools which means omitting the '--production' flag above):
+  2. Or if you want to go the more 'production' level you can issue the following commands (this will only work if you downloaded all the devleloper tools which means omitting the '--production' flag above)(NOTE: Currently I'm pushing the dist directory with my commits so you could probably just 'cd' into there and start the app. Sometimes I empty it though which means you would have to republish it):
   
     ```
     //Assuming your in the project's root directory. 
