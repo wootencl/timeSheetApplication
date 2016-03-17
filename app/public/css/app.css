@@ -8701,86 +8701,67 @@ html, body {
   min-height: 100%;
   background-color: #FFFFFF;
 }
-#container #loginTemplate, #container #loginCreationTemplate {
+#container #loginTemplate, #container #loginCreationTemplate, #container #homeTemplate, #container #adminTemplate {
   background-color: #666666;
   color: #FFFFFF;
   padding: 1em;
   font-size: 1.25em;
   height: auto;
 }
-#container #loginTemplate #loginContent input, #container #loginTemplate #loginCreationContent input, #container #loginCreationTemplate #loginContent input, #container #loginCreationTemplate #loginCreationContent input {
+#container #loginTemplate #loginContent input, #container #loginTemplate #loginCreationContent input, #container #loginTemplate #homeContent input, #container #loginTemplate #adminContent input, #container #loginCreationTemplate #loginContent input, #container #loginCreationTemplate #loginCreationContent input, #container #loginCreationTemplate #homeContent input, #container #loginCreationTemplate #adminContent input, #container #homeTemplate #loginContent input, #container #homeTemplate #loginCreationContent input, #container #homeTemplate #homeContent input, #container #homeTemplate #adminContent input, #container #adminTemplate #loginContent input, #container #adminTemplate #loginCreationContent input, #container #adminTemplate #homeContent input, #container #adminTemplate #adminContent input {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-#container #loginTemplate #loginContent button:not(#logOut), #container #loginTemplate #loginCreationContent button:not(#logOut), #container #loginCreationTemplate #loginContent button:not(#logOut), #container #loginCreationTemplate #loginCreationContent button:not(#logOut) {
+#container #loginTemplate #loginContent button, #container #loginTemplate #loginCreationContent button, #container #loginTemplate #homeContent button, #container #loginTemplate #adminContent button, #container #loginCreationTemplate #loginContent button, #container #loginCreationTemplate #loginCreationContent button, #container #loginCreationTemplate #homeContent button, #container #loginCreationTemplate #adminContent button, #container #homeTemplate #loginContent button, #container #homeTemplate #loginCreationContent button, #container #homeTemplate #homeContent button, #container #homeTemplate #adminContent button, #container #adminTemplate #loginContent button, #container #adminTemplate #loginCreationContent button, #container #adminTemplate #homeContent button, #container #adminTemplate #adminContent button {
   background-color: #0054C9;
   color: #FFFFFF;
   border-radius: 5px;
   margin: 0;
 }
-#container #loginTemplate #loginContent button:hover, #container #loginTemplate #loginCreationContent button:hover, #container #loginCreationTemplate #loginContent button:hover, #container #loginCreationTemplate #loginCreationContent button:hover {
+#container #loginTemplate #loginContent button:hover, #container #loginTemplate #loginCreationContent button:hover, #container #loginTemplate #homeContent button:hover, #container #loginTemplate #adminContent button:hover, #container #loginCreationTemplate #loginContent button:hover, #container #loginCreationTemplate #loginCreationContent button:hover, #container #loginCreationTemplate #homeContent button:hover, #container #loginCreationTemplate #adminContent button:hover, #container #homeTemplate #loginContent button:hover, #container #homeTemplate #loginCreationContent button:hover, #container #homeTemplate #homeContent button:hover, #container #homeTemplate #adminContent button:hover, #container #adminTemplate #loginContent button:hover, #container #adminTemplate #loginCreationContent button:hover, #container #adminTemplate #homeContent button:hover, #container #adminTemplate #adminContent button:hover {
   background-color: #004CB5;
 }
-#container #loginTemplate #loginCreationContent #loginCreation input.error, #container #loginCreationTemplate #loginCreationContent #loginCreation input.error {
+#container #loginTemplate #loginContent #homeButton, #container #loginTemplate #loginCreationContent #homeButton, #container #loginTemplate #homeContent #homeButton, #container #loginTemplate #adminContent #homeButton, #container #loginCreationTemplate #loginContent #homeButton, #container #loginCreationTemplate #loginCreationContent #homeButton, #container #loginCreationTemplate #homeContent #homeButton, #container #loginCreationTemplate #adminContent #homeButton, #container #homeTemplate #loginContent #homeButton, #container #homeTemplate #loginCreationContent #homeButton, #container #homeTemplate #homeContent #homeButton, #container #homeTemplate #adminContent #homeButton, #container #adminTemplate #loginContent #homeButton, #container #adminTemplate #loginCreationContent #homeButton, #container #adminTemplate #homeContent #homeButton, #container #adminTemplate #adminContent #homeButton {
+  padding: 0.5em 1em;
+}
+#container #loginTemplate #loginContent #homeButton #homeIcon, #container #loginTemplate #loginCreationContent #homeButton #homeIcon, #container #loginTemplate #homeContent #homeButton #homeIcon, #container #loginTemplate #adminContent #homeButton #homeIcon, #container #loginCreationTemplate #loginContent #homeButton #homeIcon, #container #loginCreationTemplate #loginCreationContent #homeButton #homeIcon, #container #loginCreationTemplate #homeContent #homeButton #homeIcon, #container #loginCreationTemplate #adminContent #homeButton #homeIcon, #container #homeTemplate #loginContent #homeButton #homeIcon, #container #homeTemplate #loginCreationContent #homeButton #homeIcon, #container #homeTemplate #homeContent #homeButton #homeIcon, #container #homeTemplate #adminContent #homeButton #homeIcon, #container #adminTemplate #loginContent #homeButton #homeIcon, #container #adminTemplate #loginCreationContent #homeButton #homeIcon, #container #adminTemplate #homeContent #homeButton #homeIcon, #container #adminTemplate #adminContent #homeButton #homeIcon {
+  font-size: 2em;
+}
+#container #loginTemplate #loginContent input.error, #container #loginTemplate #loginCreationContent input.error, #container #loginTemplate #homeContent input.error, #container #loginTemplate #adminContent input.error, #container #loginCreationTemplate #loginContent input.error, #container #loginCreationTemplate #loginCreationContent input.error, #container #loginCreationTemplate #homeContent input.error, #container #loginCreationTemplate #adminContent input.error, #container #homeTemplate #loginContent input.error, #container #homeTemplate #loginCreationContent input.error, #container #homeTemplate #homeContent input.error, #container #homeTemplate #adminContent input.error, #container #adminTemplate #loginContent input.error, #container #adminTemplate #loginCreationContent input.error, #container #adminTemplate #homeContent input.error, #container #adminTemplate #adminContent input.error {
   border-radius: 3px 3px 0px 0px !important;
   -moz-border-radius: 3px 3px 0px 0px !important;
   -khtml-border-radius: 3px 3px 0px 0px !important;
   -webkit-border-radius: 3px 3px 0px 0px !important;
 }
-#container #loginTemplate #loginCreationContent small.error, #container #loginCreationTemplate #loginCreationContent small.error {
+#container #loginTemplate #loginContent small.error, #container #loginTemplate #loginCreationContent small.error, #container #loginTemplate #homeContent small.error, #container #loginTemplate #adminContent small.error, #container #loginCreationTemplate #loginContent small.error, #container #loginCreationTemplate #loginCreationContent small.error, #container #loginCreationTemplate #homeContent small.error, #container #loginCreationTemplate #adminContent small.error, #container #homeTemplate #loginContent small.error, #container #homeTemplate #loginCreationContent small.error, #container #homeTemplate #homeContent small.error, #container #homeTemplate #adminContent small.error, #container #adminTemplate #loginContent small.error, #container #adminTemplate #loginCreationContent small.error, #container #adminTemplate #homeContent small.error, #container #adminTemplate #adminContent small.error {
   border-radius: 0px 0px 3px 3px;
   -moz-border-radius: 0px 0px 3px 3px;
   -khtml-border-radius: 0px 0px 3px 3px;
   -webkit-border-radius: 0px 0px 3px 3px;
 }
-#container #loginTemplate #loginCreationContent #serverError, #container #loginCreationTemplate #loginCreationContent #serverError {
+#container #loginTemplate #loginContent #serverError, #container #loginTemplate #loginCreationContent #serverError, #container #loginTemplate #homeContent #serverError, #container #loginTemplate #adminContent #serverError, #container #loginCreationTemplate #loginContent #serverError, #container #loginCreationTemplate #loginCreationContent #serverError, #container #loginCreationTemplate #homeContent #serverError, #container #loginCreationTemplate #adminContent #serverError, #container #homeTemplate #loginContent #serverError, #container #homeTemplate #loginCreationContent #serverError, #container #homeTemplate #homeContent #serverError, #container #homeTemplate #adminContent #serverError, #container #adminTemplate #loginContent #serverError, #container #adminTemplate #loginCreationContent #serverError, #container #adminTemplate #homeContent #serverError, #container #adminTemplate #adminContent #serverError {
   margin-top: 1em;
   background: #f04124;
   font-size: 0.75em;
   border-radius: 5px;
   padding: 0.3em;
 }
-#container #loginTemplate #loginContent #loginRequest input.error, #container #loginCreationTemplate #loginContent #loginRequest input.error {
-  border-radius: 3px 3px 0px 0px !important;
-  -moz-border-radius: 3px 3px 0px 0px !important;
-  -khtml-border-radius: 3px 3px 0px 0px !important;
-  -webkit-border-radius: 3px 3px 0px 0px !important;
-}
-#container #loginTemplate #loginContent small.error, #container #loginCreationTemplate #loginContent small.error {
-  border-radius: 0px 0px 3px 3px;
-  -moz-border-radius: 0px 0px 3px 3px;
-  -khtml-border-radius: 0px 0px 3px 3px;
-  -webkit-border-radius: 0px 0px 3px 3px;
-}
-#container #loginTemplate #loginContent #serverError, #container #loginCreationTemplate #loginContent #serverError {
-  margin-top: 1em;
-  background: #f04124;
-  font-size: 0.75em;
-  border-radius: 5px;
-  padding: 0.3em;
-}
-#container #homeTemplate {
-  background-color: #666666;
-  color: #FFFFFF;
-  padding: 1em;
-  font-size: 1.25em;
-  height: auto;
-}
-#container #homeTemplate #homeContent img {
+#container #loginTemplate #loginContent img, #container #loginTemplate #loginCreationContent img, #container #loginTemplate #homeContent img, #container #loginTemplate #adminContent img, #container #loginCreationTemplate #loginContent img, #container #loginCreationTemplate #loginCreationContent img, #container #loginCreationTemplate #homeContent img, #container #loginCreationTemplate #adminContent img, #container #homeTemplate #loginContent img, #container #homeTemplate #loginCreationContent img, #container #homeTemplate #homeContent img, #container #homeTemplate #adminContent img, #container #adminTemplate #loginContent img, #container #adminTemplate #loginCreationContent img, #container #adminTemplate #homeContent img, #container #adminTemplate #adminContent img {
   display: block;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-#container #homeTemplate #homeContent button {
-  background-color: #0054C9;
-  color: #FFFFFF;
-  border-radius: 5px;
-  margin: 0;
+#container #adminContent #adminPanelTitle {
+  font-size: 1.3em;
 }
-#container #homeTemplate #homeContent button:hover {
-  background-color: #004CB5;
+#container #adminContent .subSectionTitle {
+  border-top: 0.1em solid #FFFFFF;
+}
+#container #adminContent .directions {
+  font-size: 0.7em;
+  text-indent: 1em;
 }
 #container #timeSheetTemplate {
   background-color: #666666;

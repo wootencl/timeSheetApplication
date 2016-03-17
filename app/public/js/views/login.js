@@ -25,7 +25,8 @@ app.views.login = Backbone.View.extend({
         });
     },
     events: {
-      "click #loginButton" : "login"
+      'click #loginButton' : 'login',
+      'click #homeButton' : 'home'
     },
     render: function(){
         this.$el.html(this.template({}));
@@ -48,5 +49,8 @@ app.views.login = Backbone.View.extend({
                 }
             });
         }
+    },
+    home: function() {
+        app.router.navigate('', true);
     }
 });

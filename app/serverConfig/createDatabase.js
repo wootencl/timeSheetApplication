@@ -4,7 +4,7 @@ var databaseName = 'timeSheetApplication';
 var connectionData = {
   host: 'localhost',
   user: 'your_mysql_user', //<-- Your MySQL user
-  password: 'your_mysql_password', //<-- Your MySQL user password
+  password: 'your_mysql_password' //<-- Your MySQL user password
 };
 
 var connection = mysql.createConnection(connectionData);
@@ -21,20 +21,14 @@ CREATE TABLE IF NOT EXISTS `' + databaseName + '`.`Persons` ( \
     `Role` VARCHAR(225), \
     `Password` CHAR(60), \
     PRIMARY KEY (`ID`) \
+    UNIQUE (`Email`) \
 )');
 console.log('Persons table created...');
 
 //console.log('TimeSheets table created');
 
 connection.query('USE `' + databaseName + '`');
-connection.query("SELECT REPLACE(UUID(),'-','') AS generatedID", function(err, results) {
-  if (err) { console.log(err) };
-  var generatedID = results[0].generatedID;
-  connection.query("INSERT INTO Persons Values( UNHEX('" + generatedID + "'), null, null, null, null, null)");
-  console.log('Person created...');
-  console.log('Your generated authentication token: ' + generatedID);
-  connection.end();
-});
+
 
 // You'll also want to add a 'database.js' in this same directory. The file should contain
 // something like this:

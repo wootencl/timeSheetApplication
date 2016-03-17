@@ -4,9 +4,18 @@
       <div class="row">
         <div class="small-12 columns">
           <div id="loginCreationContent">
-            <span id="loginIntroText">
-              Don't have login yet? No problem! Provide your authentication key and fill in the information below to get started.
-            </span>
+            <div class="row">
+              <div class="small-2 columns">
+                <button id="homeButton" class="button round expand" type="button">
+                  <i id="homeIcon" class="fa fa-home"></i>
+                </button>
+              </div>
+              <div class="small-10 columns">
+                <span id="loginIntroText">
+                  Don't have login yet? No problem! Provide your authentication key and fill in the information below to get started.
+                </span>
+              </div>
+            </div>
             <form id="loginCreation">
               <div class="row">
                 <div class="small-6 columns">

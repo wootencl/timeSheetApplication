@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
   app.get('/session', function (req, res) {
     if (req.isAuthenticated()) {
-      res.status(200).send({ isAuthenticated: true, FirstName: req.user.FirstName, LastName: req.user.LastName });
+      res.status(200).send({ isAuthenticated: true, FirstName: req.user.FirstName, LastName: req.user.LastName, Role: req.user.Role });
     } else {
       res.status(200).send({ isAuthenticated: false });
     }

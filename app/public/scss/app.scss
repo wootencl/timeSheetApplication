@@ -203,49 +203,10 @@ html, body {
   height: auto;
   min-height: 100%;
   background-color: $white-background;
-  #loginTemplate, #loginCreationTemplate {
+  #loginTemplate, #loginCreationTemplate, #homeTemplate, #adminTemplate {
     @include content();
-    #loginContent, #loginCreationContent {
+    #loginContent, #loginCreationContent, #homeContent, #adminContent {
       input {
-        border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-      }
-      button:not(#logOut) {
-        @include button();
-      }
-      button:hover {
-          background-color: $button-hover;
-      }
-    }
-    #loginCreationContent {
-      #loginCreation input.error {
-        @include inputError();
-      }
-      small.error {
-        @include smallError();
-      }
-      #serverError {
-        @include serverError();
-      }
-    }
-    #loginContent {
-      #loginRequest input.error {
-        @include inputError();
-      }
-      small.error {
-        @include smallError();
-      }
-      #serverError {
-        @include serverError();
-      }
-    }
-  }
-  #homeTemplate {
-    @include content();
-    #homeContent {
-      img {
-        display: block;
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
@@ -254,8 +215,41 @@ html, body {
         @include button();
       }
       button:hover {
-        background-color: $button-hover;
+          background-color: $button-hover;
       }
+      #homeButton {
+        padding: 0.5em 1em;
+       #homeIcon {
+          font-size: 2em;
+        }
+      }
+      input.error {
+        @include inputError();
+      }
+      small.error {
+        @include smallError();
+      }
+      #serverError {
+        @include serverError();
+      }
+      img {
+        display: block;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+      }
+    }
+  }
+  #adminContent {
+    #adminPanelTitle {
+      font-size: 1.3em
+    }
+    .subSectionTitle {
+      border-top: 0.1em solid #FFFFFF;
+    }
+    .directions {
+      font-size: 0.7em;
+      text-indent: 1em
     }
   }
   #timeSheetTemplate {

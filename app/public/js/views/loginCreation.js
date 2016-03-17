@@ -27,7 +27,8 @@ app.views.loginCreation = Backbone.View.extend({
         });
     },
     events: {
-      "click #submitButton" : "loginCreation"
+      "click #submitButton" : "loginCreation",
+      "click #homeButton" : "home"
     },
     render: function(){
         this.$el.html(this.template({}));
@@ -53,5 +54,8 @@ app.views.loginCreation = Backbone.View.extend({
                 }
             });
         }
+    },
+    home: function() {
+        app.router.navigate('', true);
     }
 });

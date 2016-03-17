@@ -88,6 +88,9 @@ var app = app || (function () {
         }
     };
 
+    //Notes on Factories:
+    // - Static views are attached the factory at initialization. Dynamic
+    //views are recreated and rereferenced to the factory object.
     var ViewsFactory = {
         createTemplate: function(templatePath, data) {
             var templateString = window['JST'][templatePath](data);
@@ -138,6 +141,12 @@ var app = app || (function () {
                 });
             }
             return this.timeSheetView;
+        },
+        admin: function() {
+            this.AdminView = new api.views.admin({
+                el: $('#container')
+            });
+            return this.AdminView;
         }
     };
 
@@ -151,13 +160,11 @@ var app = app || (function () {
             this.currentView.render();
         },
         loggedInHeader: function(data) {
-            if (!this.loggedInHeaderView) {
-                this.loggedInHeaderView = new api.views.loggedInHeader({
-                    el: $('#headerBar-view'),
-                    model: new api.models.Logout(),
-                    data: data
-                });
-            }
+            this.loggedInHeaderView = new api.views.loggedInHeader({
+                el: $('#headerBar-view'),
+                model: new api.models.Logout(),
+                data: data
+            });
             return this.loggedInHeaderView;
         },
         loggedOutHeader: function() {
@@ -173,17 +180,21 @@ var app = app || (function () {
 
     var Router = Backbone.Router.extend({
         routes: {
+            'AdminPanel' : 'admin',
             'timeSheet' : 'timeSheet',
             'CreateAccount' : 'loginCreation',
             'login' : 'login',
             '' : 'home'
+        },
+        admin: function() {
+            var view = ViewsFactory.admin();
+            ViewsFactory.showView(view);
         },
         loginCreation : function () {
             var view = ViewsFactory.loginCreation();
             ViewsFactory.showView(view);
         },
         login : function() {
-            console.log("in here");
             var view = ViewsFactory.login();
             ViewsFactory.showView(view);
         },
@@ -196,28 +207,51 @@ var app = app || (function () {
             ViewsFactory.showView(view);
         },
         execute: function(callback, args) {
-            console.log("in execute");
             //Using a cookie to handle whether or not the user has already been authenticated
+            var self = this;
             window.session.fetch({
                 success: function(model, response) {
+                    console.log(callback);
+                    var route = Backbone.history.getFragment();
                     if (response.isAuthenticated) {
                         var data = { FirstName: response.FirstName, LastName: response.LastName};
                         var view = HeaderViewFactory.loggedInHeader(data);
                         HeaderViewFactory.showView(view);
-                        app.router.navigate('timeSheet', true);
-                        if (callback) callback.apply(this, args);
+                        console.log(response);
+                        if (response.Role === 'ADMIN') {
+                            if (_.contains(self.requiresAuthAdmin, route)) {
+                                 if (callback) callback.apply(this, args);
+                            } else {
+                                app.router.navigate('AdminPanel', true);
+                                return false;
+                            }
+                        } else {
+                            if (_.contains(self.requiresAuth, route)) {
+                                if (callback) callback.apply(this, args);
+                            } else {
+                                app.router.navigate('timeSheet', true);
+                                return false;
+                            }
+                        }
                     } else {
                         var view = HeaderViewFactory.loggedOutHeader();
                         HeaderViewFactory.showView(view);
-                        if (callback) callback.apply(this, args);
+                        if (_.contains(self.NotRequireAuth, route)) {
+                            if (callback) callback.apply(this, args);
+                        } else {
+                            app.router.navigate('login', true);
+                            return false;
+                        }
                     }
                 },
                 error: function(model, response) {
                     console.log("There was an error with the server.");
                 }
             });
-            return false;
-        }
+        },
+        requiresAuthAdmin: ['AdminPanel'],
+        requiresAuth: ['timeSheet'],
+        NotRequireAuth: ['CreateAccount', 'login', '']
     });
     api.router = new Router();
 
