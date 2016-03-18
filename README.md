@@ -20,7 +20,7 @@ Currently I've gone with the idea of handing out authentication tokens in order 
   + (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. A few comments on its current state. It can only handle one user at the moment as I need to implement pooling.
   + Link to demo: [tsaDemo](http://tsaDemo.clwproductions.com)
   + Login Credentials: USER: demouser@gmail.com, password123; ADMIN: demoadmin@gmail.com, password123
-+ Planning on writing test cases and configuring for mobile this weekend. 
++ Planning on writing test cases and configuring for mobile this weekend (3.17.16). 
 
 ## Motivation
 
