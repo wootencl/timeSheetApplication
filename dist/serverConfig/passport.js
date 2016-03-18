@@ -32,7 +32,7 @@ module.exports = function(passport, connection) {
           return done(null, false, {statusCode: 404, message: 'That token does not seem to exist.'});
         } else {
           //checking if the token has already been used.
-          connection.query("SELECT 1 FROM Persons WHERE hex(ID) = ? AND Email is NOT NULL", [req.body.AuthToken], function(err, results) {
+          connection.query("SELECT 1 FROM Persons WHERE hex(ID) = ? AND Password is NOT NULL", [req.body.AuthToken], function(err, results) {
             if (err) {
               return done(err);
             }
@@ -40,7 +40,7 @@ module.exports = function(passport, connection) {
               return done(null, false, {statusCode: 409, message: 'That token has already been used.'})
             } else {
               //checking if the email is already being used
-              connection.query("SELECT 1 FROM Persons WHERE Email = ?", [email], function(err, results) {
+              connection.query("SELECT 1 FROM Persons WHERE Email = ? AND hex(ID) <> ?", [email, req.body.AuthToken], function(err, results) {
                 if (err) {
                   return done(err);
                 }
@@ -80,7 +80,7 @@ module.exports = function(passport, connection) {
     connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role, Password FROM Persons WHERE email = ?", [email], function(err, rows) {
       if (err) { return done(err); }
       if (!rows.length) {
-        return done(null, false, {statusCode: 404, message: 'Not a valid user'});
+        return done(null, false, {statusCode: 404, message: 'Invalid Credentials'});
       }
 
       var loginPerson = new Person();
@@ -88,7 +88,7 @@ module.exports = function(passport, connection) {
       loginPerson.Password = rows[0].Password;
       if (!loginPerson.validPassword(password))
       {
-        return done(null, false, {statusCode: 404, message: 'Incorrect Password'});
+        return done(null, false, {statusCode: 404, message: 'Invalid Credentials'});
       }
       loginPerson.auth_id = rows[0]['HEX(ID)'];
       return done(null, loginPerson);

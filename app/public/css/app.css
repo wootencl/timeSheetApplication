@@ -8754,14 +8754,41 @@ html, body {
   -webkit-border-radius: 5px;
 }
 #container #adminContent #adminPanelTitle {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  text-align: center;
 }
 #container #adminContent .subSectionTitle {
-  border-top: 0.1em solid #FFFFFF;
+  font-size: 0.9em;
 }
 #container #adminContent .directions {
   font-size: 0.7em;
   text-indent: 1em;
+}
+#container #adminContent .users {
+  margin: 1em 0em;
+  border-top: 0.1em solid #FFFFFF;
+}
+#container #adminContent .user {
+  text-align: left;
+  height: 2em;
+  padding: 0em 0.5em;
+  width: 100%;
+  margin-bottom: 1px !important;
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.75);
+}
+#container #adminContent .verified {
+  background-color: #69a776 !important;
+}
+#container #adminContent .verified:hover {
+  background-color: #559162 !important;
+}
+#container #adminContent .unverified {
+  background-color: #dd3c3c !important;
+}
+#container #adminContent .unverified:hover {
+  background-color: #d92626 !important;
 }
 #container #timeSheetTemplate {
   background-color: #666666;

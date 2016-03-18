@@ -211,13 +211,11 @@ var app = app || (function () {
             var self = this;
             window.session.fetch({
                 success: function(model, response) {
-                    console.log(callback);
                     var route = Backbone.history.getFragment();
                     if (response.isAuthenticated) {
                         var data = { FirstName: response.FirstName, LastName: response.LastName};
                         var view = HeaderViewFactory.loggedInHeader(data);
                         HeaderViewFactory.showView(view);
-                        console.log(response);
                         if (response.Role === 'ADMIN') {
                             if (_.contains(self.requiresAuthAdmin, route)) {
                                  if (callback) callback.apply(this, args);
