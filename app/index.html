@@ -33,7 +33,11 @@
         <div id="container">
             Loading...
         </div>
-        <div id="footer">Copyright &copy; Elevation Healthcare 2015 | Application by Carter Wooten</div>
+        <div id="footer">Copyright &copy; Elevation Healthcare 2015 | Application by Carter Wooten
+        <a target="_blank" href="https://github.com/wootencl/timeSheetApplication" id="github-icon">
+            <i class="fa fa-github"></i>
+        </a>
+        </div>
     </div>
 
     <!-- build:js js/vendor/libraries.min.js -->
@@ -71,13 +75,14 @@
     <!-- build:js(app/public) js/app.min.js -->
     <!-- include: "type": "js", "files": "js/**/*.js" -->
     <script src="js/app.js"></script>
+    <script src="js/collections/Persons.js"></script>
     <script src="js/collections/TimeSheets.js"></script>
     <script src="js/models/Logout.js"></script>
+    <script src="js/models/Person.js"></script>
     <script src="js/models/PersonCreation.js"></script>
     <script src="js/models/PersonLogin.js"></script>
     <script src="js/models/Session.js"></script>
     <script src="js/models/TimeSheetWeek.js"></script>
-    <script src="js/models/TimeSheets.js"></script>
     <script src="js/views/admin.js"></script>
     <script src="js/views/home.js"></script>
     <script src="js/views/loggedInHeader.js"></script>

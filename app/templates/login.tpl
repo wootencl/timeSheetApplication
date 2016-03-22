@@ -5,12 +5,12 @@
         <div class="small-12 medium-6 large-6 small-centered columns">
           <div id="loginContent">
             <div class="row">
-              <div class="small-3 columns">
+              <div class="small-4 medium-3 large-4 columns">
                 <button id="homeButton" class="button round expand" type="button">
                   <i id="homeIcon" class="fa fa-home"></i>
                 </button>
               </div>
-              <div class="small-9 columns">
+              <div class="small-8 medium-9 large 9 columns">
                 <span id="loginIntroText">
                   Already have a login? Great! Sign in below.
                 </span>

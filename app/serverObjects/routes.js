@@ -1,8 +1,25 @@
 'use strict';
 
-module.exports = function(app, passport) {
+var Persons = require('../serverObjects/persons');
+
+module.exports = function(app, passport, connection) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
+  });
+
+  app.get('/persons', function(req,res) {
+    if (req.user.Role === 'ADMIN') {
+      var persons = new Persons(connection);
+      persons.fetch(function(err, results) {
+        if (err) {
+          res.sendStatus(500);
+        }
+        res.status(200).send(results);
+      });
+    } else {
+      res.sendStatus(500);
+      //send back to the home with server error message
+    }
   });
 
   app.get('/session', function (req, res) {

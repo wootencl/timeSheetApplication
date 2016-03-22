@@ -56,7 +56,7 @@
 // - Rounded Corners: http://www.cssportal.com/css3-rounded-corner/
 // - Box Shadow: http://www.cssmatic.com/box-shadow
 
-//Global CSS Stylings
+// ### GENERAL CSS ###
 .no-pad-right {
 padding-right: 0;
 }
@@ -100,7 +100,6 @@ $clndr-border: 1px solid #000;
   background-color: $elevation-grey;
   color: $font-color;
   padding: 1em;
-  font-size: 1.25em;
   height: auto;
 }
 @mixin button() {
@@ -184,7 +183,7 @@ html, body {
     }
     .top-social-icon {
       color: #FFFFFF;
-      padding: 0px 5px;
+      padding: 0em 5px;
     }
     #logoutButton {
       padding: 0.1em 0.5em;
@@ -196,6 +195,12 @@ html, body {
     }
   }
 }
+.hidden {
+  display: none !important;
+}
+// ### END ###
+
+// ### CONTAINER CSS ###
 #container {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 6em;
@@ -205,6 +210,7 @@ html, body {
   background-color: $white-background;
   #loginTemplate, #loginCreationTemplate, #homeTemplate, #adminTemplate {
     @include content();
+
     #loginContent, #loginCreationContent, #homeContent, #adminContent {
       input {
         border-radius: 5px;
@@ -237,20 +243,59 @@ html, body {
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
+        margin: auto;
+      }
+    }
+    #loginContent, #loginCreationContent {
+      > .row:first-child {
+        margin-bottom: 1em;
       }
     }
   }
+
+  // ### HOME CSS ###
+  #homeContent {
+    .columns {
+      height: 9em;
+    }
+    .columns.buttons {
+      padding: 0.5em 0em;
+    }
+    img {
+      height: 7em;
+    }
+    #homeTitle {
+      height: 2em;
+      text-align: center;
+      line-height: 2em;
+    }
+    #toLoginPageButton {
+      height: 3em;
+      margin-bottom: 2em !important;
+    }
+    #toAccountCreationButton {
+      height: 3em;
+    }
+  }
+  // ### END ###
+
+  // ### ADMIN CSS ###
   #adminContent {
+    img {
+      height: 7em;
+      margin: auto;
+    }
     #adminPanelTitle {
+      height: 2em;
       font-size: 1.2em;
       text-align: center;
     }
     .subSectionTitle {
-      font-size: 0.9em;
+      font-size: 1.2em;
+      height: 2em;
     }
-    .directions {
-      font-size: 0.7em;
-      text-indent: 1em
+    #createUserRequest {
+      height: 7em;
     }
     .users {
       margin: 1em 0em;
@@ -258,7 +303,7 @@ html, body {
     }
     .user {
       text-align: left;
-      height: 2em;
+      min-height: 2em;
       padding: 0em 0.5em;
       width: 100%;
       margin-bottom: 1px !important;
@@ -279,6 +324,9 @@ html, body {
       background-color: #d92626 !important;
     }
   }
+  // ### END ###
+
+  // ### TIMESHEET CSS ###
   #timeSheetTemplate {
     @include content();
     #timeSheetContent {
@@ -380,7 +428,10 @@ html, body {
       }
     }
   }
+  // ### END ###
 }
+
+// ### FOOTER CSS ###
 #footer {
   font-family: 'Titillium Web', sans-serif;
   text-align: center;
@@ -391,7 +442,23 @@ html, body {
   background-color: $elevation-blue;
   color: $font-color;
   margin-top: -2em;
+  line-height: 2em;
+  #github-icon {
+    color: #FFFFFF;
+    padding: 0px 5px;
+  }
 }
-.hidden {
-  display: none !important;
+// ### END ###
+
+// ### MEDIA QUERY CSS ###
+@media #{$small-only} {
+  #headerBar-view {
+    #contactPhone, #contactEmail {
+      display: none;
+    }
+  }
+  #footer {
+    font-size: 0.5em;
+  }
 }
+// ### END ###

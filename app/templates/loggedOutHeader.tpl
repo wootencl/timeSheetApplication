@@ -1,9 +1,13 @@
-<a href="tel:843-277-0493" class="top-contact-info" style="padding-right: 5px;">
+<a href="tel:843-277-0493" class="top-contact-info" style="padding-right: 1em;">
     <i class="fa fa-phone"></i>
-    843-277-0493
+    <span id="contactPhone">
+        843-277-0493
+    </span>
 </a>
 <a href="mailto:info@elevationhealthcare.com" class="top-contact-info"> <i class="fa fa-envelope"></i>
-    info@elevationhealthcare.com
+    <span id="contactEmail">
+        info@elevationhealthcare.com
+    </span>
 </a>
 <div style="float: right;">
     <a target="_blank" href="https://www.facebook.com/ElevationHealthcare" class="top-social-icon">

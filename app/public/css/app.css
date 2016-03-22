@@ -8682,7 +8682,7 @@ html, body {
 }
 #header #headerBar-view .top-social-icon {
   color: #FFFFFF;
-  padding: 0px 5px;
+  padding: 0em 5px;
 }
 #header #headerBar-view #logoutButton {
   padding: 0.1em 0.5em;
@@ -8691,6 +8691,10 @@ html, body {
 }
 #header #headerBar-view #logoutButton:hover {
   background-color: #595959;
+}
+
+.hidden {
+  display: none !important;
 }
 
 #container {
@@ -8705,7 +8709,6 @@ html, body {
   background-color: #666666;
   color: #FFFFFF;
   padding: 1em;
-  font-size: 1.25em;
   height: auto;
 }
 #container #loginTemplate #loginContent input, #container #loginTemplate #loginCreationContent input, #container #loginTemplate #homeContent input, #container #loginTemplate #adminContent input, #container #loginCreationTemplate #loginContent input, #container #loginCreationTemplate #loginCreationContent input, #container #loginCreationTemplate #homeContent input, #container #loginCreationTemplate #adminContent input, #container #homeTemplate #loginContent input, #container #homeTemplate #loginCreationContent input, #container #homeTemplate #homeContent input, #container #homeTemplate #adminContent input, #container #adminTemplate #loginContent input, #container #adminTemplate #loginCreationContent input, #container #adminTemplate #homeContent input, #container #adminTemplate #adminContent input {
@@ -8752,17 +8755,47 @@ html, body {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  margin: auto;
+}
+#container #loginTemplate #loginContent > .row:first-child, #container #loginTemplate #loginCreationContent > .row:first-child, #container #loginCreationTemplate #loginContent > .row:first-child, #container #loginCreationTemplate #loginCreationContent > .row:first-child, #container #homeTemplate #loginContent > .row:first-child, #container #homeTemplate #loginCreationContent > .row:first-child, #container #adminTemplate #loginContent > .row:first-child, #container #adminTemplate #loginCreationContent > .row:first-child {
+  margin-bottom: 1em;
+}
+#container #homeContent .columns {
+  height: 9em;
+}
+#container #homeContent .columns.buttons {
+  padding: 0.5em 0em;
+}
+#container #homeContent img {
+  height: 7em;
+}
+#container #homeContent #homeTitle {
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+}
+#container #homeContent #toLoginPageButton {
+  height: 3em;
+  margin-bottom: 2em !important;
+}
+#container #homeContent #toAccountCreationButton {
+  height: 3em;
+}
+#container #adminContent img {
+  height: 7em;
+  margin: auto;
 }
 #container #adminContent #adminPanelTitle {
+  height: 2em;
   font-size: 1.2em;
   text-align: center;
 }
 #container #adminContent .subSectionTitle {
-  font-size: 0.9em;
+  font-size: 1.2em;
+  height: 2em;
 }
-#container #adminContent .directions {
-  font-size: 0.7em;
-  text-indent: 1em;
+#container #adminContent #createUserRequest {
+  height: 7em;
 }
 #container #adminContent .users {
   margin: 1em 0em;
@@ -8770,7 +8803,7 @@ html, body {
 }
 #container #adminContent .user {
   text-align: left;
-  height: 2em;
+  min-height: 2em;
   padding: 0em 0.5em;
   width: 100%;
   margin-bottom: 1px !important;
@@ -8794,7 +8827,6 @@ html, body {
   background-color: #666666;
   color: #FFFFFF;
   padding: 1em;
-  font-size: 1.25em;
   height: auto;
 }
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr {
@@ -8898,10 +8930,21 @@ html, body {
   background-color: #0054C9;
   color: #FFFFFF;
   margin-top: -2em;
+  line-height: 2em;
+}
+#footer #github-icon {
+  color: #FFFFFF;
+  padding: 0px 5px;
 }
 
-.hidden {
-  display: none !important;
+@media only screen and (max-width: 40em) {
+  #headerBar-view #contactPhone, #headerBar-view #contactEmail {
+    display: none;
+  }
+
+  #footer {
+    font-size: 0.5em;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

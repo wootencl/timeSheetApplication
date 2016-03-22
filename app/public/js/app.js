@@ -144,7 +144,8 @@ var app = app || (function () {
         },
         admin: function() {
             this.AdminView = new api.views.admin({
-                el: $('#container')
+                el: $('#container'),
+                collection: new api.collections.Persons()
             });
             return this.AdminView;
         }
