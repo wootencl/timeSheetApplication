@@ -45,7 +45,7 @@ app.use(passport.session());
 require('./serverConfig/passport')(passport, connection);
 
 //routes
-require('./serverObjects/routes.js')(app, passport);
+require('./serverObjects/routes.js')(app, passport, connection);
 
 var server = app.listen(port, '127.0.0.1', function () {
   var host = server.address().address;

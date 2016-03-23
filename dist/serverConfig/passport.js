@@ -9,7 +9,7 @@ module.exports = function(passport, connection) {
   });
 
   passport.deserializeUser(function(id, done) {
-    connection.query("SELECT * FROM Persons WHERE hex(ID) = ?", id, function(err, results) {
+    connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons WHERE hex(ID) = ?", id, function(err, results) {
       done(err, results[0]);
     });
   });

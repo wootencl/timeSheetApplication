@@ -161,6 +161,7 @@ module.exports = function(grunt) {
 
 		includeSource: {
 			options: {
+				ordering: 'top-down',
 				basePath: 'app/public',
 				baseUrl: '',
 				templates: {
