@@ -61,7 +61,15 @@ If you would like to get this project up and running on your own machine there a
   node serverConfig/createDatabase.js
   ```
 
-5. Now that you have all the dependencies installed and the database created you have one of two options:
+5. Once the database is created you can generate some test data using the 'createTestData.js' script. First you'll want to go into that file and modify it in a similair fashion as the 'createDatabase.js' script. Then just run this command:
+
+
+```
+//This will log for every user created.
+node serverConfig/createTestData.js
+```
+
+6. Now that you have all the dependencies installed and the database created you have one of two options:
   1. You can either cd into the ```app``` directory and run the following command:
 
       ```node server```
@@ -75,8 +83,8 @@ If you would like to get this project up and running on your own machine there a
     node server
     ```
 
-6. The above should print something along the lines of ```App listening at http://127.0.0.1:3000``` out to the console. Then you can navigate to that URL in the browser of your choice and the app will be there.
-7. That's it! Currently it's still very much in the construction phase so please understand the lack of many things in the project because of that.
+7. The above should print something along the lines of ```App listening at http://127.0.0.1:3000``` out to the console. Then you can navigate to that URL in the browser of your choice and the app will be there.
+8. That's it! Currently it's still very much in the construction phase so please understand the lack of many things in the project because of that.
 
 ## Future Work
 

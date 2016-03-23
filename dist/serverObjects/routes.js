@@ -12,12 +12,12 @@ module.exports = function(app, passport, connection) {
       var persons = new Persons(connection);
       persons.fetch(function(err, results) {
         if (err) {
-          res.sendStatus(500);
+          return res.sendStatus(500);
         }
-        res.status(200).send(results);
+        return res.status(200).send(results);
       });
     } else {
-      res.sendStatus(500);
+      return res.sendStatus(500);
       //send back to the home with server error message
     }
   });

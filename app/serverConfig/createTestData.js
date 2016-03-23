@@ -73,7 +73,6 @@ for (var userKey in users) {
       console.log('User created...');
   });
 }
-console.log("here");
 //Insert invalid users
 for (var tokenKey in UnusedTokens) {
   if (!UnusedTokens.hasOwnProperty(tokenKey)) continue;
