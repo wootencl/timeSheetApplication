@@ -73,16 +73,17 @@
     <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
     <!-- endbuild -->
     <!-- build:js(app/public) js/app.min.js -->
-    <!-- include: "type": "js", "files": "js/**/*.js" -->
+    <!-- include: "type": "js", "files": "js/*.js, js/models/**.js, js/*/**.js" -->
     <script src="js/app.js"></script>
-    <script src="js/collections/Persons.js"></script>
-    <script src="js/collections/TimeSheets.js"></script>
     <script src="js/models/Logout.js"></script>
     <script src="js/models/Person.js"></script>
     <script src="js/models/PersonCreation.js"></script>
     <script src="js/models/PersonLogin.js"></script>
     <script src="js/models/Session.js"></script>
     <script src="js/models/TimeSheetWeek.js"></script>
+    <script src="js/models/TokenCreation.js"></script>
+    <script src="js/collections/Persons.js"></script>
+    <script src="js/collections/TimeSheets.js"></script>
     <script src="js/views/admin.js"></script>
     <script src="js/views/home.js"></script>
     <script src="js/views/loggedInHeader.js"></script>
