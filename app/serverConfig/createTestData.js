@@ -4,8 +4,8 @@ var mysql = require('mysql');
 
 var connectionData = {
   host: 'localhost',
-  user: 'tSADBAdmin', //<-- Your MySQL user
-  password: 'Elevation2016?', //<-- Your MySQL user password
+  user: 'your_mysql_user', //<-- Your MySQL user
+  password: 'your_mysql_password', //<-- Your MySQL user password
   database: 'timeSheetApplication'
 };
 

@@ -1,11 +1,9 @@
-var Person = require('./person');
-
 var Persons = function(connection){
   this.connection = connection;
 };
 
 Persons.prototype.fetch = function(callback) {
-  this.connection.query("SELECT HEX(ID), LastName, FirstName, Email FROM PERSONS", function(err, results) {
+  this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM PERSONS", function(err, results) {
     if (err) {
       return callback(err, null)
     }
@@ -16,6 +14,7 @@ Persons.prototype.fetch = function(callback) {
       Person.FirstName = results[i].FirstName;
       Person.LastName = results[i].LastName;
       Person.Email = results[i].Email;
+      Person.Role = results[i].Role;
       returnArray.push(Person);
     }
     return callback(null, returnArray);
