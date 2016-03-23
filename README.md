@@ -64,10 +64,10 @@ If you would like to get this project up and running on your own machine there a
 5. Once the database is created you can generate some test data using the 'createTestData.js' script. First you'll want to go into that file and modify it in a similair fashion as the 'createDatabase.js' script. Then just run this command:
 
 
-```
-//This will log for every user created.
-node serverConfig/createTestData.js
-```
+  ```
+  //This will log for every user created.
+  node serverConfig/createTestData.js
+  ```
 
 6. Now that you have all the dependencies installed and the database created you have one of two options:
   1. You can either cd into the ```app``` directory and run the following command:
