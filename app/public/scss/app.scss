@@ -300,7 +300,7 @@ html, body {
       height: 7em;
     }
     .users {
-      margin: 1em 0em;
+      margin: 0.5em 0em;
       border-top: 0.1em solid #FFFFFF;
     }
     .userBlock {
@@ -341,7 +341,6 @@ html, body {
         transition: height 1s ease;
 
         .personalInformationDiv {
-          height: 7.4em;
           .personalInformationTitle {
             font-weight: bold;
             font-size: 1.2em;
@@ -354,6 +353,9 @@ html, body {
         }
         .unverifiedRow {
           padding: 0.5em 0em;
+        }
+        .authTokenClass {
+          word-wrap: break-word;
         }
       }
       .deleteButton {

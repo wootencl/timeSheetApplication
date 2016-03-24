@@ -7,7 +7,7 @@
 // TODO: http://stackoverflow.com/questions/18679422/issue-with-with-use-strict-and-underscore-js
 //'use strict';
 
-// Alterations made to JS libraries/frameworks within a self executing anonymous function
+// Alterations made to JS libraries/frameworks within a that executing anonymous function
 (function(){
     // Overwriting the built in view.remove() function.
     // Reasoning: I decided to do it this way because of the issues arising from
@@ -209,7 +209,7 @@ var app = app || (function () {
         },
         execute: function(callback, args) {
             //Using a cookie to handle whether or not the user has already been authenticated
-            var self = this;
+            var that = this;
             window.session.fetch({
                 success: function(model, response) {
                     var route = Backbone.history.getFragment();
@@ -218,14 +218,14 @@ var app = app || (function () {
                         var view = HeaderViewFactory.loggedInHeader(data);
                         HeaderViewFactory.showView(view);
                         if (response.Role === 'ADMIN') {
-                            if (_.contains(self.requiresAuthAdmin, route)) {
+                            if (_.contains(that.requiresAuthAdmin, route)) {
                                  if (callback) callback.apply(this, args);
                             } else {
                                 app.router.navigate('AdminPanel', true);
                                 return false;
                             }
                         } else {
-                            if (_.contains(self.requiresAuth, route)) {
+                            if (_.contains(that.requiresAuth, route)) {
                                 if (callback) callback.apply(this, args);
                             } else {
                                 app.router.navigate('timeSheet', true);
@@ -235,7 +235,7 @@ var app = app || (function () {
                     } else {
                         var view = HeaderViewFactory.loggedOutHeader();
                         HeaderViewFactory.showView(view);
-                        if (_.contains(self.NotRequireAuth, route)) {
+                        if (_.contains(that.NotRequireAuth, route)) {
                             if (callback) callback.apply(this, args);
                         } else {
                             app.router.navigate('login', true);

@@ -8798,7 +8798,7 @@ html, body {
   height: 7em;
 }
 #container #adminContent .users {
-  margin: 1em 0em;
+  margin: 0.5em 0em;
   border-top: 0.1em solid #FFFFFF;
 }
 #container #adminContent .userBlock .user {
@@ -8836,9 +8836,6 @@ html, body {
   -ms-transition: height 1s ease;
   transition: height 1s ease;
 }
-#container #adminContent .userBlock .personInfo .personalInformationDiv {
-  height: 7.4em;
-}
 #container #adminContent .userBlock .personInfo .personalInformationDiv .personalInformationTitle {
   font-weight: bold;
   font-size: 1.2em;
@@ -8850,6 +8847,9 @@ html, body {
 }
 #container #adminContent .userBlock .personInfo .unverifiedRow {
   padding: 0.5em 0em;
+}
+#container #adminContent .userBlock .personInfo .authTokenClass {
+  word-wrap: break-word;
 }
 #container #adminContent .userBlock .deleteButton {
   background-color: #dd3c3c !important;

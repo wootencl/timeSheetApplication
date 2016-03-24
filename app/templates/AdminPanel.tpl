@@ -45,6 +45,7 @@
         <div class="subSectionTitle users">
             Verified users:
         </div>
+        <!-- <div id="verifiedUsers-view"></div> -->
         <%
           for (var i=0 ; i<persons.length ; i++) {
             var person = persons[i];
@@ -65,7 +66,7 @@
                     <div class="small-12 medium-6 large-6 columns">
                       Role: <%= person.Role%>
                     </div>
-                    <div class="small-12 columns">
+                    <div class="small-12 columns authTokenClass">
                       Authentication Token: <%= person.id%>
                     </div>
                     <div class="small-12 columns">
@@ -92,7 +93,7 @@
             <button class="unverified user" type="button" data-id="<%= person.id %>"><%= person.Email%></button>
             <div class="personInfo">
               <div class="row unverifiedRow">
-                <div class="medium-9 columns">
+                <div class="medium-9 columns authTokenClass">
                   Authentication Token: <%= person.id%>
                 </div>
                 <div class="medium-3 columns">
