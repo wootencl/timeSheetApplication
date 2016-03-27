@@ -3,7 +3,7 @@ var Persons = function(connection){
 };
 
 Persons.prototype.fetch = function(callback) {
-  this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM PERSONS", function(err, results) {
+  this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons", function(err, results) {
     if (err) {
       return callback(err, null)
     }
