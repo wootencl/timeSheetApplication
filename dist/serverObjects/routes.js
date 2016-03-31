@@ -1,25 +1,43 @@
 'use strict';
 
 var Persons = require('../serverObjects/persons');
+var signupEmail = require('./signupEmail');
+var deletePerson = require('./deletePerson');
 
 module.exports = function(app, passport, connection) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
   });
 
-  app.get('/persons', function(req,res) {
-    if (req.user.Role === 'ADMIN') {
-      var persons = new Persons(connection);
-      persons.fetch(function(err, results) {
-        if (err) {
-          return res.sendStatus(500);
-        }
-        return res.status(200).send(results);
-      });
-    } else {
-      return res.sendStatus(500);
-      //send back to the home with server error message
-    }
+  app.post('/tokenCreation', checkAdminAuth, function(req, res, next) {
+    signupEmail(req.body.Email, connection, function(err, success, info) {
+      if (err) {
+        return res.status(500).send({ message: 'Internal server error. Please try again.'});
+      } else if (!success) {
+        return res.status(info.statusCode).send({ message: info.message });
+      } else {
+        return res.status(200).send({message: 'Successful token creation'});
+      }
+    });
+  });
+
+  app.delete('/persons/:id', checkAdminAuth, function(req, res, next) {
+    deletePerson(req, connection, function(err) {
+      if (err) {
+        return res.sendStatus(500);
+      }
+      return res.sendStatus(200);
+    });
+  });
+
+  app.get('/persons', checkAdminAuth, function(req,res) {
+    var persons = new Persons(connection);
+    persons.fetch(req, function(err, results) {
+      if (err) {
+        return res.sendStatus(500);
+      }
+      return res.status(200).send(results);
+    });
   });
 
   app.get('/session', function (req, res) {
@@ -68,4 +86,16 @@ module.exports = function(app, passport, connection) {
       });
     })(req, res, next);
   });
+
+  function checkAdminAuth(req, res, next) {
+    if (req.isAuthenticated()) {
+      if (req.user.Role === 'ADMIN') {
+        next();
+      } else {
+        res.sendStatus(403);
+      }
+    } else {
+      res.sendStatus(403);
+    }
+  }
 };

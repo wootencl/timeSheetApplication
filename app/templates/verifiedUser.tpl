@@ -19,7 +19,9 @@
             Authentication Token: <%= person.id%>
           </div>
           <div class="small-12 columns">
-            <button class="deleteButton" class="button round" >Delete</button>
+            <div class="buttonDiv">
+              <button class="button round deleteButton" >Delete</button>
+            </div>
           </div>
         </div>
       </div>

@@ -5,3 +5,5 @@ app/api/vendor
 .sass-cache
 app/serverConfig/database.js
 dist/serverConfig/database.js
+app/serverConfig/emailSetup.js
+dist/serverConfig/emailSetup.js

@@ -1,15 +1,11 @@
-// NOTES:
-// - I seperated this and unverified user as I intend on putting a large amount more
-// logic in the 'verified user' view.
-
 'use strict';
 
-app.views.verifiedUser = Backbone.View.extend({
+app.views.unverifiedUser = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
     },
     render: function(){
-        this.template = _.template(app.createTemplate('templates/verifiedUser.tpl', { person: this.model.attributes }));
+        this.template = _.template(app.createTemplate('templates/unverifiedUser.tpl', { person: this.model.attributes }));
         this.$el.html(this.template({}));
         this.delegateEvents();
         return this;

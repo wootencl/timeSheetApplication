@@ -2,44 +2,9 @@ this["JST"] = this["JST"] || {};
 
 this["JST"]["templates/AdminPanel.tpl"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="adminTemplate">\n  <div class="row">\n    <div class="small-12 medium-10 small-centered columns">\n      <div id="adminContent">\n        <div class="row">\n          <div class="small-12 medium-5 large-5 columns">\n            <img src="images/logoWithText.jpg"/>\n            <div id="adminPanelTitle">\n              Adminstration Panel\n            </div>\n          </div>\n          <div class="small-12 medium-7 large-7 columns">\n            <div class="subSectionTitle">\n              Token Generation:\n            </div>\n            <form id="createUserRequest">\n              <div class="row">\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="email" type="text" name="Email" placeholder="Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="confirmEmail" type="text" name="ConfirmEmail" placeholder="Confirm Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 small-centered columns">\n                  <button id="submitCreateUserButton" class="button round expand" type="button">Send Token</button>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 columns">\n                  <div class="hidden" id="serverError">\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n        </div>\n        <div class="subSectionTitle users">\n            Verified users:\n        </div>\n        <!-- <div id="verifiedUsers-view"></div> -->\n        ';
-
-          for (var i=0 ; i<persons.length ; i++) {
-            var person = persons[i];
-            if (person.FirstName === null) continue;
-        ;
-__p += '\n          <div class="userBlock">\n            <button class="verified user" type="button" data-id="' +
-((__t = ( person.id )) == null ? '' : __t) +
-'">' +
-((__t = ( person.FirstName)) == null ? '' : __t) +
-'  ' +
-((__t = (person.LastName)) == null ? '' : __t) +
-'</button>\n            <div class="personInfo">\n              <div class="personalInformationDiv">\n                <div class="personalInformationTitle">\n                  Personal Information:\n                </div>\n                <div class="personalInformation">\n                  <div class="row">\n                    <div class="small-12 medium-6 large-6 columns">\n                      Email: ' +
-((__t = ( person.Email)) == null ? '' : __t) +
-'\n                    </div>\n                    <div class="small-12 medium-6 large-6 columns">\n                      Role: ' +
-((__t = ( person.Role)) == null ? '' : __t) +
-'\n                    </div>\n                    <div class="small-12 columns authTokenClass">\n                      Authentication Token: ' +
-((__t = ( person.id)) == null ? '' : __t) +
-'\n                    </div>\n                    <div class="small-12 columns">\n                      <button class="deleteButton" class="button round" >Delete</button>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class="timeSheetInfo-view">\n                Will render person\'s timesheet information here.\n              </div>\n            </div>\n          </div>\n        ';
- } ;
-__p += '\n        <div class="subSectionTitle users">\n          Unverified users:\n        </div>\n        ';
-
-          for (var i=0 ; i<persons.length ; i++) {
-            var person = persons[i];
-            if (person.FirstName !== null) continue;
-        ;
-__p += '\n          <div class="userBlock">\n            <button class="unverified user" type="button" data-id="' +
-((__t = ( person.id )) == null ? '' : __t) +
-'">' +
-((__t = ( person.Email)) == null ? '' : __t) +
-'</button>\n            <div class="personInfo">\n              <div class="row unverifiedRow">\n                <div class="medium-9 columns authTokenClass">\n                  Authentication Token: ' +
-((__t = ( person.id)) == null ? '' : __t) +
-'\n                </div>\n                <div class="medium-3 columns">\n                  <button class="deleteButton" class="button round" >Delete</button>\n                </div>\n              </div>\n            </div>\n          </div>\n        ';
- } ;
-__p += '\n      </div>\n    </div>\n  </div>\n</div>';
+__p += '<div id="adminTemplate">\n  <div class="row">\n    <div class="small-12 medium-10 small-centered columns">\n      <div id="adminContent">\n        <div class="row">\n          <div class="small-12 medium-5 large-5 columns">\n            <img src="images/logoWithText.jpg"/>\n            <div id="adminPanelTitle">\n              Adminstration Panel\n            </div>\n          </div>\n          <div class="small-12 medium-7 large-7 columns">\n            <div class="subSectionTitle">\n              Token Generation:\n            </div>\n            <form id="createUserRequest">\n              <div class="row">\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="email" type="text" name="Email" placeholder="Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="confirmEmail" type="text" name="ConfirmEmail" placeholder="Confirm Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 small-centered columns">\n                  <button id="submitCreateUserButton" class="button round expand" type="button">Send Token</button>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 columns">\n                  <div class="hidden" id="serverError">\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n        </div>\n        <div class="subSectionTitle users">\n            Verified users:\n        </div>\n        <div id="verifiedUsers-view">\n        </div>\n        <div class="subSectionTitle users">\n          Unverified users:\n        </div>\n        <div id="unverifiedUsers-view">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div id="deleteModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">\n  <div class="row">\n    <div class="small-8 small-centered columns">\n      <p>Are you sure?</p>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteNo" class="button expand" type="button">No</button>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteYes" class="button expand" type="button">Yes</button>\n    </div>\n  </div>\n</div>\n<div id="signupEmailModal" class="reveal-modal small" data-reveal>\n  <h4>Successful token creation!</h4>\n  A token has been generated and sent the to the supplied email address.\n  <a class="close-reveal-modal" aria-label="Close">&#215;</a>\n</div>\n\n\n\n';
 
 }
 return __p
@@ -148,6 +113,22 @@ __p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small
 return __p
 };
 
+this["JST"]["templates/unverifiedUser.tpl"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="userBlock">\n  <button class="unverified user" type="button" data-id="' +
+((__t = ( person.id )) == null ? '' : __t) +
+'">' +
+((__t = ( person.Email)) == null ? '' : __t) +
+'</button>\n  <div class="personInfo">\n    <div class="row unverifiedRow">\n      <div class="small-12 medium-12 large-8 columns authTokenClass">\n        Authentication Token: ' +
+((__t = ( person.id)) == null ? '' : __t) +
+'\n      </div>\n      <div class="small-12 medium-12 large-4 columns">\n        <div class="buttonDiv">\n          <button class="button round resendButton" >Resend Email</button>\n          <button class="button round deleteButton" >Delete</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
+
+}
+return __p
+};
+
 this["JST"]["templates/verifiedUser.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -164,7 +145,7 @@ __p += '<div class="userBlock">\n  <button class="verified user" type="button" d
 ((__t = ( person.Role)) == null ? '' : __t) +
 '\n          </div>\n          <div class="small-12 columns authTokenClass">\n            Authentication Token: ' +
 ((__t = ( person.id)) == null ? '' : __t) +
-'\n          </div>\n          <div class="small-12 columns">\n            <button class="deleteButton" class="button round" >Delete</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="timeSheetInfo-view">\n      Will render person\'s timesheet information here.\n    </div>\n  </div>\n</div>';
+'\n          </div>\n          <div class="small-12 columns">\n            <div class="buttonDiv">\n              <button class="button round deleteButton" >Delete</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="timeSheetInfo-view">\n      Will render person\'s timesheet information here.\n    </div>\n  </div>\n</div>';
 
 }
 return __p

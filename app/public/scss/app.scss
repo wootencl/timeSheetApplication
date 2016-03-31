@@ -202,6 +202,20 @@ html, body {
 }
 // ### END ###
 
+// ### MODAL CSS ####
+.reveal-modal {
+  p, h4 {
+    text-align: center;
+  }
+  button {
+    @include button();
+  }
+  button:hover {
+    background-color: $button-hover;
+  }
+}
+// ### END ###
+
 // ### CONTAINER CSS ###
 #container {
   font-family: 'Open Sans', sans-serif;
@@ -358,14 +372,24 @@ html, body {
           word-wrap: break-word;
         }
       }
+      .buttonDiv {
+        float: right;
+      }
       .deleteButton {
         background-color: #dd3c3c !important;
         padding: 0.1em 0.5em;
-        float: right;
         height: 1.5em;
       }
       .deleteButton:hover {
         background-color: #d92626 !important;
+      }
+      .resendButton {
+        background-color: #69a776 !important;
+        padding: 0.1em 0.5em;
+        height: 1.5em;
+      }
+      .resendButton:hover {
+        background-color: #559162 !important;
       }
     }
   }
@@ -504,6 +528,9 @@ html, body {
     #contactPhone, #contactEmail {
       display: none;
     }
+  }
+  .reveal-modal {
+    min-height: auto;
   }
   #footer {
     font-size: 0.5em;

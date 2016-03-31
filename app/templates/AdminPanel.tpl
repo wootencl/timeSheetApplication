@@ -45,65 +45,35 @@
         <div class="subSectionTitle users">
             Verified users:
         </div>
-        <!-- <div id="verifiedUsers-view"></div> -->
-        <%
-          for (var i=0 ; i<persons.length ; i++) {
-            var person = persons[i];
-            if (person.FirstName === null) continue;
-        %>
-          <div class="userBlock">
-            <button class="verified user" type="button" data-id="<%= person.id %>"><%= person.FirstName%>  <%=person.LastName%></button>
-            <div class="personInfo">
-              <div class="personalInformationDiv">
-                <div class="personalInformationTitle">
-                  Personal Information:
-                </div>
-                <div class="personalInformation">
-                  <div class="row">
-                    <div class="small-12 medium-6 large-6 columns">
-                      Email: <%= person.Email%>
-                    </div>
-                    <div class="small-12 medium-6 large-6 columns">
-                      Role: <%= person.Role%>
-                    </div>
-                    <div class="small-12 columns authTokenClass">
-                      Authentication Token: <%= person.id%>
-                    </div>
-                    <div class="small-12 columns">
-                      <button class="deleteButton" class="button round" >Delete</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="timeSheetInfo-view">
-                Will render person's timesheet information here.
-              </div>
-            </div>
-          </div>
-        <% } %>
+        <div id="verifiedUsers-view">
+        </div>
         <div class="subSectionTitle users">
           Unverified users:
         </div>
-        <%
-          for (var i=0 ; i<persons.length ; i++) {
-            var person = persons[i];
-            if (person.FirstName !== null) continue;
-        %>
-          <div class="userBlock">
-            <button class="unverified user" type="button" data-id="<%= person.id %>"><%= person.Email%></button>
-            <div class="personInfo">
-              <div class="row unverifiedRow">
-                <div class="medium-9 columns authTokenClass">
-                  Authentication Token: <%= person.id%>
-                </div>
-                <div class="medium-3 columns">
-                  <button class="deleteButton" class="button round" >Delete</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% } %>
+        <div id="unverifiedUsers-view">
+        </div>
       </div>
     </div>
   </div>
 </div>
+<div id="deleteModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <p>Are you sure?</p>
+    </div>
+    <div class="small-6 columns">
+        <button id="deleteNo" class="button expand" type="button">No</button>
+    </div>
+    <div class="small-6 columns">
+        <button id="deleteYes" class="button expand" type="button">Yes</button>
+    </div>
+  </div>
+</div>
+<div id="signupEmailModal" class="reveal-modal small" data-reveal>
+  <h4>Successful token creation!</h4>
+  A token has been generated and sent the to the supplied email address.
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+
+

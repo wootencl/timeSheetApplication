@@ -8697,6 +8697,19 @@ html, body {
   display: none !important;
 }
 
+.reveal-modal p, .reveal-modal h4 {
+  text-align: center;
+}
+.reveal-modal button {
+  background-color: #0054C9;
+  color: #FFFFFF;
+  border-radius: 5px;
+  margin: 0;
+}
+.reveal-modal button:hover {
+  background-color: #004CB5;
+}
+
 #container {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 6em;
@@ -8851,14 +8864,24 @@ html, body {
 #container #adminContent .userBlock .personInfo .authTokenClass {
   word-wrap: break-word;
 }
+#container #adminContent .userBlock .buttonDiv {
+  float: right;
+}
 #container #adminContent .userBlock .deleteButton {
   background-color: #dd3c3c !important;
   padding: 0.1em 0.5em;
-  float: right;
   height: 1.5em;
 }
 #container #adminContent .userBlock .deleteButton:hover {
   background-color: #d92626 !important;
+}
+#container #adminContent .userBlock .resendButton {
+  background-color: #69a776 !important;
+  padding: 0.1em 0.5em;
+  height: 1.5em;
+}
+#container #adminContent .userBlock .resendButton:hover {
+  background-color: #559162 !important;
 }
 #container #timeSheetTemplate {
   background-color: #666666;
@@ -8981,6 +9004,10 @@ html, body {
 
   #headerBar-view #contactPhone, #headerBar-view #contactEmail {
     display: none;
+  }
+
+  .reveal-modal {
+    min-height: auto;
   }
 
   #footer {

@@ -8,24 +8,27 @@ app.views.personCollectionView = Backbone.View.extend({
 
     this.collection.each(this.add, this);
     this.listenTo(this.collection, 'add', this.add);
-    this.listenTo(this.collection, 'remove', this.remove);
+    this.listenTo(this.collection, 'remove', this.removePerson);
   },
   add: function(person) {
     var personView = this.personViews[person.id] || new this.personView({
-      model: person,
-      el: this.$el
+      model: person
     });
-
+    this.listenTo(personView, 'remove', this.removePerson);
     this.personViews[person.id] = personView;
 
     if (this.rendered) {
-      $(this.el).append(personView.render());
+      $(this.el).append(personView.render().el);
     }
+  },
+  removePerson: function(person) {
+    var viewToRemove = this.personViews[person.id];
+    viewToRemove.close();
   },
   render: function() {
     this.rendered = true;
     this.collection.each( function(person) {
-      this.$el.append(this.personViews[person.id].render());
+      this.$el.append(this.personViews[person.id].render().el);
     }, this);
   }
 });
