@@ -44,7 +44,9 @@ These are my my TODOs for the project. Some of them are small while others much 
 
 ####Demo:
 This is a demo I launched a couple weeks ago. 'Bare metal' on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
+
 Demo Link: [tsaDemo](http://tsaDemo.clwproductions.com)
+
 Login Credentials:
 + USER: demouser@gmail.com, password123
 + ADMIN: demoadmin@gmail.com, password123
