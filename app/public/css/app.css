@@ -8998,7 +8998,23 @@ html, body {
 }
 
 @media only screen and (max-width: 40em) {
-  input {
+  select, textarea, input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  select:focus,
+  textarea:focus,
+  input:focus {
     font-size: 16px;
   }
 
@@ -9007,7 +9023,7 @@ html, body {
   }
 
   .reveal-modal {
-    min-height: auto;
+    min-height: 0;
   }
 
   #footer {

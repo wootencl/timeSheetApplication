@@ -74,6 +74,10 @@
   A token has been generated and sent the to the supplied email address.
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
-
+<div id="resendSignupEmailModal" class="reveal-modal small" data-reveal>
+  <h4>Resent authentication token!</h4>
+  A new email with the user's authentication token has been sent.
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 
 

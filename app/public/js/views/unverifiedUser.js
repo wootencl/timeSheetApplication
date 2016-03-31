@@ -3,6 +3,7 @@
 app.views.unverifiedUser = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
+        this.resendSignupEmailModel = new app.models.ResendSignupEmail();
     },
     render: function(){
         this.template = _.template(app.createTemplate('templates/unverifiedUser.tpl', { person: this.model.attributes }));
@@ -11,7 +12,8 @@ app.views.unverifiedUser = Backbone.View.extend({
         return this;
     },
     events: {
-      'click .deleteButton' : 'delete'
+      'click .deleteButton' : 'delete',
+      'click .resendButton' : 'resendSignupEmail'
     },
     delete: function() {
       var that = this;
@@ -33,5 +35,20 @@ app.views.unverifiedUser = Backbone.View.extend({
         $('#deleteYes').off('click');
         $('#deleteNo').off('click');
       }
+    },
+    resendSignupEmail: function() {
+      var that = this;
+      this.resendSignupEmailModel.save({
+          Email: this.model.get('Email'),
+          Token: this.model.get('id')
+      }, {
+          success: function(model, response) {
+            $('#resendSignupEmailModal').foundation('reveal', 'open');
+          },
+          error: function(model, response) {
+              //Some sort of error handling here
+          }
+      });
+      console.log();
     }
 });

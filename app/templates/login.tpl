@@ -10,7 +10,7 @@
                   <i id="homeIcon" class="fa fa-home"></i>
                 </button>
               </div>
-              <div class="small-8 medium-9 large 9 columns">
+              <div class="small-8 medium-9 large-8 columns">
                 <span id="loginIntroText">
                   Already have a login? Great! Sign in below.
                 </span>

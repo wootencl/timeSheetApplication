@@ -16,14 +16,38 @@ This is a single page web application that is intended to assist tracking the ho
 Currently I've gone with the idea of handing out authentication tokens in order for a person to create an account. This seemed like the easiest way of dealing with unwanted users.
 
 ####TODO:
-+ Planning on launching a demo of the application here shortly. After which I intend on writing some tests to cover the current functionality of the application.
-  + (Update 3.9.16): Managed to get the demo up on my EC2 instance though it's being finicky so I'll need to iron out the details a bit more. Saving that for a later time though as I need to move forward with the authentication work. A few comments on its current state. It can only handle one user at the moment as I need to implement pooling.
-  + Link to demo: [tsaDemo](http://tsaDemo.clwproductions.com)
-  + Login Credentials: USER: demouser@gmail.com, password123; ADMIN: demoadmin@gmail.com, password123
+
+These are my my TODOs for the project. Some of them are small while others much larger. I originally was keeping a local text document with this information but couldn't think of a reason to not include this information with the README.
+
+#####High Priority (!!!)
++ ~~Launch a demo.~~
++ Backend Validation.
+  + The backbone.validation plugin I'm using claims to have a way of passing it's validation to node. Further research required.
++ Tests.
+  + This was originally suppose to be a TDD project but as I have decided to go with delivering a product to the client so they can have something to begin showing to their employees I'm putting that off until the end.
+
+#####Medium Priority (!!)
 + Modularize SCSS.
-+ Backend input verification.
-+ Add a general error/server error route.
-+ This was originally suppose to be a TDD project but as I have decided to go with delivering a product to the client so they can have something to begin showing to their employees I'm putting that off until the end.
++ Enable 'Enter' keystroke press for form submissions.
++ Garbage collection of subviews in Admin Panel.
++ Add handling/message to the Admin Panel for when empty collections are handed back from the server. Right not the 'user' sections are just empty.
++ Handle general server errors.
+  + Right now there's some server error handling on forms but none really for othere API calls. Need to add something where if a 500 is returned that should be relayed to the user and prevent a crash.
+
+#####Low Priority (!)
++ Trim whitespaces from inputs.
++ Smoother delete/add animations on the Admin Panel.
+
+#####Bugs/Edge Case Issues:
++ Deletion of a user while that user is logged in.
++ On resize opened 'user' panes in the Admin Panel should resize as well.
+
+####Demo:
+This is a demo I launched a couple weeks ago. 'Bare metal' on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
+Demo Link: [tsaDemo](http://tsaDemo.clwproductions.com)
+Login Credentials:
++ USER: demouser@gmail.com, password123
++ ADMIN: demoadmin@gmail.com, password123
 
 ## Motivation
 

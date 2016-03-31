@@ -3,10 +3,25 @@
 var Persons = require('../serverObjects/persons');
 var signupEmail = require('./signupEmail');
 var deletePerson = require('./deletePerson');
+var transporter = require('../serverConfig/emailSetup');
+var signupEmailMessage = require('./signupEmailMessage');
 
 module.exports = function(app, passport, connection) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
+  });
+
+  app.post('/resendSignupEmail', checkAdminAuth, function(req, res, next) {
+    var message = signupEmailMessage(req.body.Email, req.body.Token);
+
+    transporter.sendMail(message, function(error, info) {
+      if (error) {
+        console.log(error);
+        return res.status(500).send({ message: 'Internal server error. Please try again.'});
+      } else {
+        return res.status(200).send({message: 'Successful token creation'});
+      }
+    });
   });
 
   app.post('/tokenCreation', checkAdminAuth, function(req, res, next) {
