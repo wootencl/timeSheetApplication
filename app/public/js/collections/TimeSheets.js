@@ -1,4 +1,4 @@
 app.collections.TimeSheets = Backbone.Collection.extend({
-  url: '/timeSheet',
-  model: app.models.timeSheetWeek
+  url: '/timeSheets',
+  model: app.models.TimeSheet
 });

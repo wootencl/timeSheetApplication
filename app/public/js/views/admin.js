@@ -6,6 +6,8 @@ app.views.admin = Backbone.View.extend({
 
     this.tokenCreationModel = new app.models.TokenCreation();
 
+    this.template = _.template(this.options.template);
+
     Backbone.Validation.bind(this, {
       model: this.tokenCreationModel,
       valid: function(view, attr) {
@@ -31,7 +33,6 @@ app.views.admin = Backbone.View.extend({
     this.verifiedPersons = new app.collections.Persons();
 
     //Render Parent
-    that.template = _.template(app.createTemplate('templates/AdminPanel.tpl'));
     that.$el.html(that.template({}));
 
     this.verifiedPersons.fetch({

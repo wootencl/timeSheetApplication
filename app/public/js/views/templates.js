@@ -23,12 +23,12 @@ __p += '\n      <div class="header-day">' +
 ((__t = ( day )) == null ? '' : __t) +
 '</div>\n    ';
  }); ;
-__p += '\n  </div>\n  <div class="days clearfix">\n    ';
+__p += '\n  </div>\n  <div class="days clearfix" id="daysContainer">\n    <div id="weekSelector"></div>\n    ';
  _.each(days, function(day) { ;
 __p += '\n      <div class="' +
 ((__t = ( day.classes )) == null ? '' : __t) +
 '" id="' +
-((__t = ( day.id )) == null ? '' : __t) +
+((__t = ( moment(day.date).format('YYYY-MM-DD') )) == null ? '' : __t) +
 '">\n        <span class="day-number">' +
 ((__t = ( day.day )) == null ? '' : __t) +
 '</span>\n      </div>\n    ';
@@ -107,7 +107,7 @@ this["JST"]["templates/timeSheet.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row">\n          <div class="small-6 columns">\n            <div id="timeSelector-view">\n            </div>\n          </div>\n          <div class="small-6 columns">\n            <div id="clndr-view">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
+__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row">\n          <div class="small-12 medium-6 large-6 columns">\n            <div id="timeSelector-view">\n            </div>\n          </div>\n          <div class="small-12 medium-6 large-6 columns">\n            <div id="clndr-view">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
 
 }
 return __p

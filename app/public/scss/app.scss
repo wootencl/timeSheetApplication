@@ -129,6 +129,14 @@ $grey-button-hover: #595959;
   border-radius: 5px;
   padding: 0.3em;
 }
+@mixin weekDiv() {
+  position: absolute;
+  width: 70%; // 14% * 5days
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  height: 2.2em;
+}
 //Class Oriented CSS
 .verticalParent {
   @include verticalAlignParent;
@@ -449,20 +457,60 @@ html, body {
             .header-day, .day {
               width:14%;
             }
-            .day {
-              text-align: center;
-              color: #212121;
-              border-right: 1px solid rgba(255, 255, 255, 0.5);
-              border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-              font-size:0.8em;
-              padding-top: 0.1em;
-              padding-bottom: 0.1em;
-            }
-            .day.event {
-              background-color: #d2d2d2;
-            }
-            .adjacent-month {
-              color: rgba(0, 0, 0, 0.3);
+            .days {
+              position: relative;
+              #weekSelector {
+                @include weekDiv();
+                border: 2px solid #000000;
+                z-index: 5;
+                transition: all 1s ease;
+              }
+
+              .weekDiv {
+                @include weekDiv();
+                cursor: pointer;
+
+                opacity: 1;
+                z-index: 10;
+
+                transition: all 1s ease;
+
+                &.completed {
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+                  text-align: center;
+                  background-color: rgba(105, 167, 118, 0.7);
+                  padding: 0.6em 0em;
+                  line-height: 1em;
+                  span {
+                    background-color: rgb(143, 187, 152);
+                    color: #4b8157;
+                  }
+                }
+                &.selected {
+                  opacity: 0;
+                  z-index: 0;
+                }
+              }
+              .day {
+                height: 2.2em;
+                text-align: center;
+                color: #212121;
+                border-right: 1px solid rgba(255, 255, 255, 0.5);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                font-size:1em;
+                line-height: 1em;
+                padding-top: 0.6em;
+                padding-bottom: 0.6em;
+              }
+              .day.event {
+                background-color: #d2d2d2;
+              }
+              .adjacent-month {
+                color: rgba(0, 0, 0, 0.3);
+              }
             }
             div {
               float: left;
@@ -521,6 +569,9 @@ html, body {
 
 // ### MEDIA QUERY CSS ###
 @media #{$small-only} {
+  #timeSelector-view {
+    margin-bottom: 1em;
+  }
   select, textarea, input[type="text"],
   input[type="password"],
   input[type="datetime"],

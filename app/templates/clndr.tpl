@@ -9,9 +9,10 @@
       <div class="header-day"><%= day %></div>
     <% }); %>
   </div>
-  <div class="days clearfix">
+  <div class="days clearfix" id="daysContainer">
+    <div id="weekSelector"></div>
     <% _.each(days, function(day) { %>
-      <div class="<%= day.classes %>" id="<%= day.id %>">
+      <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
         <span class="day-number"><%= day.day %></span>
       </div>
     <% }); %>

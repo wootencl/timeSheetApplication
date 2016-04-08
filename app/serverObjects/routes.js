@@ -1,6 +1,7 @@
 'use strict';
 
 var Persons = require('../serverObjects/persons');
+var TimeSheets = require('../serverObjects/TimeSheets');
 var signupEmail = require('./signupEmail');
 var deletePerson = require('./deletePerson');
 var transporter = require('../serverConfig/emailSetup');
@@ -9,6 +10,16 @@ var signupEmailMessage = require('./signupEmailMessage');
 module.exports = function(app, passport, connection) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
+  });
+
+  app.get('/timesheets', checkUserAuth, function(req, res, next) {
+    var timeSheets = new TimeSheets(connection);
+    timeSheets.fetch(req, function(err, results) {
+      if (err) {
+        return res.sendStatus(500);
+      }
+      return res.status(200).send(results);
+    });
   });
 
   app.post('/resendSignupEmail', checkAdminAuth, function(req, res, next) {
@@ -105,6 +116,18 @@ module.exports = function(app, passport, connection) {
   function checkAdminAuth(req, res, next) {
     if (req.isAuthenticated()) {
       if (req.user.Role === 'ADMIN') {
+        next();
+      } else {
+        res.sendStatus(403);
+      }
+    } else {
+      res.sendStatus(403);
+    }
+  }
+
+  function checkUserAuth(req, res, next) {
+    if (req.isAuthenticated()) {
+      if (req.user.Role === 'USER') {
         next();
       } else {
         res.sendStatus(403);

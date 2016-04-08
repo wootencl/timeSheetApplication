@@ -3,10 +3,30 @@
 var Persons = require('../serverObjects/persons');
 var signupEmail = require('./signupEmail');
 var deletePerson = require('./deletePerson');
+var transporter = require('../serverConfig/emailSetup');
+var signupEmailMessage = require('./signupEmailMessage');
 
 module.exports = function(app, passport, connection) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
+  });
+
+  app.get('/timesheets', checkUserAuth, function(req, res, next) {
+    console.log('HIT!');
+    res.sendStatus(200);
+  });
+
+  app.post('/resendSignupEmail', checkAdminAuth, function(req, res, next) {
+    var message = signupEmailMessage(req.body.Email, req.body.Token);
+
+    transporter.sendMail(message, function(error, info) {
+      if (error) {
+        console.log(error);
+        return res.status(500).send({ message: 'Internal server error. Please try again.'});
+      } else {
+        return res.status(200).send({message: 'Successful token creation'});
+      }
+    });
   });
 
   app.post('/tokenCreation', checkAdminAuth, function(req, res, next) {
@@ -90,6 +110,18 @@ module.exports = function(app, passport, connection) {
   function checkAdminAuth(req, res, next) {
     if (req.isAuthenticated()) {
       if (req.user.Role === 'ADMIN') {
+        next();
+      } else {
+        res.sendStatus(403);
+      }
+    } else {
+      res.sendStatus(403);
+    }
+  }
+
+  function checkUserAuth(req, res, next) {
+    if (req.isAuthenticated()) {
+      if (req.user.Role === 'USER') {
         next();
       } else {
         res.sendStatus(403);

@@ -25,6 +25,7 @@ These are my my TODOs for the project. Some of them are small while others much 
   + The backbone.validation plugin I'm using claims to have a way of passing it's validation to node. Further research required.
 + Tests.
   + This was originally suppose to be a TDD project but as I have decided to go with delivering a product to the client so they can have something to begin showing to their employees I'm putting that off until the end.
++ On window resize I need to refresh the locations of the 'weekDiv's and the 'weekSelector'
 
 #####Medium Priority (!!)
 + Modularize SCSS.
@@ -33,6 +34,8 @@ These are my my TODOs for the project. Some of them are small while others much 
 + Add handling/message to the Admin Panel for when empty collections are handed back from the server. Right not the 'user' sections are just empty.
 + Handle general server errors.
   + Right now there's some server error handling on forms but none really for othere API calls. Need to add something where if a 500 is returned that should be relayed to the user and prevent a crash.
++ Add a loader gif for transitions and retrieving data from the server.
++ Start using HTTPS.
 
 #####Low Priority (!)
 + Trim whitespaces from inputs.
@@ -43,7 +46,7 @@ These are my my TODOs for the project. Some of them are small while others much 
 + On resize opened 'user' panes in the Admin Panel should resize as well.
 
 ####Demo:
-This is a demo I launched a couple weeks ago. 'Bare metal' on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
+This is a demo I launched a couple weeks ago (3/21.16). Basic deployment on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
 
 Demo Link: [tsaDemo](http://tsaDemo.clwproductions.com)
 

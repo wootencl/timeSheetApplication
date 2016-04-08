@@ -8938,19 +8938,65 @@ html, body {
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .header-day, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day {
   width: 14%;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days {
+  position: relative;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days #weekSelector {
+  position: absolute;
+  width: 70%;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  height: 2.2em;
+  border: 2px solid #000000;
+  z-index: 5;
+  transition: all 1s ease;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv {
+  position: absolute;
+  width: 70%;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  height: 2.2em;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 10;
+  transition: all 1s ease;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.completed {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), 0px -1px 0px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  background-color: rgba(105, 167, 118, 0.7);
+  padding: 0.6em 0em;
+  line-height: 1em;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.completed span {
+  background-color: #8fbb98;
+  color: #4b8157;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.selected {
+  opacity: 0;
+  z-index: 0;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .day {
+  height: 2.2em;
   text-align: center;
   color: #212121;
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 0.8em;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
+  font-size: 1em;
+  line-height: 1em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .day.event {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .day.event {
   background-color: #d2d2d2;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .adjacent-month {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .adjacent-month {
   color: rgba(0, 0, 0, 0.3);
 }
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid div {
@@ -8998,6 +9044,10 @@ html, body {
 }
 
 @media only screen and (max-width: 40em) {
+  #timeSelector-view {
+    margin-bottom: 1em;
+  }
+
   select, textarea, input[type="text"],
   input[type="password"],
   input[type="datetime"],
