@@ -24,9 +24,11 @@ __p += '\n      <div class="header-day">' +
 '</div>\n    ';
  }); ;
 __p += '\n  </div>\n  <div class="days clearfix" id="daysContainer">\n    <div id="weekSelector"></div>\n    ';
- _.each(days, function(day) { ;
+ _.each(days, function(day) {
+      var monday = moment(day.date).isSame(moment(day.date).startOf('isoweek'));
+      ;
 __p += '\n      <div class="' +
-((__t = ( day.classes )) == null ? '' : __t) +
+((__t = ( monday ? day.classes + ' monday' : day.classes )) == null ? '' : __t) +
 '" id="' +
 ((__t = ( moment(day.date).format('YYYY-MM-DD') )) == null ? '' : __t) +
 '">\n        <span class="day-number">' +
@@ -97,7 +99,27 @@ this["JST"]["templates/timeSelector.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="timePickerHeader">\n  <div class="row">\n    <div class="small-12 small-cenetered columns">\n      Week of (monday) to (friday):\n    </div>\n  </div>\n</div>\n<div id="timePickersWrapper">\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">Log In</div>\n    <div class="small-2 columns no-pad-left">Log Out</div>\n    <div class="small-2 columns no-pad-left">Log In</div>\n    <div class="small-2 columns no-pad-left">Log Out</div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n  <div class="row margin-bottom">\n    <div class="small-3 columns">Day (Date)</div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-2 columns no-pad-left">\n      <input class="timer-input" type="text" id="example" />\n    </div>\n    <div class="small-1 columns no-pad-left">Hours</div>\n  </div>\n</div>\n<div id="buttonsWrapper">\n  <div class="row">\n    <div class="small-6 columns">\n      <button id="toLoginPageButton" class="button round expand" type="submit">Upload TimeSheet Photo</button>\n    </div>\n    <div class="small-4 columns">\n      <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>\n    </div>\n    <div class="small-2 columns">\n      0\n    </div>\n  </div>\n</div>';
+__p += '<div id="timePickerHeader">\n  <div class="row small-collapse medium-uncollapse border">\n    <div class="small-12 small-cenetered columns">\n      Week of (' +
+((__t = ( moment(weekStartDate).format('MM/DD/YYYY') )) == null ? '' : __t) +
+') to (' +
+((__t = ( moment(weekStartDate).add(4, 'd').format('MM/DD/YYYY') )) == null ? '' : __t) +
+'):\n    </div>\n  </div>\n</div>\n<div id="timePickersWrapper">\n</div>\n<div class="border" id="totalTimeWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="small-9 medium-10 columns" id="totalTimeText">\n      Total Time:\n    </div>\n    <div class="small-2 columns" id="totalTime">45</div>\n  </div>\n</div>\n<div id="buttonsWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="medium-8 small-12 columns">\n      <button id="submitTimeSheetPhoto" class="button round expand" type="submit">Upload TimeSheet Photo</button>\n    </div>\n    <div class="medium-4 small-12 columns">\n      <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>\n    </div>\n  </div>\n</div>';
+
+}
+return __p
+};
+
+this["JST"]["templates/timeSelectorDay.tpl"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="row small-collapse medium-uncollapse margin-bottom border">\n  <div class="small-12 columns">' +
+((__t = ( moment(date).format('dddd') )) == null ? '' : __t) +
+' (' +
+((__t = ( moment(date).format('MM/DD/YYYY') )) == null ? '' : __t) +
+')</div>\n  <div class="small-10 columns">\n    <div class="row small-collapse">\n      <div class="small-5 medium-2 columns morning">\n        <input class="timer-input" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns morning dash"> - </div>\n      <div class="small-5 medium-2 columns morning">\n        <input class="timer-input" type="text" id="example" placeholder="Logout"/>\n      </div>\n      <div class="small-5 medium-2 medium-offset-1 columns afternoon">\n        <input class="timer-input" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns afternoon dash"> - </div>\n      <div class="small-5 medium-2 columns afternoon end">\n        <input class="timer-input" type="text" id="example" placeholder="Logout"/>\n      </div>\n    </div>\n  </div>\n  <div class="small-2 columns hours">\n    ' +
+((__t = ( time )) == null ? '' : __t) +
+'\n  </div>\n</div>';
 
 }
 return __p
@@ -107,7 +129,7 @@ this["JST"]["templates/timeSheet.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row">\n          <div class="small-12 medium-6 large-6 columns">\n            <div id="timeSelector-view">\n            </div>\n          </div>\n          <div class="small-12 medium-6 large-6 columns">\n            <div id="clndr-view">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
+__p += '<div id="timeSheetTemplate">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <div id="timeSheetContent">\n        <div class="row small-collapse medium-uncollapse">\n          <div class="small-12 medium-6 medium-push-6 columns">\n            <div id="clndr-view">\n            </div>\n          </div>\n          <div class="small-12 medium-6 medium-pull-6 columns">\n            <div id="timeSelector-view">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>';
 
 }
 return __p

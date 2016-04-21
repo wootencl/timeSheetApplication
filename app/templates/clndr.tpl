@@ -11,8 +11,10 @@
   </div>
   <div class="days clearfix" id="daysContainer">
     <div id="weekSelector"></div>
-    <% _.each(days, function(day) { %>
-      <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
+    <% _.each(days, function(day) {
+      var monday = moment(day.date).isSame(moment(day.date).startOf('isoweek'));
+      %>
+      <div class="<%= monday ? day.classes + ' monday' : day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
         <span class="day-number"><%= day.day %></span>
       </div>
     <% }); %>

@@ -8600,21 +8600,8 @@ th.hide-for-touch {
   }
 }
 /* all app scss styles here */
-.no-pad-right {
-  padding-right: 0;
-}
-
 .no-pad-left {
   padding-left: 0;
-}
-
-.no-pad {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.margin-bottom {
-  margin-bottom: 0.6em !important;
 }
 
 .verticalParent {
@@ -8907,6 +8894,8 @@ html, body {
   padding-bottom: 5px;
   display: inline-block;
   text-align: center;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-previous-button:not(.inactive), #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-next-button:not(.inactive) {
   cursor: pointer;
 }
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .month {
@@ -8919,7 +8908,7 @@ html, body {
   font-weight: 700;
   letter-spacing: 1px;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-previous-button:hover, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-next-button:hover {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-previous-button:not(.inactive):hover, #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-controls .clndr-next-button:not(.inactive):hover {
   background-color: #54865E;
   transition: background-color 0.5s;
 }
@@ -8949,7 +8938,7 @@ html, body {
   -webkit-border-radius: 3px 3px 3px 3px;
   height: 2.2em;
   border: 2px solid #000000;
-  z-index: 5;
+  z-index: 15;
   transition: all 1s ease;
 }
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv {
@@ -8964,7 +8953,7 @@ html, body {
   z-index: 10;
   transition: all 1s ease;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.completed {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.complete {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
@@ -8974,9 +8963,25 @@ html, body {
   padding: 0.6em 0em;
   line-height: 1em;
 }
-#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.completed span {
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.complete span {
   background-color: #8fbb98;
   color: #4b8157;
+  padding: 0em 0.3em;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.incomplete {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), 0px -1px 0px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  background-color: rgba(221, 60, 60, 0.7);
+  padding: 0.6em 0em;
+  line-height: 1em;
+}
+#container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.incomplete span {
+  background-color: #e17070;
+  color: #ad1f1f;
+  padding: 0em 0.3em;
 }
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid .days .weekDiv.selected {
   opacity: 0;
@@ -9002,20 +9007,53 @@ html, body {
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid div {
   float: left;
 }
-#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper {
-  font-size: 0.6em;
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view .border {
+  border-bottom: 1px solid #FFF;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view .hours, #container #timeSheetTemplate #timeSheetContent #timeSelector-view #totalTime {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: #dd3c3c;
+  transition: background-color 1s;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #labels {
+  font-weight: 700;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #labels .small-2 {
+  width: 20% !important;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper .dash, #container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper .hours {
+  text-align: center;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper .row {
+  margin-bottom: 0.3em !important;
 }
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper input {
-  font-size: 0.6em;
-  height: 2em;
-  padding: 0;
+  height: 1.5em;
+  font-size: 1em;
   margin: 0;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #totalTimeWrapper {
+  margin-bottom: 1em;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #totalTimeWrapper #totalTimeText {
+  text-align: right;
+  font-weight: 700;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #totalTimeWrapper #totalTime {
+  text-align: center;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #totalTimeWrapper .row {
+  margin-bottom: 0.3em !important;
+}
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view #buttonsWrapper button {
-  font-size: 0.6em;
+  line-height: 1em;
+  height: 2.2em;
+  padding: 0.6em;
   margin-bottom: 0;
   background-color: #0054C9;
   color: #FFFFFF;
@@ -9043,9 +9081,35 @@ html, body {
   padding: 0px 5px;
 }
 
+@media only screen and (min-width: 40.0625em) {
+  #timeSelector-view .hours {
+    height: 1.5em;
+  }
+  #timeSelector-view .medium-2 {
+    width: 21.25% !important;
+  }
+  #timeSelector-view .medium-1 {
+    width: 5% !important;
+  }
+  #timeSelector-view .medium-offset-1 {
+    margin-left: 5% !important;
+  }
+}
 @media only screen and (max-width: 40em) {
-  #timeSelector-view {
+  #clndr-view {
     margin-bottom: 1em;
+  }
+
+  #timeSelector-view #timePickersWrapper .morning {
+    margin-bottom: 0.3em;
+  }
+  #timeSelector-view #timePickersWrapper .hours {
+    height: 3.3em;
+    line-height: 1.15em;
+    padding: 1.15em 0em;
+  }
+  #timeSelector-view #buttonsWrapper #submitTimeSheetPhoto {
+    margin-bottom: 1em !important;
   }
 
   select, textarea, input[type="text"],

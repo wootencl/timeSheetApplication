@@ -36,17 +36,23 @@ These are my my TODOs for the project. Some of them are small while others much 
   + Right now there's some server error handling on forms but none really for othere API calls. Need to add something where if a 500 is returned that should be relayed to the user and prevent a crash.
 + Add a loader gif for transitions and retrieving data from the server.
 + Start using HTTPS.
++ Make sure everthing is in order with even garbage collection in the Admin View.
++ Handle missing weeks in calendar view on the user page.
 
 #####Low Priority (!)
 + Trim whitespaces from inputs.
 + Smoother delete/add animations on the Admin Panel.
++ Some amounts of async. logic problems.
+  + New to async. programming so I'm hoping to come back and fix these.
++ Handling of user being autologged out on cookie expiration.
++ Look into sorting the timesheets returned from the server by date. Currently it seems to be doing that by defauly but further research is required to see if the comparison backbone is using is actually comparing datetimes.
 
 #####Bugs/Edge Case Issues:
 + Deletion of a user while that user is logged in.
 + On resize opened 'user' panes in the Admin Panel should resize as well.
 
 ####Demo:
-This is a demo I launched a couple weeks ago (3/21.16). Basic deployment on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
+This is a demo I launched a couple weeks ago (3.21.16). Basic deployment on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
 
 Demo Link: [tsaDemo](http://tsaDemo.clwproductions.com)
 

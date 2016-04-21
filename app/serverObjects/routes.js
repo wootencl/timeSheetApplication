@@ -1,7 +1,7 @@
 'use strict';
 
 var Persons = require('../serverObjects/persons');
-var TimeSheets = require('../serverObjects/TimeSheets');
+var TimeSheets = require('../serverObjects/timesheets');
 var signupEmail = require('./signupEmail');
 var deletePerson = require('./deletePerson');
 var transporter = require('../serverConfig/emailSetup');
@@ -18,7 +18,7 @@ module.exports = function(app, passport, connection) {
       if (err) {
         return res.sendStatus(500);
       }
-      return res.status(200).send(results);
+      return res.status(200).send({ results: results.resultsArray, next: results.next, prev: results.prev });
     });
   });
 

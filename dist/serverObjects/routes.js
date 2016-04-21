@@ -1,6 +1,7 @@
 'use strict';
 
 var Persons = require('../serverObjects/persons');
+var TimeSheets = require('../serverObjects/timesheets');
 var signupEmail = require('./signupEmail');
 var deletePerson = require('./deletePerson');
 var transporter = require('../serverConfig/emailSetup');
@@ -12,8 +13,13 @@ module.exports = function(app, passport, connection) {
   });
 
   app.get('/timesheets', checkUserAuth, function(req, res, next) {
-    console.log('HIT!');
-    res.sendStatus(200);
+    var timeSheets = new TimeSheets(connection);
+    timeSheets.fetch(req, function(err, results) {
+      if (err) {
+        return res.sendStatus(500);
+      }
+      return res.status(200).send(results);
+    });
   });
 
   app.post('/resendSignupEmail', checkAdminAuth, function(req, res, next) {

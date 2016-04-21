@@ -7,3 +7,5 @@ app/serverConfig/database.js
 dist/serverConfig/database.js
 app/serverConfig/emailSetup.js
 dist/serverConfig/emailSetup.js
+app/serverConfig/createTestDataPersonal.js
+dist/serverConfig/createTestDataPersonal.js
