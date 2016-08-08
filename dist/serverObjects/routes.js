@@ -18,7 +18,7 @@ module.exports = function(app, passport, connection) {
       if (err) {
         return res.sendStatus(500);
       }
-      return res.status(200).send(results);
+      return res.status(200).send({ results: results.resultsArray, next: results.next, prev: results.prev });
     });
   });
 

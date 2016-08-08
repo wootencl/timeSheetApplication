@@ -886,7 +886,7 @@ select {
 
   .column.small-centered:last-child,
   .columns.small-centered:last-child {
-    float: none;
+    float: none !important;
   }
 
   .column.small-uncentered:last-child,
@@ -1188,7 +1188,7 @@ select {
 
   .column.medium-centered:last-child,
   .columns.medium-centered:last-child {
-    float: none;
+    float: none !important;
   }
 
   .column.medium-uncentered:last-child,
@@ -1634,7 +1634,7 @@ select {
 
   .column.large-centered:last-child,
   .columns.large-centered:last-child {
-    float: none;
+    float: none !important;
   }
 
   .column.large-uncentered:last-child,
@@ -8836,7 +8836,7 @@ html, body {
   -ms-transition: height 1s ease;
   transition: height 1s ease;
 }
-#container #adminContent .userBlock .personInfo .personalInformationDiv .personalInformationTitle {
+#container #adminContent .userBlock .personInfo .personalTitle {
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -9007,6 +9007,45 @@ html, body {
 #container #timeSheetTemplate #timeSheetContent #clndr-view .clndr .clndr-grid div {
   float: left;
 }
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view {
+  position: relative;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersCover.active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20%;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: rgba(153, 153, 153, 0.7);
+  z-index: 99;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersCover.active > div {
+  background-color: #898989;
+  padding: 1em;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersCover.active > div div {
+  margin-bottom: 0.5em;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersCover.active > div button {
+  line-height: 1em;
+  height: 2.2em;
+  padding: 0.6em;
+  margin-bottom: 0;
+  background-color: #0054C9;
+  color: #FFFFFF;
+  border-radius: 5px;
+  margin: 0;
+}
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersCover.active > div button:hover {
+  background-color: #004CB5;
+}
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view .border {
   border-bottom: 1px solid #FFF;
 }
@@ -9023,6 +9062,9 @@ html, body {
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view #labels .small-2 {
   width: 20% !important;
 }
+#container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper {
+  position: relative;
+}
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper .dash, #container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper .hours {
   text-align: center;
 }
@@ -9032,6 +9074,7 @@ html, body {
 #container #timeSheetTemplate #timeSheetContent #timeSelector-view #timePickersWrapper input {
   height: 1.5em;
   font-size: 1em;
+  padding: 0;
   margin: 0;
   border-radius: 5px;
   -moz-border-radius: 5px;

@@ -71,6 +71,11 @@ module.exports = function(grunt) {
 					cwd: '.',
 					src: ['package.json'],
 					dest: '<%= dist %>/'
+				}, {
+					expand: true,
+					flatten: true,
+					src: ['<%= app %>/bower_components/font-awesome/css/font-awesome.min.css', '<%= app %>/bower_components/jt.timepicker/jquery.timepicker.css'],
+					dest: '<%= dist %>/public/css/',
 				}]
 			},
 		},
@@ -182,6 +187,7 @@ module.exports = function(grunt) {
 	//Default Tasks (Included with zf5)
 	grunt.registerTask('compile-sass', ['sass']);
 	grunt.registerTask('bower-install', ['wiredep']);
+	grunt.registerTask('include-source', ['includeSource']);
 
 	grunt.registerTask('server', ['express:dev', 'watch']);
 	grunt.registerTask('publish', ['compile-sass', 'clean:dist', 'useminPrepare', 'copy:dist', 'newer:imagemin', 'concat', 'cssmin', 'uglify', 'usemin']);

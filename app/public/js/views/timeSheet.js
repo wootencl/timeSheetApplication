@@ -27,7 +27,7 @@ app.views.timeSheet = Backbone.View.extend({
     },
     renderTimeSelector: function(date) {
         var model = this.timeSheets.find(function(timeSheet) {
-            var modelStartDate = moment(timeSheet.get('weekStartDate'));
+            var modelStartDate = moment.utc(timeSheet.get('weekStartDate')).format('YYYY-MM-DD');
             return moment(modelStartDate).isSame(date);
         });
         if (this.timeSelectorView) {

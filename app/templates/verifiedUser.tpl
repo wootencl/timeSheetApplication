@@ -4,7 +4,7 @@
   </button>
   <div class="personInfo">
     <div class="personalInformationDiv">
-      <div class="personalInformationTitle">
+      <div class="personalTitle">
         Personal Information:
       </div>
       <div class="personalInformation">
@@ -27,7 +27,9 @@
       </div>
     </div>
     <div class="timeSheetInfo-view">
-      Will render person's timesheet information here.
+      <div class="personalTitle">
+        Time Sheets:
+      </div>
     </div>
   </div>
 </div>

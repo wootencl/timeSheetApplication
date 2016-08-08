@@ -13,6 +13,7 @@ TimeSheets.prototype.fetch = function(req, done) {
         console.log(err);
         return done(err, null)
       }
+
       var cleanedResults = cleanResults(results);
       return done(null, cleanedResults);
     });
@@ -22,6 +23,7 @@ TimeSheets.prototype.fetch = function(req, done) {
     var returnArray = [];
     var next = false;
     var prev = false;
+    var timeSelectorDateFound = false;
 
     for (var i=0 ; i<results.length ; i++) {
       if (moment(results[i].weekStartDate).isBefore(req.query.selectStartDate)) {
@@ -31,6 +33,11 @@ TimeSheets.prototype.fetch = function(req, done) {
         next = true;
         continue;
       }
+      //console.log(moment(results[i].weekStartDate, 'YYYY-MM-DD'));
+      // if (moment(results[i].weekStartDate).format('YYYY-MM-DD').isSame(req.query.timeSelectorWeekDate)) {
+      //   timeSelectorDateFound = true;
+      //   console.log("Found!");
+      // }
       var timeSheet = {};
       timeSheet.id = results[i]['HEX(person_id)'];
       timeSheet.weekStartDate = results[i].weekStartDate;

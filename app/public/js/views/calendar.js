@@ -7,6 +7,9 @@
 app.views.Calendar = Backbone.View.extend({
   initialize: function(data) {
     this.options = data;
+    this.listenTo(app.event_bus, 'inputChange', this.registerInputChange);
+    this.timeSelectorInputChanged = false;
+    this.selectedWeekId = '';
   },
   render: function() {
     this.setElement($(this.options.el));
@@ -20,7 +23,7 @@ app.views.Calendar = Backbone.View.extend({
           onMonthChange: function(month) {
             that.fetchCollection(month, function(err) {
               if (err) return console.log(err);
-              var weekSelectorDate = moment(that.collection.at(0).get('weekStartDate')).format('YYYY-MM-DD');
+              var weekSelectorDate = moment.utc(that.collection.at(0).get('weekStartDate')).format('YYYY-MM-DD');
               that.renderNextPrevButtons();
               that.renderDays(weekSelectorDate);
             });
@@ -35,13 +38,18 @@ app.views.Calendar = Backbone.View.extend({
     });
   },
   events: {
-    'click .weekDiv' : 'weekSelected'
+    'click .weekDiv' : 'checkInputWeekSelected',
+    'click #changeTimeSheetNo' : 'unregisterWeekSelected',
+    'click #changeTimeSheetYes' : 'registerWeekSelected'
+  },
+  registerInputChange: function() {
+    this.timeSelectorInputChanged = true;
   },
   renderDays: function(weekSelectorDate) {
     //render week divs on top of calendar
     var daysContainer = document.getElementById('daysContainer');
-    var startWeekDate = moment(this.collection.at(0).get('weekStartDate'));
-    var endWeekDate = moment(this.collection.at(this.collection.length-1).get('weekStartDate'));
+    var startWeekDate = moment.utc(this.collection.at(0).get('weekStartDate'));
+    var endWeekDate = moment.utc(this.collection.at(this.collection.length-1).get('weekStartDate'));
     for (startWeekDate ; moment(startWeekDate).isSameOrBefore(endWeekDate) ; startWeekDate = moment(startWeekDate).add(1, 'w')) {
       var weekDiv = document.createElement('div');
       var weekDivSpan = document.createElement('span');
@@ -76,14 +84,32 @@ app.views.Calendar = Backbone.View.extend({
     }
     this.shiftWeekSelector(weekSelectorDate);
   },
-  weekSelected: function(element) {
-    var weekDiv = document.getElementById(element.currentTarget.id);
+  checkInputWeekSelected: function(element) {
+    this.selectedWeekId = element.currentTarget.id;
+    if (this.timeSelectorInputChanged) {
+      //Temporarily shifting view element to global to catch modal events
+      this.setElement($('#changeTimeSheetModal').foundation('reveal', 'open'));
+    } else {
+      this.registerWeekSelected();
+    }
+  },
+  unregisterWeekSelected: function() {
+    $('#changeTimeSheetModal').foundation('reveal', 'close');
+    //switching back to proper view element
+    this.setElement($(this.options.el));
+  },
+  registerWeekSelected: function() {
+    $('#changeTimeSheetModal').foundation('reveal', 'close');
+    //switching back to proper view element
+    this.setElement($(this.options.el));
+    var weekDiv = document.getElementById(this.selectedWeekId);
     $('.selected').removeClass('selected');
     this.shiftWeekSelector(weekDiv.dataset.date);
     weekDiv.className += ' selected';
   },
   shiftWeekSelector: function(date) {
     this.trigger('timeSelector', date);
+    this.timeSelectorInputChanged = false;
     var weekStartDayDiv = document.getElementById(date);
     var weekSelector = document.getElementById('weekSelector');
     var weekDiv = document.getElementById(date+'-weekDiv');
@@ -124,17 +150,18 @@ app.views.Calendar = Backbone.View.extend({
     this.collection.fetch({
       reset: true,
       data : {
-          selectStartDate: initializedSelectStartDate,
-          selectEndDate: initializedSelectEndDate
+        timeSelectorWeekDate: moment(date).startOf('isoWeek').format('YYYY-MM-DD'),
+        selectStartDate: initializedSelectStartDate,
+        selectEndDate: initializedSelectEndDate
       },
       success: function(collection, response, options) {
-          that.options.next = response.next;
-          that.options.prev = response.prev;
-          done(null);
+        that.options.next = response.next;
+        that.options.prev = response.prev;
+        done(null);
       },
       error: function(collection, response, options) {
-          //handle server error
-          done(err);
+        //handle server error
+        done(err);
       }
     });
   }

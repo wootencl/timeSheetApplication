@@ -50,6 +50,7 @@ var app = app || (function () {
 
 
     var api = {
+        event_bus: _.extend({}, Backbone.Events),
         views: {},
         models: {},
         collections: {},
@@ -59,7 +60,6 @@ var app = app || (function () {
         init: function() {
             this.content = $('#container');
 
-            //Load the Login screen
             //Initialize Foundation
             $(document).foundation();
 
@@ -134,12 +134,10 @@ var app = app || (function () {
             return this.loginCreationView;
         },
         timeSheet: function() {
-            if (!this.timeSheetView) {
-                this.timeSheetView = new api.views.timeSheet({
-                    el: $('#container'),
-                    template: this.createTemplate('templates/timeSheet.tpl')
-                });
-            }
+            this.timeSheetView = new api.views.timeSheet({
+                el: $('#container'),
+                template: this.createTemplate('templates/timeSheet.tpl')
+            });
             return this.timeSheetView;
         },
         admin: function() {

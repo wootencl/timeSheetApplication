@@ -1,3 +1,4 @@
+<div id="timePickersCover"></div>
 <div id="timePickerHeader">
   <div class="row small-collapse medium-uncollapse border">
     <div class="small-12 small-cenetered columns">
@@ -12,7 +13,7 @@
     <div class="small-9 medium-10 columns" id="totalTimeText">
       Total Time:
     </div>
-    <div class="small-2 columns" id="totalTime">45</div>
+    <div class="small-2 columns" id="totalTime"><%= (totalTime !== null) ? totalTime : 0 %></div>
   </div>
 </div>
 <div id="buttonsWrapper">

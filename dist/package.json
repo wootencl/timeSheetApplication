@@ -30,7 +30,8 @@
     "grunt-newer": "~1.1.1",
     "grunt-usemin": "~3.0.0",
     "grunt-wiredep": "~2.0.0",
-    "load-grunt-tasks": "~3.2.0"
+    "load-grunt-tasks": "~3.2.0",
+    "moment": "^2.12.0"
   },
   "dependencies": {
     "backbone-validation": "^0.11.5",

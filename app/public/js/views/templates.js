@@ -4,7 +4,17 @@ this["JST"]["templates/AdminPanel.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="adminTemplate">\n  <div class="row">\n    <div class="small-12 medium-10 small-centered columns">\n      <div id="adminContent">\n        <div class="row">\n          <div class="small-12 medium-5 large-5 columns">\n            <img src="images/logoWithText.jpg"/>\n            <div id="adminPanelTitle">\n              Adminstration Panel\n            </div>\n          </div>\n          <div class="small-12 medium-7 large-7 columns">\n            <div class="subSectionTitle">\n              Token Generation:\n            </div>\n            <form id="createUserRequest">\n              <div class="row">\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="email" type="text" name="Email" placeholder="Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="confirmEmail" type="text" name="ConfirmEmail" placeholder="Confirm Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 small-centered columns">\n                  <button id="submitCreateUserButton" class="button round expand" type="button">Send Token</button>\n                </div>\n              </div>\n              <div class="row">\n                <div class="small-12 columns">\n                  <div class="hidden" id="serverError">\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n        </div>\n        <div class="subSectionTitle users">\n            Verified users:\n        </div>\n        <div id="verifiedUsers-view">\n        </div>\n        <div class="subSectionTitle users">\n          Unverified users:\n        </div>\n        <div id="unverifiedUsers-view">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div id="deleteModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">\n  <div class="row">\n    <div class="small-8 small-centered columns">\n      <p>Are you sure?</p>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteNo" class="button expand" type="button">No</button>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteYes" class="button expand" type="button">Yes</button>\n    </div>\n  </div>\n</div>\n<div id="signupEmailModal" class="reveal-modal small" data-reveal>\n  <h4>Successful token creation!</h4>\n  A token has been generated and sent the to the supplied email address.\n  <a class="close-reveal-modal" aria-label="Close">&#215;</a>\n</div>\n<div id="resendSignupEmailModal" class="reveal-modal small" data-reveal>\n  <h4>Resent authentication token!</h4>\n  A new email with the user\'s authentication token has been sent.\n  <a class="close-reveal-modal" aria-label="Close">&#215;</a>\n</div>\n\n\n';
+__p += '<div id="adminTemplate">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="small-12 medium-10 small-centered columns">\n      <div id="adminContent">\n        <div class="row small-collapse medium-uncollapse">\n          <div class="small-12 medium-5 large-5 columns">\n            <img src="images/logoWithText.jpg"/>\n            <div id="adminPanelTitle">\n              Adminstration Panel\n            </div>\n          </div>\n          <div class="small-12 medium-7 large-7 columns">\n            <div class="subSectionTitle">\n              Token Generation:\n            </div>\n            <form id="createUserRequest">\n              <div class="row small-collapse medium-uncollapse">\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="email" type="text" name="Email" placeholder="Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n                <div class="small-12 medium-6 large-6 columns">\n                  <div class="inputWrapper">\n                    <input id="confirmEmail" type="text" name="ConfirmEmail" placeholder="Confirm Email">\n                    <small class="error hidden"></small>\n                  </div>\n                </div>\n              </div>\n              <div class="row small-collapse medium-uncollapse">\n                <div class="small-12 small-centered columns">\n                  <button id="submitCreateUserButton" class="button round expand" type="button">Send Token</button>\n                </div>\n              </div>\n              <div class="row small-collapse medium-uncollapse">\n                <div class="small-12 columns">\n                  <div class="hidden" id="serverError">\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n        </div>\n        <div class="subSectionTitle users">\n            Verified users:\n        </div>\n        <div id="verifiedUsers-view">\n        </div>\n        <div class="subSectionTitle users">\n          Unverified users:\n        </div>\n        <div id="unverifiedUsers-view">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div id="deleteModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">\n  <div class="row">\n    <div class="small-8 small-centered columns">\n      <p>Are you sure?</p>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteNo" class="button expand" type="button">No</button>\n    </div>\n    <div class="small-6 columns">\n        <button id="deleteYes" class="button expand" type="button">Yes</button>\n    </div>\n  </div>\n</div>\n<div id="signupEmailModal" class="reveal-modal small" data-reveal>\n  <h4>Successful token creation!</h4>\n  A token has been generated and sent the to the supplied email address.\n  <a class="close-reveal-modal" aria-label="Close">&#215;</a>\n</div>\n<div id="resendSignupEmailModal" class="reveal-modal small" data-reveal>\n  <h4>Resent authentication token!</h4>\n  A new email with the user\'s authentication token has been sent.\n  <a class="close-reveal-modal" aria-label="Close">&#215;</a>\n</div>\n\n\n';
+
+}
+return __p
+};
+
+this["JST"]["templates/adminPersonTimeSheetWeek.tpl"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '';
 
 }
 return __p
@@ -35,7 +45,7 @@ __p += '\n      <div class="' +
 ((__t = ( day.day )) == null ? '' : __t) +
 '</span>\n      </div>\n    ';
  }); ;
-__p += '\n  </div>\n</div>';
+__p += '\n  </div>\n</div>\n<div id="changeTimeSheetModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">\n  <div class="row">\n    <div class="small-12 small-centered columns">\n      <p>You have made changes to this timesheet and not submitted. If you change to a different timesheet your input will be lost. Are you sure you wish to proceed?</p>\n    </div>\n    <div class="small-6 columns">\n        <button id="changeTimeSheetNo" class="button expand" type="button">No</button>\n    </div>\n    <div class="small-6 columns">\n        <button id="changeTimeSheetYes" class="button expand" type="button">Yes</button>\n    </div>\n  </div>\n</div>';
 
 }
 return __p
@@ -99,11 +109,13 @@ this["JST"]["templates/timeSelector.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="timePickerHeader">\n  <div class="row small-collapse medium-uncollapse border">\n    <div class="small-12 small-cenetered columns">\n      Week of (' +
+__p += '<div id="timePickersCover"></div>\n<div id="timePickerHeader">\n  <div class="row small-collapse medium-uncollapse border">\n    <div class="small-12 small-cenetered columns">\n      Week of (' +
 ((__t = ( moment(weekStartDate).format('MM/DD/YYYY') )) == null ? '' : __t) +
 ') to (' +
 ((__t = ( moment(weekStartDate).add(4, 'd').format('MM/DD/YYYY') )) == null ? '' : __t) +
-'):\n    </div>\n  </div>\n</div>\n<div id="timePickersWrapper">\n</div>\n<div class="border" id="totalTimeWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="small-9 medium-10 columns" id="totalTimeText">\n      Total Time:\n    </div>\n    <div class="small-2 columns" id="totalTime">45</div>\n  </div>\n</div>\n<div id="buttonsWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="medium-8 small-12 columns">\n      <button id="submitTimeSheetPhoto" class="button round expand" type="submit">Upload TimeSheet Photo</button>\n    </div>\n    <div class="medium-4 small-12 columns">\n      <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>\n    </div>\n  </div>\n</div>';
+'):\n    </div>\n  </div>\n</div>\n<div id="timePickersWrapper">\n</div>\n<div class="border" id="totalTimeWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="small-9 medium-10 columns" id="totalTimeText">\n      Total Time:\n    </div>\n    <div class="small-2 columns" id="totalTime">' +
+((__t = ( (totalTime !== null) ? totalTime : 0 )) == null ? '' : __t) +
+'</div>\n  </div>\n</div>\n<div id="buttonsWrapper">\n  <div class="row small-collapse medium-uncollapse">\n    <div class="medium-8 small-12 columns">\n      <button id="submitTimeSheetPhoto" class="button round expand" type="submit">Upload TimeSheet Photo</button>\n    </div>\n    <div class="medium-4 small-12 columns">\n      <button id="toAccountCreationButton" class="button round expand" type="submit">Submit</button>\n    </div>\n  </div>\n</div>';
 
 }
 return __p
@@ -113,11 +125,23 @@ this["JST"]["templates/timeSelectorDay.tpl"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="row small-collapse medium-uncollapse margin-bottom border">\n  <div class="small-12 columns">' +
+__p += '<div id="timeselectors-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" class="row small-collapse medium-uncollapse margin-bottom border">\n  <div class="small-12 columns">' +
 ((__t = ( moment(date).format('dddd') )) == null ? '' : __t) +
 ' (' +
 ((__t = ( moment(date).format('MM/DD/YYYY') )) == null ? '' : __t) +
-')</div>\n  <div class="small-10 columns">\n    <div class="row small-collapse">\n      <div class="small-5 medium-2 columns morning">\n        <input class="timer-input" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns morning dash"> - </div>\n      <div class="small-5 medium-2 columns morning">\n        <input class="timer-input" type="text" id="example" placeholder="Logout"/>\n      </div>\n      <div class="small-5 medium-2 medium-offset-1 columns afternoon">\n        <input class="timer-input" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns afternoon dash"> - </div>\n      <div class="small-5 medium-2 columns afternoon end">\n        <input class="timer-input" type="text" id="example" placeholder="Logout"/>\n      </div>\n    </div>\n  </div>\n  <div class="small-2 columns hours">\n    ' +
+')</div>\n  <div class="small-10 columns">\n    <div class="row small-collapse">\n      <div class="small-5 medium-2 columns morning">\n        <input id="morning-login" class="input-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns morning dash"> - </div>\n      <div class="small-5 medium-2 columns morning">\n        <input id="morning-logout" class="input-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" type="text" id="example" placeholder="Logout"/>\n      </div>\n      <div class="small-5 medium-2 medium-offset-1 columns afternoon">\n        <input id="afternoon-login" class="input-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" type="text" id="example" placeholder="Login"/>\n      </div>\n      <div class="small-1 medium-1 columns afternoon dash"> - </div>\n      <div class="small-5 medium-2 columns afternoon end">\n        <input id="afternoon-logout" class="input-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" type="text" id="example" placeholder="Logout"/>\n      </div>\n    </div>\n  </div>\n  <div id="totalHours-' +
+((__t = ( formattedDate)) == null ? '' : __t) +
+'" class="small-2 columns hours">\n    ' +
 ((__t = ( time )) == null ? '' : __t) +
 '\n  </div>\n</div>';
 
@@ -161,13 +185,13 @@ __p += '<div class="userBlock">\n  <button class="verified user" type="button" d
 ((__t = ( person.FirstName)) == null ? '' : __t) +
 '  ' +
 ((__t = (person.LastName)) == null ? '' : __t) +
-'\n  </button>\n  <div class="personInfo">\n    <div class="personalInformationDiv">\n      <div class="personalInformationTitle">\n        Personal Information:\n      </div>\n      <div class="personalInformation">\n        <div class="row">\n          <div class="small-12 medium-6 large-6 columns">\n            Email: ' +
+'\n  </button>\n  <div class="personInfo">\n    <div class="personalInformationDiv">\n      <div class="personalTitle">\n        Personal Information:\n      </div>\n      <div class="personalInformation">\n        <div class="row">\n          <div class="small-12 medium-6 large-6 columns">\n            Email: ' +
 ((__t = ( person.Email)) == null ? '' : __t) +
 '\n          </div>\n          <div class="small-12 medium-6 large-6 columns">\n            Role: ' +
 ((__t = ( person.Role)) == null ? '' : __t) +
 '\n          </div>\n          <div class="small-12 columns authTokenClass">\n            Authentication Token: ' +
 ((__t = ( person.id)) == null ? '' : __t) +
-'\n          </div>\n          <div class="small-12 columns">\n            <div class="buttonDiv">\n              <button class="button round deleteButton" >Delete</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="timeSheetInfo-view">\n      Will render person\'s timesheet information here.\n    </div>\n  </div>\n</div>';
+'\n          </div>\n          <div class="small-12 columns">\n            <div class="buttonDiv">\n              <button class="button round deleteButton" >Delete</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class="timeSheetInfo-view">\n      <div class="personalTitle">\n        Time Sheets:\n      </div>\n    </div>\n  </div>\n</div>';
 
 }
 return __p

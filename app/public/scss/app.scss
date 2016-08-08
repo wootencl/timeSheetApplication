@@ -61,6 +61,10 @@
 padding-left: 0;
 }
 
+// ### Foundation SCSS Modifications ###
+  //  _grid.scss L196 (+!important)
+// ### END ###
+
 // verticalWrap Pallete for Application
 $white-background: #FFFFFF;
 $elevation-blue: #0054C9;
@@ -100,6 +104,9 @@ $default-red: #dd3c3c;
   color: $font-color;
   border-radius: 5px;
   margin: 0;
+}
+@mixin buttonHover() {
+  background-color: $button-hover;
 }
 @mixin inputError() {
   border-radius: 3px 3px 0px 0px !important;
@@ -210,7 +217,7 @@ html, body {
     @include button();
   }
   button:hover {
-    background-color: $button-hover;
+    @include buttonHover();
   }
 }
 // ### END ###
@@ -353,11 +360,12 @@ html, body {
         -ms-transition: height 1s ease;
         transition: height 1s ease;
 
+        .personalTitle {
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+
         .personalInformationDiv {
-          .personalInformationTitle {
-            font-weight: bold;
-            font-size: 1.2em;
-          }
           .personalInformation {
             padding: 0.5em 0em;
             border-top: 0.1em solid #000000;
@@ -536,6 +544,40 @@ html, body {
         }
       }
       #timeSelector-view {
+        #timePickersCover.active {
+          position:absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 20%;
+          border-radius: 5px;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          background-color: rgba(153, 153, 153, 0.7);
+          z-index: 99;
+          & > div {
+            background-color: #898989;
+            padding: 1em;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            div {
+              margin-bottom: 0.5em;
+            }
+            button {
+              line-height: 1em;
+              height: 2.2em;
+              padding: 0.6em;
+              margin-bottom: 0;
+              @include button();
+              &:hover {
+                @include buttonHover();
+              }
+            }
+          }
+        }
+        position: relative;
         .border {
           border-bottom: 1px solid #FFF;
         }
@@ -554,6 +596,7 @@ html, body {
           font-weight: 700;
         }
         #timePickersWrapper {
+          position: relative;
           .dash, .hours {
             text-align: center;
           }
@@ -563,7 +606,7 @@ html, body {
           input {
             height: 1.5em;
             font-size: 1em;
-            //padding: 0;
+            padding: 0;
             margin: 0;
             border-radius: 5px;
             -moz-border-radius: 5px;

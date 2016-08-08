@@ -1,8 +1,8 @@
 <div id="adminTemplate">
-  <div class="row">
+  <div class="row small-collapse medium-uncollapse">
     <div class="small-12 medium-10 small-centered columns">
       <div id="adminContent">
-        <div class="row">
+        <div class="row small-collapse medium-uncollapse">
           <div class="small-12 medium-5 large-5 columns">
             <img src="images/logoWithText.jpg"/>
             <div id="adminPanelTitle">
@@ -14,7 +14,7 @@
               Token Generation:
             </div>
             <form id="createUserRequest">
-              <div class="row">
+              <div class="row small-collapse medium-uncollapse">
                 <div class="small-12 medium-6 large-6 columns">
                   <div class="inputWrapper">
                     <input id="email" type="text" name="Email" placeholder="Email">
@@ -28,12 +28,12 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row small-collapse medium-uncollapse">
                 <div class="small-12 small-centered columns">
                   <button id="submitCreateUserButton" class="button round expand" type="button">Send Token</button>
                 </div>
               </div>
-              <div class="row">
+              <div class="row small-collapse medium-uncollapse">
                 <div class="small-12 columns">
                   <div class="hidden" id="serverError">
                   </div>

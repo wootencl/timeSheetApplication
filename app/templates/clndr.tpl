@@ -20,3 +20,16 @@
     <% }); %>
   </div>
 </div>
+<div id="changeTimeSheetModal" class="reveal-modal small" data-reveal data-options="close_on_background_click:false">
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <p>You have made changes to this timesheet and not submitted. If you change to a different timesheet your input will be lost. Are you sure you wish to proceed?</p>
+    </div>
+    <div class="small-6 columns">
+        <button id="changeTimeSheetNo" class="button expand" type="button">No</button>
+    </div>
+    <div class="small-6 columns">
+        <button id="changeTimeSheetYes" class="button expand" type="button">Yes</button>
+    </div>
+  </div>
+</div>

@@ -69,16 +69,19 @@ app.views.admin = Backbone.View.extend({
     'click #submitCreateUserButton' : 'createToken'
   },
   expandUserInfo: function(element) {
-    var totalHeight = 0;
-    $(element.currentTarget).next('.personInfo').children().each(function() {
-      totalHeight += $(this).outerHeight(true);
-    });
     var toggleElement = $(element.currentTarget).next('.personInfo');
     if ($(toggleElement).height() !== 0) {
       $(toggleElement).height("0px");
     } else {
-      $(toggleElement).height(totalHeight+"px");
+      this.fetchUserInfo(toggleElement);
     }
+  },
+  fetchUserInfo: function(toggleElement) {
+    var totalHeight = 0;
+    $(toggleElement).children().each(function() {
+      totalHeight += $(this).outerHeight(true);
+    });
+    $(toggleElement).height(totalHeight+"px");
   },
   createToken: function() {
     var that = this;

@@ -17,44 +17,12 @@ Currently I've gone with the idea of handing out authentication tokens in order 
 
 ####TODO:
 
-These are my my TODOs for the project. Some of them are small while others much larger. I originally was keeping a local text document with this information but couldn't think of a reason to not include this information with the README.
-
-#####High Priority (!!!)
-+ ~~Launch a demo.~~
-+ Backend Validation.
-  + The backbone.validation plugin I'm using claims to have a way of passing it's validation to node. Further research required.
-+ Tests.
-  + This was originally suppose to be a TDD project but as I have decided to go with delivering a product to the client so they can have something to begin showing to their employees I'm putting that off until the end.
-+ On window resize I need to refresh the locations of the 'weekDiv's and the 'weekSelector'
-
-#####Medium Priority (!!)
-+ Modularize SCSS.
-+ Enable 'Enter' keystroke press for form submissions.
-+ Garbage collection of subviews in Admin Panel.
-+ Add handling/message to the Admin Panel for when empty collections are handed back from the server. Right not the 'user' sections are just empty.
-+ Handle general server errors.
-  + Right now there's some server error handling on forms but none really for othere API calls. Need to add something where if a 500 is returned that should be relayed to the user and prevent a crash.
-+ Add a loader gif for transitions and retrieving data from the server.
-+ Start using HTTPS.
-+ Make sure everthing is in order with even garbage collection in the Admin View.
-+ Handle missing weeks in calendar view on the user page.
-
-#####Low Priority (!)
-+ Trim whitespaces from inputs.
-+ Smoother delete/add animations on the Admin Panel.
-+ Some amounts of async. logic problems.
-  + New to async. programming so I'm hoping to come back and fix these.
-+ Handling of user being autologged out on cookie expiration.
-+ Look into sorting the timesheets returned from the server by date. Currently it seems to be doing that by defauly but further research is required to see if the comparison backbone is using is actually comparing datetimes.
-
-#####Bugs/Edge Case Issues:
-+ Deletion of a user while that user is logged in.
-+ On resize opened 'user' panes in the Admin Panel should resize as well.
+I'm using Trello to track the project's progress which can be viewed [here](https://trello.com/b/ph9LSOOm).
 
 ####Demo:
 This is a demo I launched a couple weeks ago (3.21.16). Basic deployment on my AWS EC2 instance. I've got a git repository connected to the server located in my 'dist' folder that I typically push from everytime I push to Github.
 
-Demo Link: [tsaDemo](http://tsaDemo.clwproductions.com)
+Demo Link: [tsaDemo](http://tsaDemo.carterwooten.com)
 
 Login Credentials:
 + USER: demouser@gmail.com, password123
@@ -131,4 +99,4 @@ At the moment just myself but all are welcome to join!
 
 ## License
 
-MIT © [Carter Wooten](http://clwproductions.com)
+MIT © [Carter Wooten](http://carterwooten.com)
