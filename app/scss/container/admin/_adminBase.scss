@@ -1,0 +1,98 @@
+#adminContent {
+  img {
+    height: 7em;
+    margin: auto;
+  }
+  #adminPanelTitle {
+    height: 2em;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .subSectionTitle {
+    font-size: 1.2em;
+    height: 2em;
+  }
+  #createUserRequest {
+    height: 7em;
+  }
+  .users {
+    margin: 0.5em 0em;
+    border-top: 0.1em solid #FFFFFF;
+  }
+  .userBlock {
+    .user {
+      text-align: left;
+      min-height: 2em;
+      padding: 0em 0.5em;
+      width: 100%;
+      margin-top: 1px !important;
+      -webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.75);
+    }
+    .verified {
+      background-color: #69a776 !important;
+    }
+    .verified:hover {
+      background-color: #559162 !important;
+    }
+    .unverified {
+      background-color: #dd3c3c !important;
+    }
+    .unverified:hover {
+      background-color: #d92626 !important;
+    }
+    .personInfo {
+      height: 0em;
+      overflow: hidden;
+      color: #000000;
+      background-color: $white-background;
+      margin: 0em 0.5em;
+      padding: 0em 0.5em;
+
+      -webkit-transition: height 1s ease;
+      -moz-transition: height 1s ease;
+      -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+      transition: height 1s ease;
+
+      .personalTitle {
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .personalInformationDiv {
+        .personalInformation {
+          padding: 0.5em 0em;
+          border-top: 0.1em solid #000000;
+          border-bottom: 0.1em solid #000000;
+        }
+      }
+      .unverifiedRow {
+        padding: 0.5em 0em;
+      }
+      .authTokenClass {
+        word-wrap: break-word;
+      }
+    }
+    .buttonDiv {
+      float: right;
+    }
+    .deleteButton {
+      background-color: #dd3c3c !important;
+      padding: 0.1em 0.5em;
+      height: 1.5em;
+    }
+    .deleteButton:hover {
+      background-color: #d92626 !important;
+    }
+    .resendButton {
+      background-color: #69a776 !important;
+      padding: 0.1em 0.5em;
+      height: 1.5em;
+    }
+    .resendButton:hover {
+      background-color: #559162 !important;
+    }
+  }
+}

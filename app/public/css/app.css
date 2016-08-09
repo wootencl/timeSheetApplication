@@ -8604,20 +8604,6 @@ th.hide-for-touch {
   padding-left: 0;
 }
 
-.verticalParent {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.verticalChild {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
 .clearfix:after {
   content: ".";
   display: block;
@@ -8645,6 +8631,24 @@ html, body {
   height: 100%;
   min-height: 100%;
   position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.verticalParent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.verticalChild {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #header {
@@ -8678,10 +8682,6 @@ html, body {
 }
 #header #headerBar-view #logoutButton:hover {
   background-color: #595959;
-}
-
-.hidden {
-  display: none !important;
 }
 
 .reveal-modal p, .reveal-modal h4 {

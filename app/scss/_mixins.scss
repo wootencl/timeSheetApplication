@@ -1,0 +1,54 @@
+@mixin verticalAlignParent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+@mixin verticalAlign() {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin content() {
+  background-color: $elevation-grey;
+  color: $font-color;
+  padding: 1em;
+  height: auto;
+}
+@mixin button() {
+  background-color: $elevation-blue;
+  color: $font-color;
+  border-radius: 5px;
+  margin: 0;
+}
+@mixin buttonHover() {
+  background-color: $button-hover;
+}
+@mixin inputError() {
+  border-radius: 3px 3px 0px 0px !important;
+  -moz-border-radius: 3px 3px 0px 0px !important;
+  -khtml-border-radius: 3px 3px 0px 0px !important;
+  -webkit-border-radius: 3px 3px 0px 0px !important;
+}
+@mixin smallError() {
+  border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -khtml-border-radius: 0px 0px 3px 3px;
+  -webkit-border-radius: 0px 0px 3px 3px;
+}
+@mixin serverError() {
+  margin-top: 1em;
+  background: #f04124;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 0.3em;
+}
+@mixin weekDiv() {
+  position: absolute;
+  width: 70%; // 14% * 5days
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  height: 2.2em;
+}

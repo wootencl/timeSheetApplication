@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 					quiet: true
 				},
 				files: {
-					'<%= app %>/public/css/app.css': '<%= app %>/public/scss/app.scss'
+					'<%= app %>/public/css/app.css': '<%= app %>/scss/app.scss'
 				}
 			}
 		},
@@ -127,7 +127,7 @@ module.exports = function(grunt) {
 				tasks: ['jst', 'includeSource']
 			},
 			sass: {
-				files: '<%= app %>/public/scss/**/*.scss',
+				files: '<%= app %>/scss/**/*.scss',
 				tasks: ['sass']
 			},
 			html: {

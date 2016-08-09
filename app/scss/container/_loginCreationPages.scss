@@ -1,0 +1,44 @@
+#loginTemplate, #loginCreationTemplate, #homeTemplate, #adminTemplate {
+  @include content();
+
+  #loginContent, #loginCreationContent, #homeContent, #adminContent {
+    input {
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+    }
+    button {
+      @include button();
+    }
+    button:hover {
+        background-color: $button-hover;
+    }
+    #homeButton {
+      padding: 0.5em 1em;
+     #homeIcon {
+        font-size: 2em;
+      }
+    }
+    input.error {
+      @include inputError();
+    }
+    small.error {
+      @include smallError();
+    }
+    #serverError {
+      @include serverError();
+    }
+    img {
+      display: block;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      margin: auto;
+    }
+  }
+  #loginContent, #loginCreationContent {
+    > .row:first-child {
+      margin-bottom: 1em;
+    }
+  }
+}
