@@ -201,50 +201,6 @@ var app = app || (function () {
         timeSheet : function() {
             app.event_bus.trigger('timeSheet');
         }
-        // execute: function(callback, args) {
-        //     //Using a cookie to handle whether or not the user has already been authenticated
-        //     var that = this;
-        //     window.session.fetch({
-        //         success: function(model, response) {
-        //             var route = Backbone.history.getFragment();
-        //             if (response.isAuthenticated) {
-        //                 var data = { FirstName: response.FirstName, LastName: response.LastName};
-        //                 var view = HeaderViewFactory.loggedInHeader(data);
-        //                 HeaderViewFactory.showView(view);
-        //                 if (response.Role === 'ADMIN') {
-        //                     if (_.contains(that.requiresAuthAdmin, route)) {
-        //                          if (callback) callback.apply(this, args);
-        //                     } else {
-        //                         app.event_bus.trigger('admin');
-        //                         return false;
-        //                     }
-        //                 } else {
-        //                     if (_.contains(that.requiresAuth, route)) {
-        //                         if (callback) callback.apply(this, args);
-        //                     } else {
-        //                         app.event_bus.trigger('timeSheet');
-        //                         return false;
-        //                     }
-        //                 }
-        //             } else {
-        //                 var view = HeaderViewFactory.loggedOutHeader();
-        //                 HeaderViewFactory.showView(view);
-        //                 if (_.contains(that.NotRequireAuth, route)) {
-        //                     if (callback) callback.apply(this, args);
-        //                 } else {
-        //                     app.event_bus.trigger('login');
-        //                     return false;
-        //                 }
-        //             }
-        //         },
-        //         error: function(model, response) {
-        //             console.log("There was an error with the server.");
-        //         }
-        //     });
-        // },
-        // requiresAuthAdmin: ['AdminPanel'],
-        // requiresAuth: ['timeSheet'],
-        // NotRequireAuth: ['CreateAccount', 'login', '']
     });
     api.router = new Router();
 
@@ -252,8 +208,8 @@ var app = app || (function () {
     // This is a replacement for the 'execute' function of the router.
     // Was necessary as not all routes will now fire that execute function with
     // the event driven nature of my navigation.
-    // NOTE: Using setTimeout in this function because I was getting some strange behavior in Chome
-    // triggering an event within the 'fetch'. setTimeout ensure the call stack has been fully
+    // NOTE: Using setTimeout in this function because I was getting some strange behavior in Chrome
+    // triggering an event within the 'fetch'. setTimeout ensures the call stack has been fully
     // executed until it attempts to pass the message down the event_bus
     var routeWatcher = {
         inspect: function(callback) {

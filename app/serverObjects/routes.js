@@ -7,13 +7,13 @@ var deletePerson = require('./deletePerson');
 var transporter = require('../serverConfig/emailSetup');
 var signupEmailMessage = require('./signupEmailMessage');
 
-module.exports = function(app, passport, connection) {
+module.exports = function(app, passport) {
   app.get('/', function (req, res) {
     res.sendFile( 'index.html', { root: process.env.PWD});
   });
 
   app.get('/timesheets', checkUserAuth, function(req, res, next) {
-    var timeSheets = new TimeSheets(connection);
+    var timeSheets = new TimeSheets();
     timeSheets.fetch(req, function(err, results) {
       if (err) {
         return res.sendStatus(500);
@@ -36,7 +36,7 @@ module.exports = function(app, passport, connection) {
   });
 
   app.post('/tokenCreation', checkAdminAuth, function(req, res, next) {
-    signupEmail(req.body.Email, connection, function(err, success, info) {
+    signupEmail(req.body.Email, function(err, success, info) {
       if (err) {
         return res.status(500).send({ message: 'Internal server error. Please try again.'});
       } else if (!success) {
@@ -48,7 +48,7 @@ module.exports = function(app, passport, connection) {
   });
 
   app.delete('/persons/:id', checkAdminAuth, function(req, res, next) {
-    deletePerson(req, connection, function(err) {
+    deletePerson(req, function(err) {
       if (err) {
         return res.sendStatus(500);
       }
@@ -57,7 +57,7 @@ module.exports = function(app, passport, connection) {
   });
 
   app.get('/persons', checkAdminAuth, function(req,res) {
-    var persons = new Persons(connection);
+    var persons = new Persons();
     persons.fetch(req, function(err, results) {
       if (err) {
         return res.sendStatus(500);

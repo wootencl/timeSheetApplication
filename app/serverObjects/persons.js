@@ -1,31 +1,38 @@
-var Persons = function(connection){
-  this.connection = connection;
+'use strict';
+var Promise = require("bluebird");
+
+var getSqlConnection = require('../serverConfig/databaseConnection');
+
+var Persons = function(){
 };
 
-Persons.prototype.fetch = function(req, callback) {
+Persons.prototype.fetch = function(req, done) {
   if (req.query.verified === 'true') {
-    this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons WHERE FirstName IS NOT NULL", function(err, results) {
-      if (err) {
-        return callback(err, null)
-      }
-      var returnArray = cleanResults(results);
-      return callback(null, returnArray);
+    Promise.using(getSqlConnection(), function(connection) {
+      return connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons WHERE FirstName IS NOT NULL").then(function(results) {
+        var returnArray = cleanResults(results);
+        return done(null, returnArray);
+      }).catch(function(error) {
+        return done(error, null);
+      });
     });
   } else if (req.query.verified === 'false') {
-    this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons WHERE FirstName IS NULL", function(err, results) {
-      if (err) {
-        return callback(err, null)
-      }
-      var returnArray = cleanResults(results);
-      return callback(null, returnArray);
+    Promise.using(getSqlConnection(), function(connection) {
+      return connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons WHERE FirstName IS NULL").then(function(results) {
+        var returnArray = cleanResults(results);
+        return done(null, returnArray);
+      }).catch(function(error) {
+        return done(error, null);
+      });
     });
   } else {
-    this.connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons", function(err, results) {
-      if (err) {
-        return callback(err, null)
-      }
-      var returnArray = cleanResults(results);
-      return callback(null, returnArray);
+    Promise.using(getSqlConnection(), function(connection) {
+      return connection.query("SELECT HEX(ID), LastName, FirstName, Email, Role FROM Persons").then(function(results) {
+        var returnArray = cleanResults(results);
+        return done(null, returnArray);
+      }).catch(function(error) {
+        return done(error, null);
+      });
     });
   }
 

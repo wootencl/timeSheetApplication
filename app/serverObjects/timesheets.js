@@ -1,22 +1,23 @@
 var moment = require('moment');
+var Promise = require("bluebird");
 
-var TimeSheets = function(connection){
-  this.connection = connection;
+var getSqlConnection = require('../serverConfig/databaseConnection');
+
+var TimeSheets = function(){
 };
 
 TimeSheets.prototype.fetch = function(req, done) {
   var wideSelectStartDate = moment(req.query.selectStartDate).subtract(1, 'M').format('YYYY-MM-DD');
   var wideSelectEndDate = moment(req.query.selectEndDate).add(1, 'M').format('YYYY-MM-DD');
-  this.connection.query("SELECT HEX(person_id), weekStartDate, mondayTime, tuesdayTime, wednesdayTime, thursdayTime, fridayTime, totalTime \
-    FROM TimeSheets WHERE (weekStartDate BETWEEN ? AND ?) AND HEX(person_id) = ?", [wideSelectStartDate, wideSelectEndDate, req.user['HEX(ID)']], function(err, results) {
-      if (err) {
-        console.log(err);
-        return done(err, null)
-      }
-
-      var cleanedResults = cleanResults(results);
+  Promise.using(getSqlConnection(), function(connection) {
+    return connection.query("SELECT HEX(person_id), weekStartDate, mondayTime, tuesdayTime, wednesdayTime, thursdayTime, fridayTime, totalTime \
+    FROM TimeSheets WHERE (weekStartDate BETWEEN ? AND ?) AND HEX(person_id) = ?", [wideSelectStartDate, wideSelectEndDate, req.user['HEX(ID)']]).then(function(rows) {
+      var cleanedResults = cleanResults(rows);
       return done(null, cleanedResults);
+    }).catch(function(error) {
+      return done(err, null);
     });
+  });
 
   //Helper Function
   function cleanResults(results) {
@@ -33,11 +34,7 @@ TimeSheets.prototype.fetch = function(req, done) {
         next = true;
         continue;
       }
-      //console.log(moment(results[i].weekStartDate, 'YYYY-MM-DD'));
-      // if (moment(results[i].weekStartDate).format('YYYY-MM-DD').isSame(req.query.timeSelectorWeekDate)) {
-      //   timeSelectorDateFound = true;
-      //   console.log("Found!");
-      // }
+
       var timeSheet = {};
       timeSheet.id = results[i]['HEX(person_id)'];
       timeSheet.weekStartDate = results[i].weekStartDate;

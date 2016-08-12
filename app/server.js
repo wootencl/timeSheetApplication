@@ -8,7 +8,6 @@ var app = express();
 var port = process.env.PORT || 3000;
 var passport = require('passport');
 var flash = require('connect-flash');
-var mysql = require('mysql');
 
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -19,16 +18,6 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/templates',  express.static(__dirname + '/templates'));
 
 var configDB = require('./serverConfig/database.js');
-
-//Connecting to the database
-var connection = mysql.createConnection(configDB.connectionData);
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected as id ' + connection.threadId);
-});
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,10 +31,11 @@ app.use(session({ secret: 'E4393BD8F59EA85B3BC912CF4772E',
                 }));
 app.use(passport.initialize());
 app.use(passport.session());
-require('./serverConfig/passport')(passport, connection);
 
+//passport setup
+require('./serverConfig/passport')(passport);
 //routes
-require('./serverObjects/routes.js')(app, passport, connection);
+require('./serverObjects/routes.js')(app, passport);
 
 var server = app.listen(port, '127.0.0.1', function () {
   var host = server.address().address;
