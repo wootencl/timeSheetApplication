@@ -47,7 +47,7 @@ app.views.loginCreation = Backbone.View.extend({
                 AuthToken: data.AuthToken
             }, {
                 success: function(model, response) {
-                    app.router.navigate('timeSheet', true);
+                    app.event_bus.trigger('timeSheet');
                 },
                 error: function(model, response) {
                     $('#serverError').html(response.responseJSON.message).removeClass('hidden');
@@ -56,6 +56,6 @@ app.views.loginCreation = Backbone.View.extend({
         }
     },
     home: function() {
-        app.router.navigate('', true);
+        app.event_bus.trigger('home');
     }
 });

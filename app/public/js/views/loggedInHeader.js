@@ -15,7 +15,7 @@ app.views.loggedInHeader = Backbone.View.extend({
     logout: function() {
         this.model.fetch({
             success: function(model, response) {
-                app.router.navigate('login', true);
+                app.event_bus.trigger('login');
             }
         });
     }
