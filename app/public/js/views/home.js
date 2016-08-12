@@ -26,9 +26,9 @@ app.views.home = Backbone.View.extend({
         }, 0);
     },
     toLogin : function() {
-        app.router.navigate('login', true);
+        app.event_bus.trigger('login');
     },
     toLoginCreation : function () {
-        app.router.navigate('CreateAccount', true);
+        app.event_bus.trigger('loginCreation');
     }
 });
