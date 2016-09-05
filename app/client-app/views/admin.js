@@ -6,7 +6,7 @@ app.views.admin = Backbone.View.extend({
 
     this.tokenCreationModel = new app.models.TokenCreation();
 
-    this.template = _.template(this.options.template);
+    this.template = _.template(this.options.template, variable: 'data');
 
     Backbone.Validation.bind(this, {
       model: this.tokenCreationModel,

@@ -159,7 +159,7 @@ module.exports = function(grunt) {
 					}
 				},
 				files: {
-					'app/public/js/views/templates.js': ['app/templates/**/*.tpl']
+					'app/client-app/views/templates.js': ['app/templates/**/*.tpl']
 				}
 			}
 		},
