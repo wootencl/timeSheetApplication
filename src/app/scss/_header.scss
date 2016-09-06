@@ -1,0 +1,32 @@
+#header {
+  font-family: 'Titillium Web', sans-serif;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  .row {
+    max-width: 100%;
+  }
+  #headerBar-view {
+    height: 2em;
+    background-color: $elevation-blue;
+    color: $font-color;
+    z-index: 10;
+    line-height: 2em;
+    .top-contact-info, #top-user-info {
+      color: #FFFFFF;
+      font-size: 0.8em;
+    }
+    .top-social-icon {
+      color: #FFFFFF;
+      padding: 0em 5px;
+    }
+    #logoutButton {
+      padding: 0.1em 0.5em;
+      font-size: 0.8em;
+      background-color: $grey-button;
+    }
+    #logoutButton:hover {
+      background-color: $grey-button-hover;
+    }
+  }
+}

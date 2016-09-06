@@ -1,0 +1,11 @@
+.reveal-modal {
+  p, h4 {
+    text-align: center;
+  }
+  button {
+    @include button();
+  }
+  button:hover {
+    @include buttonHover();
+  }
+}

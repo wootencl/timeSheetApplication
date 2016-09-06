@@ -1,0 +1,96 @@
+#timeSelector-view {
+  #timePickersCover.active {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: rgba(153, 153, 153, 0.7);
+    z-index: 99;
+    & > div {
+      background-color: #898989;
+      padding: 1em;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      div {
+        margin-bottom: 0.5em;
+      }
+      button {
+        line-height: 1em;
+        height: 2.2em;
+        padding: 0.6em;
+        margin-bottom: 0;
+        @include button();
+        &:hover {
+          @include buttonHover();
+        }
+      }
+    }
+  }
+  position: relative;
+  .border {
+    border-bottom: 1px solid #FFF;
+  }
+  .hours, #totalTime {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: $default-red;
+
+    transition: background-color 1s;
+  }
+  #labels {
+    .small-2 {
+      width: 20% !important;
+    }
+    font-weight: 700;
+  }
+  #timePickersWrapper {
+    position: relative;
+    .dash, .hours {
+      text-align: center;
+    }
+    .row {
+      margin-bottom: 0.3em !important;
+    }
+    input {
+      height: 1.5em;
+      font-size: 1em;
+      padding: 0;
+      margin: 0;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+    }
+  }
+  #totalTimeWrapper {
+    margin-bottom: 1em;
+    #totalTimeText {
+      text-align: right;
+      font-weight: 700;
+    }
+    #totalTime {
+      text-align: center;
+    }
+    .row {
+      margin-bottom: 0.3em !important;
+    }
+  }
+  #buttonsWrapper {
+    button {
+      line-height: 1em;
+      height: 2.2em;
+      padding: 0.6em;
+      margin-bottom: 0;
+      @include button();
+    }
+    button:hover {
+      background-color: $button-hover;
+    }
+  }
+}
