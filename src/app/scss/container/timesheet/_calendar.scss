@@ -1,0 +1,137 @@
+#clndr-view {
+  // A large majority (if not all) of this stylings was taken from the second example calendar
+  // from the CLNDR web page (http://kylestetz.github.io/CLNDR/)
+  .clndr {
+    overflow: hidden;
+    border-bottom: 7px solid #69a776;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+    box-shadow: 4px 4px 5px 0px rgba(52,52,52,1);
+    font-family: Asap, Helvetica, Arial;
+    .clndr-controls {
+      .clndr-previous-button, .clndr-next-button {
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: inline-block;
+        text-align: center;
+        &:not(.inactive) {
+          cursor: pointer;
+        }
+      }
+      .month {
+        width: 70%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      background-color: #69a776;
+      color: #FFFFFF;
+      .clndr-previous-button:not(.inactive):hover, .clndr-next-button:not(.inactive):hover {
+        background-color: #54865E;
+        transition: background-color 0.5s;
+      }
+    }
+    .clndr-grid {
+      overflow: hidden;
+      text-align:center;
+      width:100%;
+      background-color: #ebebeb;
+      color: #21211E;
+      .days-of-the-week {
+        background-color: #97ce7f;
+        color: #FFFFFF;
+        width:100%;
+      }
+      .header-day, .day {
+        width:14%;
+      }
+      .days {
+        position: relative;
+        #weekSelector {
+          @include weekDiv();
+          border: 2px solid #000000;
+          z-index: 15;
+          transition: all 1s ease;
+        }
+
+        .weekDiv {
+          @include weekDiv();
+          cursor: pointer;
+
+          opacity: 1;
+          z-index: 10;
+
+          transition: all 1s ease;
+
+          &.complete {
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            // http://css-snippets.com/engraved-text/
+            text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+            text-align: center;
+            background-color: rgba(105, 167, 118, 0.7);
+            padding: 0.6em 0em;
+            line-height: 1em;
+            span {
+              background-color: rgb(143, 187, 152);
+              color: #4b8157;
+              padding: 0em 0.3em;
+            }
+            // &:hover {
+            //   background-color: #559162;
+            //   span {
+            //     background-color: #559162;
+            //   }
+            // }
+          }
+          &.incomplete {
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            // http://css-snippets.com/engraved-text/
+            text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+            text-align: center;
+            background-color: rgba(221,60,60, 0.7);
+            padding: 0.6em 0em;
+            line-height: 1em;
+            span {
+              background-color: rgb(225, 112, 112);
+              color: #ad1f1f;
+              padding: 0em 0.3em;
+            }
+          }
+          &.selected {
+            opacity: 0;
+            z-index: 0;
+          }
+        }
+        .day {
+          height: 2.2em;
+          text-align: center;
+          color: #212121;
+          border-right: 1px solid rgba(255, 255, 255, 0.5);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+          font-size:1em;
+          line-height: 1em;
+          padding-top: 0.6em;
+          padding-bottom: 0.6em;
+        }
+        .day.event {
+          background-color: #d2d2d2;
+        }
+        .adjacent-month {
+          color: rgba(0, 0, 0, 0.3);
+        }
+      }
+      div {
+        float: left;
+      }
+    }
+  }
+}

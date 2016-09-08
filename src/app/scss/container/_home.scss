@@ -1,0 +1,23 @@
+#homeContent {
+  .columns {
+    height: 9em;
+  }
+  .columns.buttons {
+    padding: 0.5em 0em;
+  }
+  img {
+    height: 7em;
+  }
+  #homeTitle {
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+  }
+  #toLoginPageButton {
+    height: 3em;
+    margin-bottom: 2em !important;
+  }
+  #toAccountCreationButton {
+    height: 3em;
+  }
+}

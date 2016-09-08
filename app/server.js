@@ -15,7 +15,7 @@ var session = require('express-session');
 
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-app.use('/templates',  express.static(__dirname + '/templates'));
+// app.use('/templates',  express.static(__dirname + '/templates'));
 
 var configDB = require('./serverConfig/database.js');
 
