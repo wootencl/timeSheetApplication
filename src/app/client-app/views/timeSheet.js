@@ -1,15 +1,18 @@
 'use strict';
-import { app } from '../app';
 
-app.views.timeSheet = Backbone.View.extend({
+import { TimeSheets } from '../collections/index';
+import { calendar } from './index';
+import { timeSelector } from './index';
+
+export const timeSheet = Backbone.View.extend({
     template: null,
     initialize: function(data) {
         var initializedWeekStartDate = moment().startOf('isoWeek').format('YYYY-MM-DD');
 
         this.options = data;
         this.template = _.template(this.options.template);
-        this.timeSheets = new app.collections.TimeSheets();
-        this.calendarView = new app.views.Calendar({
+        this.timeSheets = new TimeSheets();
+        this.calendarView = new calendar({
             el: '#clndr-view',
             renderWeekStartDate: initializedWeekStartDate,
             collection: this.timeSheets
@@ -34,7 +37,7 @@ app.views.timeSheet = Backbone.View.extend({
         if (this.timeSelectorView) {
             this.timeSelectorView.close();
         }
-        this.timeSelectorView = new app.views.TimeSelector({
+        this.timeSelectorView = new timeSelector({
             el: '#timeSelector-view',
             model: model
         });

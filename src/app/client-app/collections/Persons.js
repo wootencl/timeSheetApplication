@@ -1,6 +1,6 @@
-import { app } from '../app';
+import { Person } from '../models/index';
 
-app.collections.Persons = Backbone.Collection.extend({
+export const Persons = Backbone.Collection.extend({
   url: '/persons',
-  model: app.models.Person
+  model: Person
 });

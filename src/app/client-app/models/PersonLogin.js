@@ -1,6 +1,4 @@
-import { app } from '../app';
-
-app.models.PersonLogin = Backbone.Model.extend({
+export const PersonLogin = Backbone.Model.extend({
   urlRoot: '/login',
   defaults: {
     Email: '',

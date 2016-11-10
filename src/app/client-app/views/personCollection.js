@@ -1,7 +1,6 @@
 //Help: http://liquidmedia.org/blog/2011/02/backbone-js-part-3/
-import { app } from '../app';
 
-app.views.personCollectionView = Backbone.View.extend({
+export const personCollectionView = Backbone.View.extend({
   initialize : function(options) {
     this.personView = options.childView;
 

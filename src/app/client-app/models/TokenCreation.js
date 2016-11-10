@@ -1,6 +1,4 @@
-import { app } from '../app';
-
-app.models.TokenCreation = Backbone.Model.extend({
+export const TokenCreation = Backbone.Model.extend({
   urlRoot: '/tokenCreation',
   validation: {
     Email: [{

@@ -1,7 +1,8 @@
 'use strict';
+
 import { app } from '../app';
 
-app.views.loggedInHeader = Backbone.View.extend({
+export const loggedInHeader = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
     },

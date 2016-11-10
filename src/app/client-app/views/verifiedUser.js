@@ -3,9 +3,10 @@
 // logic in the 'verified user' view.
 
 'use strict';
+
 import { app } from '../app';
 
-app.views.verifiedUser = Backbone.View.extend({
+export const verifiedUser = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
     },
@@ -20,6 +21,7 @@ app.views.verifiedUser = Backbone.View.extend({
     },
     delete: function() {
       var that = this;
+      $(document).foundation('reveal', 'reflow');
       $('#deleteModal').foundation('reveal', 'open');
       $(document).on('opened.fndtn.reveal', '#deleteModal[data-reveal]', function () {
           $('#deleteYes').click(function () {

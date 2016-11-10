@@ -1,59 +1,32 @@
-(function(){
-    // Overwriting the built in view.remove() function.
-    // Reasoning: I decided to do it this way because of the issues arising from
-    // the acutal destruction of my "#container" div
-    Backbone.View.prototype.remove = function() {
-            this.$el.empty().off();
-            this.stopListening();
-            return this;
-    };
-    // writing a custom close function for backbone views for the purpose of garbage collection
-    Backbone.View.prototype.close = function() {
-        this.remove();
-        this.unbind();
-        //prototype necessary to disconnect any model and collection events attached to a view.
-        if (this.onClose){
-            this.onClose();
-        }
-    };
-    //A serialize object function that I saw no purpose in trying to rewrite
-    //Source: http://stackoverflow.com/questions/1184624/convert-form-data-to-javascript-object-with-jquery
-    $.fn.serializeObject = function()
-    {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name] !== undefined) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-})();
+import { modifyBackbone } from './helpers/index';
+import { modifyJquery } from './helpers/index';
 
-export var app = app || (function () {
+import { Persons } from './collections/index';
 
+import { Logout } from './models/index';
+import { PersonCreation } from './models/index';
+import { PersonLogin } from './models/index';
+import { Session } from './models/index';
+
+import { login } from './views/index';
+import { home } from './views/index';
+import { loginCreation } from './views/index';
+import { timeSheet } from './views/index';
+import { admin } from './views/index';
+import { loggedInHeader } from './views/index';
+import { loggedOutHeader } from './views/index';
+
+export const app = (function () {
 
     var api = {
         event_bus: _.extend({}, Backbone.Events),
-        views: {},
-        models: {},
-        collections: {},
-        templates: {},
         content: null,
         router: null,
         init: function() {
+
             this.content = $('#container');
 
-            //Initialize Foundation
-            $(document).foundation();
-
-            window.session = new api.models.Session();
+            window.session = new Session();
 
             Backbone.history.start();
             return this;
@@ -96,17 +69,17 @@ export var app = app || (function () {
         },
         login: function() {
             if(!this.loginView) {
-                this.loginView = new api.views.login({
+                this.loginView = new login({
                     el: $('#container'),
                     template: this.createTemplate('templates/login.tpl'),
-                    model: new api.models.PersonLogin()
+                    model: new PersonLogin()
                 });
             }
             return this.loginView;
         },
         home: function() {
             if (!this.homeView) {
-                this.homeView = new api.views.home({
+                this.homeView = new home({
                     el: $('#container'),
                     template: this.createTemplate('templates/home.tpl')
                 });
@@ -115,26 +88,26 @@ export var app = app || (function () {
         },
         loginCreation: function() {
             if (!this.loginCreationView) {
-                this.loginCreationView = new api.views.loginCreation({
+                this.loginCreationView = new loginCreation({
                     el: $('#container'),
                     template: this.createTemplate('templates/loginCreation.tpl'),
-                    model: new api.models.PersonCreation()
+                    model: new PersonCreation()
                 });
             }
             return this.loginCreationView;
         },
         timeSheet: function() {
-            this.timeSheetView = new api.views.timeSheet({
+            this.timeSheetView = new timeSheet({
                 el: $('#container'),
                 template: this.createTemplate('templates/timeSheet.tpl')
             });
             return this.timeSheetView;
         },
         admin: function() {
-            this.AdminView = new api.views.admin({
+            this.AdminView = new admin({
                 el: $('#container'),
                 template: this.createTemplate('templates/AdminPanel.tpl'),
-                collection: new api.collections.Persons()
+                collection: new Persons()
             });
             return this.AdminView;
         }
@@ -150,16 +123,16 @@ export var app = app || (function () {
             this.currentView.render();
         },
         loggedInHeader: function(data) {
-            this.loggedInHeaderView = new api.views.loggedInHeader({
+            this.loggedInHeaderView = new loggedInHeader({
                 el: $('#headerBar-view'),
-                model: new api.models.Logout(),
+                model: new Logout(),
                 data: data
             });
             return this.loggedInHeaderView;
         },
         loggedOutHeader: function() {
             if(!this.loggedOutHeaderView) {
-                this.loggedOutHeaderView = new api.views.loggedOutHeader({
+                this.loggedOutHeaderView = new loggedOutHeader({
                     el: $('#headerBar-view'),
                     template: api.createTemplate('templates/loggedOutHeader.tpl')
                 });

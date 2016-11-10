@@ -1,5 +1,3 @@
-import { app } from '../app';
-
-app.models.Logout = Backbone.Model.extend({
+export const Logout = Backbone.Model.extend({
   urlRoot: '/logout'
 });

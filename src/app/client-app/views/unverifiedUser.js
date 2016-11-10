@@ -1,10 +1,12 @@
 'use strict';
+
+import { ResendSignupEmail } from '../models/index';
 import { app } from '../app';
 
-app.views.unverifiedUser = Backbone.View.extend({
+export const unverifiedUser = Backbone.View.extend({
     initialize: function(data) {
         this.options = data;
-        this.resendSignupEmailModel = new app.models.ResendSignupEmail();
+        this.resendSignupEmailModel = new ResendSignupEmail();
     },
     render: function(){
         this.template = _.template(app.createTemplate('templates/unverifiedUser.tpl', { person: this.model.attributes }));

@@ -1,5 +1,3 @@
-import { app } from '../app';
-
-app.models.TimeSheet = Backbone.Model.extend({
+export const TimeSheet = Backbone.Model.extend({
   idAttribute: 'weekStartDate'
 });

@@ -1,7 +1,5 @@
 'use strict';
-import { app } from '../app';
-
-app.views.loggedOutHeader = Backbone.View.extend({
+export const loggedOutHeader = Backbone.View.extend({
     template: null,
     initialize: function(data) {
         this.options = data;

@@ -1,6 +1,4 @@
-import { app } from '../app';
-
-app.models.PersonCreation = Backbone.Model.extend({
+export const PersonCreation = Backbone.Model.extend({
   urlRoot: '/loginCreation',
   defaults: {
     AuthToken: '',

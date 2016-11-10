@@ -1,9 +1,10 @@
 //Validation Source: http://jsfiddle.net/thedersen/udXL5/
 
 'use strict';
+
 import { app } from '../app';
 
-app.views.loginCreation = Backbone.View.extend({
+export const loginCreation = Backbone.View.extend({
     template: null,
     initialize: function(data) {
         this.options = data;

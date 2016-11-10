@@ -1,7 +1,8 @@
 'use strict';
+
 import { app } from '../app';
 
-app.views.login = Backbone.View.extend({
+export const login = Backbone.View.extend({
     template: null,
     initialize: function(data) {
         this.options = data;

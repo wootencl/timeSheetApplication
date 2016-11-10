@@ -1,7 +1,8 @@
 'use strict';
+
 import { app } from '../app';
 
-app.views.home = Backbone.View.extend({
+export const home = Backbone.View.extend({
     template: null,
     initialize: function(data) {
         var resizes = ['homeContent'];

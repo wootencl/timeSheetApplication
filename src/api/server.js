@@ -13,9 +13,9 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-app.use(express.static(__dirname + '/../app/public'));
+console.log(__dirname);
+app.use(express.static(__dirname + '/../app'));
 app.use('/bower_components',  express.static(__dirname + '/../app/bower_components'));
-app.use('/templates',  express.static(__dirname + '/../app/templates'));
 
 var configDB = require('./serverConfig/database.js');
 

@@ -1,11 +1,15 @@
 'use strict';
-import { app } from '../app';
+import { TokenCreation } from '../models/index';
+import { Persons } from '../collections/index';
+import { personCollectionView } from './index';
+import { verifiedUser } from './index';
+import { unverifiedUser } from './index';
 
-app.views.admin = Backbone.View.extend({
+export const admin = Backbone.View.extend({
   initialize: function(data) {
     this.options = data;
 
-    this.tokenCreationModel = new app.models.TokenCreation();
+    this.tokenCreationModel = new TokenCreation();
 
     this.template = _.template(this.options.template);
 
@@ -30,8 +34,8 @@ app.views.admin = Backbone.View.extend({
   render: function(){
     var that = this;
 
-    this.unverifiedPersons = new app.collections.Persons();
-    this.verifiedPersons = new app.collections.Persons();
+    this.unverifiedPersons = new Persons();
+    this.verifiedPersons = new Persons();
 
     //Render Parent
     that.$el.html(that.template({}));
@@ -39,9 +43,9 @@ app.views.admin = Backbone.View.extend({
     this.verifiedPersons.fetch({
       data: { verified: true },
       success: function (collection, response, options) {
-        that.verifiedCollectionView = new app.views.personCollectionView({
+        that.verifiedCollectionView = new personCollectionView({
           collection: that.verifiedPersons,
-          childView: app.views.verifiedUser,
+          childView: verifiedUser,
           el: $('#verifiedUsers-view')
         });
 
@@ -52,9 +56,9 @@ app.views.admin = Backbone.View.extend({
     this.unverifiedPersons.fetch({
       data: { verified: false },
       success: function (collection, response, options) {
-        that.unverifiedCollectionView = new app.views.personCollectionView({
+        that.unverifiedCollectionView = new personCollectionView({
           collection: that.unverifiedPersons,
-          childView: app.views.unverifiedUser,
+          childView: unverifiedUser,
           el: $('#unverifiedUsers-view')
         });
 

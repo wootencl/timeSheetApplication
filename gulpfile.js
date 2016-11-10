@@ -7,12 +7,6 @@ var DeepMerge = require('deep-merge');
 var nodemon = require('nodemon');
 var nodeExternals = require('webpack-node-externals');
 
-// var configMerge = function(target, source) {
-// 	deepExtend(target, source);
-// 	console.log(target);
-// 	return target;
-// };
-
 var deepmerge = DeepMerge(function(target, source, key) {
   if(target instanceof Array) {
     return [].concat(target, source);
@@ -29,7 +23,6 @@ var defaultConfig = {
 };
 
 if(process.env.NODE_ENV !== 'production') {
-  defaultConfig.devtool = '#eval-source-map';
   defaultConfig.debug = true;
 }
 
@@ -40,20 +33,16 @@ function config(overrides) {
 // frontend
 
 var frontendConfig = config({
-  entry: './src/app/client-app/entry.js',
+  entry: './src/app/client-app/index.js',
   output: {
-    path: path.join(__dirname, 'src/app/public/js'),
+    path: path.join(__dirname, 'dist/app/js'),
     filename: 'app.bundle.js'
   },
-  module: {
-  	loaders: [
-  		{
-          test: /jquery\.js/,
-          loader: 'null-loader',
-          exclude: path.resolve('node_modules/foundation-sites/')
-      }
-  	]
-  }
+  plugins: [
+    new webpack.ProvidePlugin({
+      '_': 'lodash'
+    })
+  ]
 });
 
 // backend
@@ -62,12 +51,12 @@ var backendConfig = config({
   entry: './src/api/server.js',
   target: 'node',
   output: {
-    path: path.join(__dirname, 'src/api/build'),
-    filename: 'backend.js'
+    path: path.join(__dirname, 'dist/api'),
+    filename: 'api.js'
   },
   node: {
-    __dirname: true,
-    __filename: true
+    __dirname: false,
+    __filename: false
   },
   externals: [nodeExternals()],
   plugins: [
@@ -121,7 +110,7 @@ gulp.task('run', ['backend-watch', 'frontend-watch'], function() {
     execMap: {
       js: 'node'
     },
-    script: path.join(__dirname, 'build/backend'),
+    script: path.join(__dirname, 'dist/api/api.js'),
     ignore: ['*'],
     watch: ['foo/'],
     ext: 'noop'

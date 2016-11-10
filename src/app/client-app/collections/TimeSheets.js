@@ -1,8 +1,8 @@
-import { app } from '../app';
+import { TimeSheet } from '../models/index';
 
-app.collections.TimeSheets = Backbone.Collection.extend({
+export const TimeSheets = Backbone.Collection.extend({
   url: '/timeSheets',
-  model: app.models.TimeSheet,
+  model: TimeSheet,
   parse: function(response) {
     return response.results;
   }

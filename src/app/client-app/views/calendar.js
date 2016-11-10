@@ -3,10 +3,9 @@
 // though only when you are using user input. Just something to keep in mind.
 // - Next/Prev month rerenders the 'days' subview of the calendar. With that,
 // I'm recreating the necessary DOM elements each time.
-
 import { app } from '../app';
 
-app.views.Calendar = Backbone.View.extend({
+export const calendar = Backbone.View.extend({
   initialize: function(data) {
     this.options = data;
     this.listenTo(app.event_bus, 'inputChange', this.registerInputChange);

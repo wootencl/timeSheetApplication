@@ -1,4 +1,2 @@
-import { app } from '../app';
-
-app.models.Person = Backbone.Model.extend({
+export const Person = Backbone.Model.extend({
 });

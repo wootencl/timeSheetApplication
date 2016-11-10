@@ -3,9 +3,10 @@
 // Ex: 2016-05-07-Time
 
 'use strict';
+import { timeSelectorDay } from './index';
 import { app } from '../app';
 
-app.views.TimeSelector = Backbone.View.extend({
+export const timeSelector = Backbone.View.extend({
     initialize: function(data) {
       this.options = data;
       this.dayIds = ['mondayTime', 'tuesdayTime', 'wednesdayTime', 'thursdayTime', 'fridayTime'];
@@ -17,7 +18,7 @@ app.views.TimeSelector = Backbone.View.extend({
       $(this.options.el).html(this.template({}));
 
       for (var i=0; i<this.dayIds.length; i++) {
-        this.timeSelectorDayViews[i] = new app.views.TimeSelectorDay({
+        this.timeSelectorDayViews[i] = new timeSelectorDay({
           el: '#timePickersWrapper',
           data: {
             time: this.model.get(this.dayIds[i]),
@@ -66,6 +67,13 @@ app.views.TimeSelector = Backbone.View.extend({
       coverInnerDiv.appendChild(coverInnerDivSpan);
       coverInnerDiv.appendChild(resubmissionButton);
       coverDiv.appendChild(coverInnerDiv);
+    },
+    onClose: function() {
+      for (var key in this.timeSelectorDayViews) {
+         if (this.timeSelectorDayViews.hasOwnProperty(key)) {
+            this.timeSelectorDayViews[key].close();
+         }
+      }
     }
 });
 

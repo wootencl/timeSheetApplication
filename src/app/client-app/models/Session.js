@@ -1,5 +1,3 @@
-import { app } from '../app';
-
-app.models.Session = Backbone.Model.extend({
+export const Session = Backbone.Model.extend({
   urlRoot: '/session'
 });

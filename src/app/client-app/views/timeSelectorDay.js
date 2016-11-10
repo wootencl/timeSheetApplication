@@ -1,11 +1,12 @@
 'use strict';
+
 import { app } from '../app';
 
-app.views.TimeSelectorDay = Backbone.View.extend({
+export const timeSelectorDay = Backbone.View.extend({
     initialize: function(data) {
       this.options = data;
       this.options.data.formattedDate = moment(this.options.data.date).format('YYYY-MM-DD');
-      this.events = this.events || {};
+      this.events = _.clone(this.events) || {};
       var inputEventKey = 'change' + ' .input-' + this.options.data.formattedDate;
       this.events[inputEventKey] = 'inputCheck';
       this.totalHours = 0;
