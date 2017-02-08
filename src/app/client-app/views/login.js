@@ -34,7 +34,7 @@ export const login = Backbone.View.extend({
         this.$el.html(this.template({}));
         this.delegateEvents();
     },
-    login: function() {
+    login: function(event) {
         event.preventDefault();
         var data = $('#loginRequest').serializeObject();
         this.model.set(data);

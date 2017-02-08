@@ -3,27 +3,32 @@
 import { app } from '../app';
 
 export const timeSelectorDay = Backbone.View.extend({
-    initialize: function(data) {
-      this.options = data;
-      this.options.data.formattedDate = moment(this.options.data.date).format('YYYY-MM-DD');
-      this.events = _.clone(this.events) || {};
-      var inputEventKey = 'change' + ' .input-' + this.options.data.formattedDate;
-      this.events[inputEventKey] = 'inputCheck';
+    constructor: function(options) {
+        this.options = _.extend({}, options); // make a copy and use it.
+        this.options.formattedDate = moment(this.options.date).format('YYYY-MM-DD');
+        //this.events = _.clone(this.events) || {};
+        this.template = _.template(app.createTemplate('templates/timeSelectorDay.tpl', this.options));
+
+        Backbone.View.prototype.constructor.apply(this, arguments);
+    },
+    initialize: function() {
       this.totalHours = 0;
     },
     render: function(){
-      this.template = _.template(app.createTemplate('templates/timeSelectorDay.tpl', this.options.data));
-      $(this.options.el).append(this.template({}));
-      this.delegateEvents();
+      this.$el.append(this.template({}));
+      this.delegateEvents(_.extend(_.clone(this.events), {'change .input-2016-10-31': 'test'}));
       this.checkTotalTime();
       return this;
     },
+    test: function() {
+      console.log('EVENTS: ', this.events);
+    },
     inputCheck: function() {
-      var totalTimeDiv = document.getElementById('totalHours-'+this.options.data.formattedDate);
+      var totalTimeDiv = document.getElementById('totalHours-'+this.options.formattedDate);
       var totalTime = 0;
       //compute total hours
-      var morningLoginHour = $('#timeselectors-'+this.options.data.formattedDate+' #morning-login').val();
-      var morningLogoutHourElement = $('#timeselectors-'+this.options.data.formattedDate+' #morning-logout');
+      var morningLoginHour = $('#timeselectors-'+this.options.formattedDate+' #morning-login').val();
+      var morningLogoutHourElement = $('#timeselectors-'+this.options.formattedDate+' #morning-logout');
       if (morningLoginHour) {
         morningLogoutHourElement.timepicker('option', {'minTime' : morningLoginHour} );
       }
@@ -32,8 +37,8 @@ export const timeSelectorDay = Backbone.View.extend({
       if (morningHours>=0) {
         totalTime += morningHours;
       }
-      var afternoonLoginHour = $('#timeselectors-'+this.options.data.formattedDate+' #afternoon-login').val();
-      var afternoonLogoutHourElement = $('#timeselectors-'+this.options.data.formattedDate+' #afternoon-logout');
+      var afternoonLoginHour = $('#timeselectors-'+this.options.formattedDate+' #afternoon-login').val();
+      var afternoonLogoutHourElement = $('#timeselectors-'+this.options.formattedDate+' #afternoon-logout');
       if (afternoonLoginHour) {
         afternoonLogoutHourElement.timepicker('option', {'minTime' : afternoonLoginHour} );
       }
@@ -48,13 +53,10 @@ export const timeSelectorDay = Backbone.View.extend({
       app.event_bus.trigger('inputChange');
     },
     checkTotalTime: function(){
-      var totalTimeDiv = document.getElementById('totalHours-'+this.options.data.formattedDate);
-      var totalTime = parseFloat(totalTimeDiv.innerHTML);
-      if (totalTime>0) {
-        totalTimeDiv.style.backgroundColor = '#69a776';
-      } else {
-        totalTimeDiv.style.backgroundColor = '#dd3c3c';
-      }
+      var totalTimeDiv = this.$('#totalHours-' + this.options.formattedDate),
+      totalTime = parseFloat(totalTimeDiv.html());
+
+      totalTimeDiv.css('background-color', totalTime > 0 ? '#69a776' : '#dd3c3c');
       this.totalHours = totalTime;
     }
 });

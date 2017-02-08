@@ -5,7 +5,6 @@ import { calendar } from './index';
 import { timeSelector } from './index';
 
 export const timeSheet = Backbone.View.extend({
-    template: null,
     initialize: function(data) {
         var initializedWeekStartDate = moment().startOf('isoWeek').format('YYYY-MM-DD');
 

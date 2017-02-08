@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 console.log(__dirname);
-app.use(express.static(__dirname + '/../app'));
+app.use(express.static(__dirname + '/../app/public'));
 app.use('/bower_components',  express.static(__dirname + '/../app/bower_components'));
 
 var configDB = require('./serverConfig/database.js');

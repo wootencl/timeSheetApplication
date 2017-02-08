@@ -3,8 +3,8 @@
 // Ex: 2016-05-07-Time
 
 'use strict';
-import { timeSelectorDay } from './index';
 import { app } from '../app';
+import { timeSelectorDay } from './index';
 
 export const timeSelector = Backbone.View.extend({
     initialize: function(data) {
@@ -20,10 +20,8 @@ export const timeSelector = Backbone.View.extend({
       for (var i=0; i<this.dayIds.length; i++) {
         this.timeSelectorDayViews[i] = new timeSelectorDay({
           el: '#timePickersWrapper',
-          data: {
-            time: this.model.get(this.dayIds[i]),
-            date: moment(this.model.get('weekStartDate')).add(i, 'd')
-          }
+          time: this.model.get(this.dayIds[i]),
+          date: moment(this.model.get('weekStartDate')).add(i, 'd')
         }).render();
       }
       $('input').timepicker({
